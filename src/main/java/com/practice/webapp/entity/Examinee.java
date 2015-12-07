@@ -3,7 +3,7 @@ package com.practice.webapp.entity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-
+import java.util.Date;
 
 @Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
@@ -14,13 +14,15 @@ public class Examinee implements java.io.Serializable {
 	private String id;
 	private String testnumber;
 	private String password;
-	private String birth;
+	private Date birth;
 	private String phone;
 	private String gender;
 	private String address;
 	private String photo;
 	private Boolean low_income;
 	private String subject_number;
+	private Bill bill = new Bill();
+	private TestRoom testroom = new TestRoom();
 	
 	
 	
@@ -38,9 +40,7 @@ public class Examinee implements java.io.Serializable {
 		return id;
 	}
 	
-	public void setTestNumber(String testnumber){
-		this.testnumber = testnumber;
-	}
+	
 	
 	public String getTestNumber(){
 		return testnumber;
@@ -54,11 +54,11 @@ public class Examinee implements java.io.Serializable {
 		return password;
 	}
 	
-	public void setBirth(String birth){
+	public void setBirth(Date birth){
 		this.birth = birth;
 	}
 	
-	public  String getBirth(){
+	public  Date getBirth(){
 		return birth;
 	}
     
@@ -106,15 +106,19 @@ public class Examinee implements java.io.Serializable {
      }
      
      
-     public void setSubjectNumber(String subjectnumber){
-    	 this.subject_number = subjectnumber;
-     }
+  
      
      public String getSubjectNumber(){
     	 return subject_number;
      }
 
-
+     public Bill getBill(){
+    	 return bill;
+     }
+     
+     public TestRoom getTestRoom(){
+    	 return testroom;
+     }
 
 
 }
