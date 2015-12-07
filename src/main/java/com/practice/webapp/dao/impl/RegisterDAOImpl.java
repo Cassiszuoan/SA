@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 //import com.mysql.jdbc.Statement;
 import com.practice.webapp.dao.RegisterDAO;
 import com.practice.webapp.entity.Examinee;
+import com.practice.webapp.entity.Bill;
 public class RegisterDAOImpl implements RegisterDAO{
 
 	private DataSource dataSource;
@@ -27,7 +28,33 @@ public class RegisterDAOImpl implements RegisterDAO{
 	}
 	
 	public void register(Examinee examinee){
-		
+		// TODO Auto-generated method stub
+				String sql = "INSERT Examinee(ID,NAME,PASSWORD,PHONE,ADDRESS,LOW_INCOME,PHOTO,GENDER) ";
+				try {
+					conn = dataSource.getConnection();
+					smt = conn.prepareStatement(sql);
+					smt.setString(1, examinee.getID());
+					smt.setString(2, examinee.getName());
+					smt.setString(3, examinee.getPassword());
+					smt.setString(4, examinee.getPhone());
+					smt.setString(5, examinee.getAddress());
+					smt.setBoolean(6, examinee.getLowIncome());
+					smt.setString(7, examinee.getPhoto());
+					smt.setString(8, examinee.getGender());
+			
+					smt.executeUpdate();			
+					smt.close();
+		 
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+		 
+				} finally {
+					if (conn != null) {
+						try {
+							conn.close();
+						} catch (SQLException e) {}
+					}
+				}
 	}
     public void setTestNumber(Examinee examinee){
     	
