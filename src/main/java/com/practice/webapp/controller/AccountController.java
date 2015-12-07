@@ -17,7 +17,7 @@ public class AccountController {
 	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView checkLogin(@ModelAttribute Account account) {
-		ModelAndView model = new ModelAndView("redirect:/product");
+		ModelAndView view = new ModelAndView("redirect:/product");
 		//you can modify this part to check username and password with DB, AD, LDAP, or open id
 		if ("sa".equals(account.getUsername()) && "ilovesa".equals(account.getPassword())){
 			//save username and password in the session bean
@@ -27,8 +27,8 @@ public class AccountController {
 			System.out.println("Successful!");
 		}
 		else{
-			model = new ModelAndView("signin");
-			model.addObject("message", "登入失敗");
+			view = new ModelAndView("signin");
+			view.addObject("message", "登入失敗");
 			System.out.println("failed!");
 			//reset username and password in the session bean
 			Account account_session = (Account)context.getBean("account");
@@ -36,11 +36,11 @@ public class AccountController {
 			account_session.setPassword("");
 		}	
 
-		return model;
+		return view;
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@ModelAttribute Account account) {
-		ModelAndView model = new ModelAndView("signin");
-		return model;
+		ModelAndView view = new ModelAndView("signin");
+		return view;
 	}
 }
