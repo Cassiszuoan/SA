@@ -33,7 +33,9 @@
   	<bean id="account" class="com.practice.webapp.entity.Account" scope="session">
 		<aop:scoped-proxy/>
     </bean>
-    
+    <bean id="examinee" class="com.practice.webapp.entity.Examinee" scope="session">
+		<aop:scoped-proxy/>
+    </bean>
     <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
     <property name="scopes">
         <map>
