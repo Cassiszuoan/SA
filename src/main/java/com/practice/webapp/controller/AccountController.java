@@ -33,7 +33,7 @@ public class AccountController {
 			view.addObject("message", "登入失敗");
 			System.out.println("failed!");
 			//reset username and password in the session bean
-			Examinee examinee_session = (Examinee)context.getBean("account");
+			Examinee examinee_session = (Examinee)context.getBean("examinee");
 			examinee_session.setID("");
 			examinee_session.setPassword("");
 		}	

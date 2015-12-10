@@ -20,21 +20,25 @@ import com.practice.webapp.entity.ArticleCategory;
 public class ArticleController {
 	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
 	
-	@RequestMapping(value = "/insertArticle", method = RequestMethod.GET)
-	public ModelAndView insertArticlePage(){
-		ModelAndView model = new ModelAndView("insertArticle");
-		ArticleCategoryDAO articleCategoryDAO = (ArticleCategoryDAO)context.getBean("articleCategoryDAO");
-		List<ArticleCategory> articleCategoryList = new ArrayList<ArticleCategory>();
-		articleCategoryList = articleCategoryDAO.getList();
-		model.addObject("articleCategoryList", articleCategoryList);
-		return model;
-	}
+//	@RequestMapping(value = "/insertArticle", method = RequestMethod.GET)
+//	public ModelAndView insertArticlePage(){
+//		ModelAndView model = new ModelAndView("insertArticle");
+//		ArticleCategoryDAO articleCategoryDAO = (ArticleCategoryDAO)context.getBean("articleCategoryDAO");
+//		List<ArticleCategory> articleCategoryList = new ArrayList<ArticleCategory>();
+//		articleCategoryList = articleCategoryDAO.getList();
+//		model.addObject("articleCategoryList", articleCategoryList);
+//		return model;
+//	}
 	
 	@RequestMapping(value = "/insertArticle", method = RequestMethod.POST)
 	public ModelAndView insertArticle( Article article){
+		
 		ModelAndView model = new ModelAndView("redirect:/article");
+		
 		ArticleDAO articleDAO = (ArticleDAO)context.getBean("articleDAO");
-		articleDAO.insert(article);
+		
+//		articleDAO.insert(article);
+		System.out.println(article.getTitle());
 		
 		return model;
 	}

@@ -29,16 +29,24 @@ public class RegisterDAOImpl implements RegisterDAO{
 	
 	public void register(Examinee examinee){
 		// TODO Auto-generated method stub
-				String sql = "INSERT Examinee(ID,EMAIL,PASSWORD,NAME,PHONE,ADDRESS,EMER_NAME,EMER_RELA,EMER_MOBILE,LOW_INCOME) ";
+				String sql = "INSERT Examinee(ID,EMAIL,PASSWORD,NAME,PHONE,ADDRESS,EMER_NAME,EMER_RELA,EMER_MOBILE,TEST_NUM)"+
+						"VALUES(?,?,?,?,?,?,?,?,?,?)";
+		
 				try {
 					conn = dataSource.getConnection();
 					smt = conn.prepareStatement(sql);
 					smt.setString(1, examinee.getID());
-					smt.setString(2, examinee.getName());
-					smt.setString(3, examinee.getPassword());
-					smt.setString(4, examinee.getPhone());
-					smt.setString(5, examinee.getAddress());
-					smt.setBoolean(6, examinee.getLowIncome());
+				    smt.setString(2, examinee.getEmail());
+				    smt.setString(3, examinee.getPassword());
+				    smt.setString(4, examinee.getName());
+				    smt.setString(5, examinee.getPhone());
+				    smt.setString(6, examinee.getAddress());
+					smt.setString(7, examinee.getEMERname());
+					smt.setString(8, examinee.getEMERrelation());
+					smt.setString(9, examinee.getEMERmobile());
+					smt.setString(10, examinee.getID());
+					
+				    
 					
 			
 					smt.executeUpdate();			

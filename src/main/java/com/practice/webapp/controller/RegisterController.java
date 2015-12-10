@@ -14,18 +14,35 @@ import org.springframework.web.servlet.ModelAndView;
 import com.practice.webapp.dao.RegisterDAO;
 
 import com.practice.webapp.entity.Examinee;
+import com.practice.webapp.entity.Bill;
+
+
+@Controller
 
 public class RegisterController {
 	
 	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ModelAndView Register( Examinee examinee){
-		ModelAndView view = new ModelAndView("redirect:/signin");
-		Examinee examinee1 = new Examinee();
-		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
-		RegisterDAO.register(examinee1);
+	public ModelAndView Register(Examinee examinee){
 		
+		
+		ModelAndView view = new ModelAndView("redirect:/register");
+		
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		
+		System.out.println(examinee.getID()+" <<<<<<< HERE");
+	
+		//RegisterDAO.register(examinee);
+		
+		return view;
+	}
+	
+	
+
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public ModelAndView register(Examinee examinee) {
+		ModelAndView view = new ModelAndView("register");
 		return view;
 	}
 

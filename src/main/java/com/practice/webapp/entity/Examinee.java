@@ -1,20 +1,15 @@
 package com.practice.webapp.entity;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Component;
 import java.util.Date;
 
-@Component
-@Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class Examinee implements java.io.Serializable {
-
-	private static final long serialVersionUID = 3476619468809859762L;
-	private String name;
+public class Examinee {
+private String name;
 	private String id;
+	private String EMAIL;
 	private String testnumber;
 	private String password;
 	private Date birth;
+	private String title;
 	private String phone;
 	private String gender;
 	private String address;
@@ -29,6 +24,10 @@ public class Examinee implements java.io.Serializable {
 	
 	
 	
+	public String getTitle() {
+		return title;
+	}
+	
 	public void setName(String name){
 		this.name = name;
 	}
@@ -36,6 +35,12 @@ public class Examinee implements java.io.Serializable {
 		return name;
 	}
 	
+	public void setEmail(String email){
+		this.EMAIL=email;
+	}
+	public String getEmail(){
+		return EMAIL;
+	}
 	public void setID(String id){
 		this.id = id;
 	}
@@ -45,10 +50,6 @@ public class Examinee implements java.io.Serializable {
 	
 	
 	
-	public String getTestNumber(){
-		return testnumber;
-	}
-	
 	public void setPassword(String password){
 		this.password = password;
 	}
@@ -56,6 +57,13 @@ public class Examinee implements java.io.Serializable {
 	public String getPassword(){
 		return password;
 	}
+	
+	
+	public String getTestNumber(){
+		return testnumber;
+	}
+	
+	
 	
 	public void setBirth(Date birth){
 		this.birth = birth;
@@ -150,4 +158,5 @@ public class Examinee implements java.io.Serializable {
      }
 
 
+	
 }

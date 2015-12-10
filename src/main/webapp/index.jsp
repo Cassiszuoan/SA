@@ -15,6 +15,7 @@
 <LI><a href="article">article</a>
 <LI><a href="product">product management</a>
 <LI><a href="signin">signin</a>
+<LI><a href="register">register</a>
 </UL>
 </body>
 </html>
