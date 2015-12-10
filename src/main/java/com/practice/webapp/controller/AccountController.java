@@ -10,20 +10,22 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.practice.webapp.entity.Account;
+import com.practice.webapp.entity.Examinee;
 
 @Controller
 public class AccountController {
 	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView checkLogin(@ModelAttribute Account account) {
-		ModelAndView view = new ModelAndView("redirect:/product");
+	public ModelAndView checkLogin(Examinee examinee) {
+		ModelAndView view = new ModelAndView("redirect:/signin");
 		//you can modify this part to check username and password with DB, AD, LDAP, or open id
-		if ("sa".equals(account.getUsername()) && "ilovesa".equals(account.getPassword())){
+		
+		
+		if ("sa".equals(examinee.getID()) && "ilovesa".equals(examinee.getPassword())){
 			//save username and password in the session bean
-			Account account_session = (Account)context.getBean("account");
-			account_session.setUsername(account.getUsername());
-			account_session.setPassword(account.getPassword());
+			Examinee examinee_session = (Examinee)context.getBean("examinee");
+			examinee_session.setID(examinee.getID());
+			examinee_session.setPassword(examinee.getPassword());
 			System.out.println("Successful!");
 		}
 		else{
@@ -31,15 +33,15 @@ public class AccountController {
 			view.addObject("message", "登入失敗");
 			System.out.println("failed!");
 			//reset username and password in the session bean
-			Account account_session = (Account)context.getBean("account");
-			account_session.setUsername("");
-			account_session.setPassword("");
+			Examinee examinee_session = (Examinee)context.getBean("account");
+			examinee_session.setID("");
+			examinee_session.setPassword("");
 		}	
 
 		return view;
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(@ModelAttribute Account account) {
+	public ModelAndView login(Examinee examinee) {
 		ModelAndView view = new ModelAndView("signin");
 		return view;
 	}

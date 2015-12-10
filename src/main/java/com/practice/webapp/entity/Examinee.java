@@ -18,10 +18,13 @@ public class Examinee implements java.io.Serializable {
 	private String phone;
 	private String gender;
 	private String address;
-	private String photo;
+	private String EMER_Name;
+	private String EMER_RELA;
+	private String EMER_Mobile;
 	private Boolean low_income;
-	private String subject_number;
-	private Bill bill = new Bill();
+	private Boolean payed;
+	private String ASTscore;
+	private String GSATscore;
 	private TestRoom testroom = new TestRoom();
 	
 	
@@ -89,12 +92,30 @@ public class Examinee implements java.io.Serializable {
      }
      
      
-     public void setPhoto(String photo){
-    	 this.photo = photo;
+     public void setEMERname(String emername){
+    	 this.EMER_Name = emername;
+     }
+    
+     public String getEMERname(){
+    	 return EMER_Name;
      }
      
-     public String getPhoto(){
-    	 return photo;
+     public void setEMERrelation(String emerrela){
+    	 this.EMER_RELA = emerrela;
+     }
+    
+     public String getEMERrelation(){
+    	 return EMER_RELA;
+     }
+     
+     
+     
+     public void setEMERmobile(String emermobile){
+    	 this.EMER_Mobile = emermobile;
+     }
+    
+     public String getEMERmobile(){
+    	 return EMER_Mobile;
      }
      
      public void setLowIncome(Boolean lowincome){
@@ -107,14 +128,22 @@ public class Examinee implements java.io.Serializable {
      
      
   
+     public String getGSATscore(){
+    	 return GSATscore;
+     }
      
-     public String getSubjectNumber(){
-    	 return subject_number;
+     public String getASTscore(){
+    	 return ASTscore;
      }
-
-     public Bill getBill(){
-    	 return bill;
+     
+     public void setPayed(Boolean payed){
+    	 this.payed = payed;
      }
+     
+     public Boolean getPayed(){
+    	 return payed;
+     }
+     
      
      public TestRoom getTestRoom(){
     	 return testroom;

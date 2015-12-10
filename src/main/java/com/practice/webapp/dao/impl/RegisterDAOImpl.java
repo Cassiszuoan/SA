@@ -29,7 +29,7 @@ public class RegisterDAOImpl implements RegisterDAO{
 	
 	public void register(Examinee examinee){
 		// TODO Auto-generated method stub
-				String sql = "INSERT Examinee(ID,NAME,PASSWORD,PHONE,ADDRESS,LOW_INCOME,PHOTO,GENDER) ";
+				String sql = "INSERT Examinee(ID,EMAIL,PASSWORD,NAME,PHONE,ADDRESS,EMER_NAME,EMER_RELA,EMER_MOBILE,LOW_INCOME) ";
 				try {
 					conn = dataSource.getConnection();
 					smt = conn.prepareStatement(sql);
@@ -39,8 +39,7 @@ public class RegisterDAOImpl implements RegisterDAO{
 					smt.setString(4, examinee.getPhone());
 					smt.setString(5, examinee.getAddress());
 					smt.setBoolean(6, examinee.getLowIncome());
-					smt.setString(7, examinee.getPhoto());
-					smt.setString(8, examinee.getGender());
+					
 			
 					smt.executeUpdate();			
 					smt.close();
