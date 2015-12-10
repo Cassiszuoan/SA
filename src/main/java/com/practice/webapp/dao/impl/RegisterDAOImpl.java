@@ -41,9 +41,9 @@ public class RegisterDAOImpl implements RegisterDAO{
 				    smt.setString(4, examinee.getName());
 				    smt.setString(5, examinee.getPhone());
 				    smt.setString(6, examinee.getAddress());
-					smt.setString(7, examinee.getEMERname());
-					smt.setString(8, examinee.getEMERrelation());
-					smt.setString(9, examinee.getEMERmobile());
+					smt.setString(7, examinee.getEmergencyContact());
+					smt.setString(8, examinee.getEmergencyContactRelationship());
+					smt.setString(9, "TEST");
 					smt.setString(10, examinee.getID());
 					
 				    

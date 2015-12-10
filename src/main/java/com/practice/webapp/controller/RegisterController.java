@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.practice.webapp.dao.RegisterDAO;
 
 import com.practice.webapp.entity.Examinee;
-import com.practice.webapp.entity.Bill;
+
 
 
 @Controller
@@ -31,9 +31,9 @@ public class RegisterController {
 		
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		
-		System.out.println(examinee.getID()+" <<<<<<< HERE");
+		
 	
-		//RegisterDAO.register(examinee);
+		RegisterDAO.register(examinee);
 		
 		return view;
 	}

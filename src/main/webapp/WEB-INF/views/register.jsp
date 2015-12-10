@@ -19,15 +19,47 @@
 			<div class="col-md-6">
             
             <form method="post" action="register" id="insertform">
-            
-            <div class="form-group">
-			<label>帳號:</label>
-			<input type="text" name="id">
-			<p class="help-block">ID</p>
-			</div>
-            <button type="submit" class="btn btn-primary">新增</button>
+					<div class="form-group">
+					    <label for="id">ID</label>
+						<input type="text" class="form-control" id="id" name="ID" placeholder="id">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="email">EMAIL</label>
+						<input type="text" class="form-control" id="email" name="email" placeholder="email">
+				  	</div>
+				  	
+				  	<div class="form-group">
+					    <label for="title">PASSWORD</label>
+						<input type="text" class="form-control" id="password" name="password" placeholder="password">
+				  	</div>
+				  	
+				  	<div class="form-group">
+					    <label for="name">NAME</label>
+						<input type="text" class="form-control" id="name" name="name" placeholder="name">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="phone">PHONE</label>
+						<input type="text" class="form-control" id="phone" name="phone" placeholder="phone">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="address">ADDRESS</label>
+						<input type="text" class="form-control" id="address" name="address" placeholder="address">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="EmergencyContact">EmergencyContact</label>
+						<input type="text" class="form-control" id="EmergencyContact" name="EmergencyContact" placeholder="EmergencyContact">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="EmergencyContactRelationship">EmergencyContactRelationship</label>
+						<input type="text" class="form-control" id="EmergencyContactRelationship" name="EmergencyContactRelationship" placeholder="EmergencyContactRelationship">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="EmergencyContactMobile">EmergencyContactMobile</label>
+						<input type="text" class="form-control" id="EmergencyContactMobile" name="EmergencyContactMobile" placeholder="EmergencyContactMobile">
+				  	</div>
+					<button type="submit" class="btn btn-primary">新增</button>
 				</form>
-	
+				
 			</div>
 			<div class="col-md-3"></div>
 		</div>

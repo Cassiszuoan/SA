@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Examinee {
 private String name;
-	private String id;
+	private String ID;
 	private String EMAIL;
 	private String testnumber;
 	private String password;
@@ -13,10 +13,10 @@ private String name;
 	private String phone;
 	private String gender;
 	private String address;
-	private String EMER_Name;
-	private String EMER_RELA;
-	private String EMER_Mobile;
-	private Boolean low_income;
+	private String EmergencyContact;
+	private String EmergencyContactRelationship;
+	private String EmergencyContactMobile;
+	private Boolean lowincome;
 	private Boolean payed;
 	private String ASTscore;
 	private String GSATscore;
@@ -42,10 +42,10 @@ private String name;
 		return EMAIL;
 	}
 	public void setID(String id){
-		this.id = id;
+		this.ID = id;
 	}
 	public String getID(){
-		return id;
+		return ID;
 	}
 	
 	
@@ -100,38 +100,38 @@ private String name;
      }
      
      
-     public void setEMERname(String emername){
-    	 this.EMER_Name = emername;
+     public void setEmergencyContact(String emername){
+    	 this.EmergencyContact = emername;
      }
     
-     public String getEMERname(){
-    	 return EMER_Name;
+     public String getEmergencyContact(){
+    	 return EmergencyContact;
      }
      
-     public void setEMERrelation(String emerrela){
-    	 this.EMER_RELA = emerrela;
-     }
-    
-     public String getEMERrelation(){
-    	 return EMER_RELA;
-     }
-     
-     
-     
-     public void setEMERmobile(String emermobile){
-    	 this.EMER_Mobile = emermobile;
+     public void setEmergencyContactRelationship(String emerrela){
+    	 this.EmergencyContactRelationship = emerrela;
      }
     
-     public String getEMERmobile(){
-    	 return EMER_Mobile;
+     public String getEmergencyContactRelationship(){
+    	 return EmergencyContactRelationship;
+     }
+     
+     
+     
+     public void setEmergencyContactMobile(String emermobile){
+    	 this.EmergencyContactMobile = emermobile;
+     }
+    
+     public String getEmergencyContactMobile(){
+    	 return EmergencyContactMobile;
      }
      
      public void setLowIncome(Boolean lowincome){
-    	 this.low_income = lowincome;
+    	 this.lowincome = lowincome;
      }
      
      public Boolean getLowIncome(){
-    	 return low_income;
+    	 return lowincome;
      }
      
      
