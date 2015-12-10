@@ -40,7 +40,7 @@ public class AccountController {
 
 		return view;
 	}
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)
 	public ModelAndView login(Examinee examinee) {
 		ModelAndView view = new ModelAndView("signin");
 		return view;
