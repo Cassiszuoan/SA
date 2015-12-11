@@ -1,6 +1,6 @@
 package com.practice.webapp.entity;
 
-import java.util.Date;
+
 
 public class Examinee {
 private String name;
@@ -8,7 +8,7 @@ private String name;
 	private String EMAIL;
 	private String testnumber;
 	private String password;
-	private Date birth;
+	private String birth;
 	private String title;
 	private String phone;
 	private String gender;
@@ -65,11 +65,11 @@ private String name;
 	
 	
 	
-	public void setBirth(Date birth){
+	public void setBirth(String birth){
 		this.birth = birth;
 	}
 	
-	public  Date getBirth(){
+	public  String getBirth(){
 		return birth;
 	}
     

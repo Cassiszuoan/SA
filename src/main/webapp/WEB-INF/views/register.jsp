@@ -45,39 +45,51 @@
       <form class="form-signin" action="register"  method="post">
         <h2 class="form-signin-heading">填寫基本資料</h2>
         <p></p>
-
+        <label>姓名:</label>
         <input class="form-control" type="text" id="name" name="name" placeholder="姓名">
         <p></p>
-
+        
+        <label>性別:</label> <select class="form-control" name="gender">
+							<option value="Male">男</option>
+							<option value="Female">女</option>
+						</select>
+		<p></p>
+		<label>生日:</label>
+		<input class="form-control" type="date" id="birth" name="birth" placeholder="1990/01/01">
+		<p></p>
+		<label>身分證字號:</label>
         <input class="form-control" type="text" id="ID" name="ID" placeholder="身分證字號">
         <p></p>
-
-        <input class="form-control" type="text" id="password" name="password" placeholder="密碼">
+        <label>EMAIL:</label>
+        <input class="form-control" type="email" id="email" name="email" placeholder="Email">
+        <p></p>
+        <label>密碼:</label>
+        <input class="form-control" type="password" id="password" name="password" placeholder="密碼">
         <p></p>
 
-        <div class="input-group input-group-lg">
+        <!-- <div class="input-group input-group-lg">
           <span class="input-group-addon">生日</span>
           <input type="date" class="form-control">
-        </div>
+        </div> -->
         <p></p>
-                
+         <label>聯絡電話:</label>     
         <input class="form-control" type="text" id="phone" name="phone" placeholder="聯絡電話">
         <p></p>
-
+        <label>地址:</label>
         <input class="form-control" type="text" id="address" name="address" placeholder="通訊地址">
         <p></p>
-
+        <label>緊急聯絡人姓名:</label>
         <input class="form-control" type="text" id="EmergencyContact" name="EmergencyContact" placeholder="緊急連絡人姓名">
         <p></p>
-        
+        <label>與緊急聯絡人之關係:</label>
         <input class="form-control" type="text" id="EmergencyContactRelationship" name="EmergencyContactRelationship" placeholder="與緊急連絡人之關係">
         <p></p>
-
+        <label>緊急聯絡人電話:</label>
         <input class="form-control" type="text" id="EmergencyContactMobile" name="EmergencyContactMobile" placeholder="緊急連絡人電話">
         <p></p>
 
 
-          <div class="radio">
+          <!-- <div class="radio">
             <label>是否為低收入戶</label>&nbsp;&nbsp;&nbsp;&nbsp;
             <label class="radio-inline">
               <input type="radio" name="lowIncome" value="y"> 是
@@ -85,7 +97,7 @@
             <label class="radio-inline">
               <input type="radio" name="lowIncome" value="n"> 否
             </label>
-          </div>
+          </div> -->
 
 
         <button name="submit1" class="btn btn-lg btn-primary btn-block move" type="submit">送出</button>

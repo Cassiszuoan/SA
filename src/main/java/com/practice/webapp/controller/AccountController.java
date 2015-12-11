@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.practice.webapp.dao.RegisterDAO;
 import com.practice.webapp.entity.Examinee;
 
 @Controller
@@ -20,8 +21,9 @@ public class AccountController {
 		ModelAndView view = new ModelAndView("redirect:/signin");
 		//you can modify this part to check username and password with DB, AD, LDAP, or open id
 		
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		
-		if ("sa".equals(examinee.getID()) && "ilovesa".equals(examinee.getPassword())){
+		if (RegisterDAO.login(examinee)){
 			//save username and password in the session bean
 			Examinee examinee_session = (Examinee)context.getBean("examinee");
 			examinee_session.setID(examinee.getID());
