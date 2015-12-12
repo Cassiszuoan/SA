@@ -28,7 +28,7 @@ public class RegisterController {
 	public ModelAndView Register(Examinee examinee){
 		
 		
-		ModelAndView view = new ModelAndView("redirect:/register");
+		ModelAndView view = new ModelAndView("/signin");
 		
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		
@@ -46,6 +46,7 @@ public class RegisterController {
 		List<TestRoom> TestRoomList = new ArrayList<TestRoom>();
 		TestRoomList = TestRoomDAO.getTestRoomList();
 		view.addObject("TestRoomList", TestRoomList);
+		System.out.println("Here>> "+TestRoomList.toString());
 		return view;
 	}
 	

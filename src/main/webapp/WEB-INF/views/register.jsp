@@ -69,11 +69,11 @@
         <p></p>
 
         <div class="form-group">
-					    <label for="TestRoom.testroomName">考場選擇</label>
-				  		<select class="form-control" id="TestRoom.testroomName" name="TestRoom.testroomName">
+					    <label for="TestRoom.id">考場選擇</label>
+				  		<select class="form-control" id="TestRoom.id" name="TestRoom.id">
 				  		<c:forEach items="${TestRoomList}" var="testroom">
-					  		<option value="${testroom.testroomName}">
-					  			
+					  		<option value="${testroom.id}">
+					  			${testroom.name}
 				  			</option>
 				  		</c:forEach>
 						</select>
@@ -110,7 +110,7 @@
         <button name="submit1" class="btn btn-lg btn-primary btn-block move" type="submit">送出</button>
       </form>
       <center>
-      <a href="signin.jsp">取消註冊</a>  
+      <a href="index.jsp">取消註冊</a>  
       </center>
 
     </div> <!-- /container -->

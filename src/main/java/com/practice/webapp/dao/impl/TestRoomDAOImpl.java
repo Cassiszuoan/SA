@@ -10,8 +10,9 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 import com.practice.webapp.entity.TestRoom;
+import com.practice.webapp.dao.TestRoomDAO;
 
-public class TestRoomDAOImpl {
+public class TestRoomDAOImpl implements TestRoomDAO{
 
 	private DataSource dataSource;
 	private Connection conn = null ;
@@ -34,9 +35,10 @@ public class TestRoomDAOImpl {
 			rs = smt.executeQuery();
 			while(rs.next()){
 				TestRoom testroom = new TestRoom();
-				testroom.setTestRoomID(rs.getInt("testroomID"));
-				testroom.setTestRoomName(rs.getString("testroomName"));
-				testroom.setTestRoomAddress(rs.getString("testroomAddress"));
+				testroom.setId(rs.getInt("testroomID"));
+				testroom.setName(rs.getString("testroomName"));
+				testroom.setAddress(rs.getString("testroomAddress"));
+				TestRoomList.add(testroom);
 			}
 			rs.close();
 			smt.close();
