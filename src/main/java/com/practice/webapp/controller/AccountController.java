@@ -26,7 +26,7 @@ public class AccountController {
 		if (RegisterDAO.login(examinee)){
 			//save username and password in the session bean
 			Examinee examinee_session = (Examinee)context.getBean("examinee");
-			examinee_session.setID(examinee.getID());
+			examinee_session.setEmail(examinee.getEmail());
 			examinee_session.setPassword(examinee.getPassword());
 			System.out.println("Successful!");
 		}
@@ -36,7 +36,7 @@ public class AccountController {
 			System.out.println("failed!");
 			//reset username and password in the session bean
 			Examinee examinee_session = (Examinee)context.getBean("examinee");
-			examinee_session.setID("");
+			examinee_session.setEmail("");
 			examinee_session.setPassword("");
 		}	
 

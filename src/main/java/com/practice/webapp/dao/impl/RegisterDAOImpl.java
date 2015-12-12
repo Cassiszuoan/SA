@@ -69,11 +69,11 @@ public class RegisterDAOImpl implements RegisterDAO{
 	
 	
 	public Boolean login(Examinee examinee){
-		String sql = " select * from Examinee where ID= ? and PASSWORD= ?";
+		String sql = " select * from Examinee where EMAIL= ? and PASSWORD= ?";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
-			smt.setString(1, examinee.getID());
+			smt.setString(1, examinee.getEmail());
 			smt.setString(2, examinee.getPassword());
 			rs = smt.executeQuery();
 			if(rs.next()){

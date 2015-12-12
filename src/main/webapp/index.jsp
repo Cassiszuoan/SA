@@ -38,7 +38,7 @@
       <form class="form-signin" action="login" method="post" role="form">
         <h2 class="form-signin-heading"></h2>
         <label for="ID" class="sr-only">身分證字號</label>
-        <input type="text" name="ID" class="form-control" placeholder="身分證字號" required autofocus>
+        <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
         <label for="inputPassword" class="sr-only">密碼</label>
         <input type="password" name="password" class="form-control" placeholder="密碼" required>
         <center>

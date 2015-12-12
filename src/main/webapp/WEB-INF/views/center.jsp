@@ -70,13 +70,13 @@
 			<h1>各項查詢</h1>
 			
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="#"><img src="pic/search1.png" class="img-responsive"></a>
+				<a href="#"><img src="pic/search4.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="#"><img src="pic/search2.png" class="img-responsive"></a>
+				<a href="#"><img src="pic/search5.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="#"><img src="pic/search3.png" class="img-responsive"></a>
+				<a href="#"><img src="pic/search6.png" class="img-responsive"></a>
 			</div>
 			
 		</div><!-- --/row ---->

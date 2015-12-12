@@ -59,13 +59,13 @@
 
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
     font-weight: 400;
     font-size: 16px;
     /*background-color: rgba(254, 245, 188, .5);*/
-    background-image: url(bg/bg_new.jpg);
-  	background-size: 1600px 1261px;
-  	background-repeat : no-repeat;
+    background-image: url(pic/bg_new.jpg);
+  	background-size: 1600px 1600px;
+  	background-repeat : repeat;
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -103,18 +103,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .dropdown-toggle {
 	color: #1abc9c;
-	font-family: Microsoft JhengHei;
+	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
 	font-weight: bold;
 }
 
 .navbar-default .navbar-nav .dropdown-menu > li > a {
 	color: #1abc9c;
-	font-family: Microsoft JhengHei;
+	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
 	font-size: 16px;
 }
 
 .centered > h1 {
-	font-family: Microsoft JhengHei;
+	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
 }
 
 
@@ -150,13 +150,13 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: 4px;
 	font-size: 80px;
 	font-weight: bold;
-	font-family: Microsoft JhengHei;
+	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
 }
 
 #headerwrap h4 {
 	font-weight: 700;
 	color: #ffffff;
-	font-family: Microsoft JhengHei;
+	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
 }
 
 #social {
