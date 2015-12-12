@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=utf-8" import="java.util.*, java.sql.*"%>
-<%request.setCharacterEncoding("utf-8");%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
   <head>
     <meta http-equiv="Content-Type"content="text/html;charset=utf-8">
@@ -50,8 +51,8 @@
         <p></p>
         
         <label>性別:</label> <select class="form-control" name="gender">
-							<option value="Male">男</option>
-							<option value="Female">女</option>
+							<option value="男">男</option>
+							<option value="女">女</option>
 						</select>
 		<p></p>
 		<label>生日:</label>
@@ -67,10 +68,16 @@
         <input class="form-control" type="password" id="password" name="password" placeholder="密碼">
         <p></p>
 
-        <!-- <div class="input-group input-group-lg">
-          <span class="input-group-addon">生日</span>
-          <input type="date" class="form-control">
-        </div> -->
+        <div class="form-group">
+					    <label for="TestRoom.testroomName">考場選擇</label>
+				  		<select class="form-control" id="TestRoom.testroomName" name="TestRoom.testroomName">
+				  		<c:forEach items="${TestRoomList}" var="testroom">
+					  		<option value="${testroom.testroomName}">
+					  			
+				  			</option>
+				  		</c:forEach>
+						</select>
+				  	</div>
         <p></p>
          <label>聯絡電話:</label>     
         <input class="form-control" type="text" id="phone" name="phone" placeholder="聯絡電話">

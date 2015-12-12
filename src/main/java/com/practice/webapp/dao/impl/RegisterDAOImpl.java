@@ -12,8 +12,9 @@ import javax.sql.DataSource;
 
 //import com.mysql.jdbc.Statement;
 import com.practice.webapp.dao.RegisterDAO;
+import com.practice.webapp.entity.ArticleCategory;
 import com.practice.webapp.entity.Examinee;
-import com.practice.webapp.entity.Bill;
+import com.practice.webapp.entity.TestRoom;
 public class RegisterDAOImpl implements RegisterDAO{
 
 	private DataSource dataSource;
@@ -94,15 +95,51 @@ public class RegisterDAOImpl implements RegisterDAO{
 		
 	}
 	
-    public void setTestNumber(Examinee examinee){
-    	
-    }
-    public void setTestRoom(Examinee examinee){
-    	
-    }
-    public void setPayment(Examinee examinee){
-    	
-    }
+	
+	public Examinee getExaminee(Examinee examinee){
+		String sql = "SELECT * FROM Examinee WHERE ID = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				examinee.setID(rs.getString("ID"));
+				examinee.setEmail(rs.getString("EMAIL"));
+				examinee.setPassword(rs.getString("PASSWORD"));
+				examinee.setTestNumber(rs.getInt("TEST_NUM"));
+				examinee.setName(rs.getString("NAME"));
+				examinee.setGender(rs.getString("GENDER"));
+				examinee.setBirth(rs.getString("BIRTH"));
+				examinee.setPhone(rs.getString("PHONE"));
+				examinee.setPayed(rs.getBoolean("LOW_INCOME"));
+				examinee.setGSATscore(rs.getString("GSATscore"));
+				examinee.setASTscore(rs.getString("ASTscore"));
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return examinee;
+	}
+	
+    
+	
+	
+	
+	
+    
+    
     public void setSubject(Examinee examinee){
     	
     }

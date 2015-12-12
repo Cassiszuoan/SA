@@ -18,7 +18,7 @@ public class AccountController {
 	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView checkLogin(Examinee examinee) {
-		ModelAndView view = new ModelAndView("redirect:/signin");
+		ModelAndView view = new ModelAndView("center");
 		//you can modify this part to check username and password with DB, AD, LDAP, or open id
 		
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");

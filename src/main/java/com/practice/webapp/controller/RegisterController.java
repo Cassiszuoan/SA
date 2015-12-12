@@ -12,7 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.practice.webapp.dao.RegisterDAO;
-
+import com.practice.webapp.dao.TestRoomDAO;
+import com.practice.webapp.entity.TestRoom;
 import com.practice.webapp.entity.Examinee;
 
 
@@ -38,12 +39,25 @@ public class RegisterController {
 		return view;
 	}
 	
-	
-
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public ModelAndView register(Examinee examinee) {
+	public ModelAndView RegisterTestRoomList(){
 		ModelAndView view = new ModelAndView("register");
+		TestRoomDAO TestRoomDAO = (TestRoomDAO)context.getBean("TestRoomDAO");
+		List<TestRoom> TestRoomList = new ArrayList<TestRoom>();
+		TestRoomList = TestRoomDAO.getTestRoomList();
+		view.addObject("TestRoomList", TestRoomList);
 		return view;
 	}
+	
+	
+	
+	
+	
+//
+//	@RequestMapping(value = "/register", method = RequestMethod.GET)
+//	public ModelAndView register(Examinee examinee) {
+//		ModelAndView view = new ModelAndView("register");
+//		return view;
+//	}
 
 }

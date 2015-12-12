@@ -6,7 +6,7 @@ public class Examinee {
 private String name;
 	private String ID;
 	private String EMAIL;
-	private String testnumber;
+	private int testnumber;
 	private String password;
 	private String birth;
 	private String title;
@@ -59,8 +59,12 @@ private String name;
 	}
 	
 	
-	public String getTestNumber(){
+	public int getTestNumber(){
 		return testnumber;
+	}
+	
+	public void setTestNumber(int testnumber){
+		this.testnumber = testnumber;
 	}
 	
 	
@@ -140,8 +144,17 @@ private String name;
     	 return GSATscore;
      }
      
+     public void setGSATscore(String gsatscore){
+    	 this.GSATscore=gsatscore;
+    	 
+     }
+     
      public String getASTscore(){
     	 return ASTscore;
+     }
+     
+     public void setASTscore(String astscore){
+    	 this.ASTscore =  astscore;
      }
      
      public void setPayed(Boolean payed){

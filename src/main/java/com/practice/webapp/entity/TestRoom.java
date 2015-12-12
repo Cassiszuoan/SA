@@ -2,24 +2,33 @@ package com.practice.webapp.entity;
 
 public class TestRoom {
 
-	private String test_room;
-	private String room_location;
+	private int testroomID;
+	private String testroomName;
+	private String testroomAddress;
 	
 	
-	public void setTestRoom(String testroom){
-		this.test_room = testroom;
+	public void setTestRoomID(int testroom){
+		this.testroomID = testroom;
 	}
 	
-	public String getTestRoom(){
-		return test_room;
+	public int getTestRoomID(){
+		return testroomID;
 	}
 	
-	public void setRoom_Locatoin(String roomlocation){
-		this.room_location = roomlocation;
+	public void setTestRoomName(String testroomName){
+		this.testroomName=testroomName;
+	}
+	public String getTestRoomName(){
+		return testroomName;
 	}
 	
-	public String getRoom_Location(){
-		return room_location;
+	
+	public void setTestRoomAddress(String TestRoomAdress){
+		this.testroomAddress = TestRoomAdress;
+	}
+	
+	public String getTestRoomAddress(){
+		return testroomAddress;
 	}
 	 
 }
