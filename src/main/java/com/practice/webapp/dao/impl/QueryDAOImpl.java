@@ -31,7 +31,7 @@ public class QueryDAOImpl implements QueryDAO {
 	
 	
 	@Override
-	public TestRoom testRoomQuery(Examinee examinee) {
+	public Examinee testRoomQuery(Examinee examinee) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM Examinee WHERE ID = ? and PASSWORD = ?";
 		try {
@@ -59,7 +59,7 @@ public class QueryDAOImpl implements QueryDAO {
 				} catch (SQLException e) {}
 			}
 		}
-		return examinee.getTestRoom();
+		return examinee;
 	}
 	
 
@@ -101,6 +101,40 @@ public class QueryDAOImpl implements QueryDAO {
 	public String ScoreQuery(Examinee examinee) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public TestRoom testRoomSetup(TestRoom testroom) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM Testroom WHERE testroomID = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setInt(1, testroom.getId());
+			
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				
+				testroom.setName(rs.getString("testroomName"));
+				testroom.setAddress(rs.getString("testroomAddress"));
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return testroom;
 	}
 
 }

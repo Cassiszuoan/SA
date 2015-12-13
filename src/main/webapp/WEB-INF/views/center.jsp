@@ -77,7 +77,7 @@
 				<a href="testnumberquery"><img src="pic/search5.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="#"><img src="pic/search6.png" class="img-responsive"></a>
+				<a href="testroomquery"><img src="pic/search6.png" class="img-responsive"></a>
 			</div>
 			
 		</div><!-- --/row ---->

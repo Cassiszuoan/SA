@@ -5,8 +5,9 @@ import com.practice.webapp.entity.TestRoom;
 
 public interface QueryDAO {
 
-	public TestRoom testRoomQuery(Examinee examinee);
+	public Examinee testRoomQuery(Examinee examinee);
 	public Examinee testNumberQuery(Examinee examinee);
+	public TestRoom testRoomSetup(TestRoom testroom);
 	public String ScoreQuery(Examinee examinee);
 	
 }

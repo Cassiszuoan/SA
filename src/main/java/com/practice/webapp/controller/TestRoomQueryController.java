@@ -1,4 +1,5 @@
 package com.practice.webapp.controller;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,37 +19,35 @@ import com.practice.webapp.entity.Examinee;
 import com.practice.webapp.entity.TestRoom;
 
 @Controller
-public class QueryController {
-	
+public class TestRoomQueryController {
 	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
 	
-	
-
-	
-	@RequestMapping(value = "/testnumberquery", method = RequestMethod.POST)
-	public ModelAndView testnumberquery(Examinee examinee){
+	@RequestMapping(value = "/testroomquery", method = RequestMethod.POST)
+	public ModelAndView testroomQuery(Examinee examinee){
 		
 		
-		ModelAndView view = new ModelAndView("testnumberquery");
+		ModelAndView view = new ModelAndView("testroomquery");
 		QueryDAO QueryDAO = (QueryDAO)context.getBean("QueryDAO");
 		
 		
-		QueryDAO.testNumberQuery(examinee);
-		view.addObject("message", examinee.getTestNumber());
+		TestRoom testroom = QueryDAO.testRoomQuery(examinee).getTestRoom();
+		QueryDAO.testRoomSetup(testroom);
 		
+		view.addObject("id", testroom.getId());
+		view.addObject("name",testroom.getName());
+		view.addObject("address",testroom.getAddress());
 		
 	
 		
 		return view;
 	}
 	
-	@RequestMapping(value = "/testnumberquery", method = RequestMethod.GET)
+	@RequestMapping(value = "/testroomquery", method = RequestMethod.GET)
 	public ModelAndView Query(){
 		
-		ModelAndView model = new ModelAndView("testnumberquery");
+		ModelAndView model = new ModelAndView("testroomquery");
 	
 		
 		return model;
 	}
-
 }
