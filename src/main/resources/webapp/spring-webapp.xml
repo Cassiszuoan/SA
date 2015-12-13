@@ -22,6 +22,9 @@
  	<bean id="productDAO" class="com.practice.webapp.dao.impl.ProductDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	<bean id="QueryDAO" class="com.practice.webapp.dao.impl.QueryDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
  	<bean id="purchaseOrderDAO" class="com.practice.webapp.dao.impl.PurchaseOrderDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>

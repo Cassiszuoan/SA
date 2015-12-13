@@ -98,11 +98,11 @@ public class RegisterDAOImpl implements RegisterDAO{
 	
 	
 	public Examinee getExaminee(Examinee examinee){
-		String sql = "SELECT * FROM Examinee WHERE ID = ?";
+		String sql = "SELECT * FROM Examinee WHERE EMAIL = ?";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
-			smt.setString(1, examinee.getID());
+			smt.setString(1, examinee.getEmail());
 			rs = smt.executeQuery();
 			if(rs.next()){
 				

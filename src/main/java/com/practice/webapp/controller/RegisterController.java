@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.practice.webapp.dao.RegisterDAO;
+import com.practice.webapp.dao.QueryDAO;
 import com.practice.webapp.dao.TestRoomDAO;
 import com.practice.webapp.entity.TestRoom;
 import com.practice.webapp.entity.Examinee;
@@ -29,12 +30,10 @@ public class RegisterController {
 		
 		
 		ModelAndView view = new ModelAndView("/signin");
-		
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		
-		
+	    RegisterDAO.register(examinee);
 	
-		RegisterDAO.register(examinee);
 		
 		return view;
 	}

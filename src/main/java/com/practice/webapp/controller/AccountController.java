@@ -29,6 +29,8 @@ public class AccountController {
 			examinee_session.setEmail(examinee.getEmail());
 			examinee_session.setPassword(examinee.getPassword());
 			System.out.println("Successful!");
+			RegisterDAO.getExaminee(examinee_session);
+			view.addObject("message", examinee_session.getName());
 		}
 		else{
 			view = new ModelAndView("signin");

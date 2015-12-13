@@ -45,7 +45,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">某某，你好</a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${message}，你好</a>
               <ul class="dropdown-menu" role="menu">
                   <li><a href="#">修改個人資料</a></li>
                   <li><a href="#">登出</a></li>
