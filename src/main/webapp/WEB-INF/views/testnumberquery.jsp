@@ -43,7 +43,7 @@
 
     <div class="container">
 
-      <form class="form-query" action="query"  method="post">
+      <form class="form-query" action="testnumberquery"  method="post">
         
 		<label>身分證字號:</label>
         <input class="form-control" type="text" id="ID" name="ID" placeholder="身分證字號">
@@ -54,10 +54,10 @@
         <p></p>
 
        
-        <button name="submit1" class="btn btn-lg btn-primary btn-block move" type="submit">送出</button>
+        <button name="submit1" class="btn btn-lg btn-primary btn-block move" type="submit">查詢</button>
       </form>
      
-
+    <p>准考證號碼查詢結果: ${message}</p>
     </div> <!-- /container -->
 
 

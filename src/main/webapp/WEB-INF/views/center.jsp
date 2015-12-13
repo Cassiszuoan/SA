@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=utf-8" import="java.util.*, java.sql.*"%>
-<%request.setCharacterEncoding("utf-8");%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
     <head>
     <meta charset="utf-8">
@@ -73,7 +74,7 @@
 				<a href="#"><img src="pic/search4.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="query"><img src="pic/search5.png" class="img-responsive"></a>
+				<a href="testnumberquery"><img src="pic/search5.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a href="#"><img src="pic/search6.png" class="img-responsive"></a>

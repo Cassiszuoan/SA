@@ -64,7 +64,7 @@ public class QueryDAOImpl implements QueryDAO {
 	
 
 	@Override
-	public int testNumberQuery(Examinee examinee) {
+	public Examinee testNumberQuery(Examinee examinee) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM Examinee WHERE ID = ? and PASSWORD = ?";
 		try {
@@ -92,7 +92,7 @@ public class QueryDAOImpl implements QueryDAO {
 				} catch (SQLException e) {}
 			}
 		}
-		return examinee.getTestNumber();
+		return examinee;
 	}
 	
 	

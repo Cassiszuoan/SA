@@ -15,7 +15,7 @@ import com.practice.webapp.dao.RegisterDAO;
 import com.practice.webapp.dao.ProductDAO;
 import com.practice.webapp.dao.QueryDAO;
 import com.practice.webapp.entity.Examinee;
-import com.practice.webapp.entity.Product;
+import com.practice.webapp.entity.TestRoom;
 
 @Controller
 public class QueryController {
@@ -25,23 +25,29 @@ public class QueryController {
 	
 
 	
-	@RequestMapping(value = "/testNumberQuery", method = RequestMethod.POST)
+	@RequestMapping(value = "/testnumberquery", method = RequestMethod.POST)
 	public ModelAndView Register(Examinee examinee){
 		
 		
-		ModelAndView view = new ModelAndView("/query");
+		ModelAndView view = new ModelAndView("testnumberquery");
 		QueryDAO QueryDAO = (QueryDAO)context.getBean("QueryDAO");
 		
-		QueryDAO.testNumberQuery(examinee);
+		Examinee examinee_session = (Examinee)context.getBean("examinee");
+		examinee_session.setEmail(examinee.getID());
+		examinee_session.setPassword(examinee.getPassword());
+		
+		QueryDAO.testNumberQuery(examinee_session);
+		view.addObject("message", examinee_session.getTestNumber());
+		
 	
 		
 		return view;
 	}
 	
-	@RequestMapping(value = "/query", method = RequestMethod.GET)
+	@RequestMapping(value = "/testnumberquery", method = RequestMethod.GET)
 	public ModelAndView Query(){
 		
-		ModelAndView model = new ModelAndView("query");
+		ModelAndView model = new ModelAndView("testnumberquery");
 	
 		
 		return model;
