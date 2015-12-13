@@ -117,6 +117,7 @@ public class RegisterDAOImpl implements RegisterDAO{
 				examinee.setPayed(rs.getBoolean("LOW_INCOME"));
 				examinee.setGSATscore(rs.getString("GSATscore"));
 				examinee.setASTscore(rs.getString("ASTscore"));
+				examinee.setSubject(rs.getInt("Subject"));
 			}
 			rs.close();
 			smt.close();

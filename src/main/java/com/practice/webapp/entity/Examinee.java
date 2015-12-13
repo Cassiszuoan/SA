@@ -9,7 +9,6 @@ private String name;
 	private int testnumber;
 	private String password;
 	private String birth;
-	private String title;
 	private String phone;
 	private String gender;
 	private String address;
@@ -20,13 +19,12 @@ private String name;
 	private Boolean payed;
 	private String ASTscore;
 	private String GSATscore;
+	private String ELscore;
+	private int subject;
 	private TestRoom testroom = new TestRoom();
 	
 	
 	
-	public String getTitle() {
-		return title;
-	}
 	
 	public void setName(String name){
 		this.name = name;
@@ -157,6 +155,21 @@ private String name;
     	 this.ASTscore =  astscore;
      }
      
+     
+     public String getELscore(){
+    	 return ELscore;
+     }
+     
+     public void setELscore(String elscore){
+    	 this.ELscore =  elscore;
+     }
+     
+     public void setSubject(int subject){
+    	 this.subject = subject;
+     }
+     public int getSubject(){
+    	 return subject;
+     }
      public void setPayed(Boolean payed){
     	 this.payed = payed;
      }
@@ -165,11 +178,14 @@ private String name;
     	 return payed;
      }
      
-     
+     public void setTestRoom(TestRoom testroom){
+    	 this.testroom=testroom;
+     }
      public TestRoom getTestRoom(){
     	 return testroom;
      }
-
+     
+     
 
 	
 }
