@@ -58,6 +58,7 @@
       </form>
      
     <p>准考證號碼查詢結果: ${message}</p>
+     <p>考場查詢結果: 代號 ${id}  考場名稱：${name}  地址：${address}</p>
     </div> <!-- /container -->
 
 
