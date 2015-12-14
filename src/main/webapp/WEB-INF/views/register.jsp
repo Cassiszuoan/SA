@@ -44,7 +44,8 @@
     <div class="container">
 
       <form class="form-signin" action="register"  method="post">
-        <h2 class="form-signin-heading">填寫基本資料</h2>
+        <h2 class="form-signin-heading">填寫基本資料</h2><p><label class="label label-danger">${warning}</label></p>
+       
         <p></p>
         <label>姓名:</label>
         <input class="form-control" type="text" id="name" name="name" placeholder="姓名">
@@ -59,16 +60,20 @@
 		<input class="form-control" type="date" id="birth" name="birth" placeholder="1990/01/01">
 		<p></p>
 		<label>身分證字號:</label>
+		<P><label class="label label-warning">${message}</label></P>
         <input class="form-control" type="text" id="ID" name="ID" placeholder="身分證字號">
         <p></p>
+       
         <label>EMAIL:</label>
+        <p><label class="label label-warning">${message2}</label></p>
         <input class="form-control" type="email" id="email" name="email" placeholder="Email">
         <p></p>
+        
         <label>密碼:</label>
         <input class="form-control" type="password" id="password" name="password" placeholder="密碼">
         <p></p>
 
-        <div class="form-group">
+      <%--   <div class="form-group">
 					    <label for="TestRoom.id">考場選擇</label>
 				  		<select class="form-control" id="TestRoom.id" name="TestRoom.id">
 				  		<c:forEach items="${TestRoomList}" var="testroom">
@@ -78,7 +83,7 @@
 				  		</c:forEach>
 						</select>
 				  	</div>
-        <p></p>
+        <p></p> --%>
          <label>聯絡電話:</label>     
         <input class="form-control" type="text" id="phone" name="phone" placeholder="聯絡電話">
         <p></p>

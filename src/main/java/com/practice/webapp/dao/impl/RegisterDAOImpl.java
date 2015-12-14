@@ -145,7 +145,67 @@ public class RegisterDAOImpl implements RegisterDAO{
     public void setSubject(Examinee examinee){
     	
     }
+
+	@Override
+	public Boolean ifIDExist(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = " select * from Examinee where ID= ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			
+			smt.setString(1, examinee.getID());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				return true;
+			}
+			rs.close();
+			smt.close();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean ifEmailExist(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = " select * from Examinee where EMAIL= ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			
+			smt.setString(1, examinee.getEmail());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				return true;
+			}
+			rs.close();
+			smt.close();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return false;
+	}
+	
+	}
 	
 	
 	
-}
+

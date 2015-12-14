@@ -30,11 +30,22 @@ public class RegisterController {
 		
 		
 		ModelAndView view = new ModelAndView("/signin");
+		ModelAndView view2 = new ModelAndView("/register");
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
-		
-	    RegisterDAO.register(examinee);
-	
-		
+		if(RegisterDAO.ifIDExist(examinee)){
+	     
+			view2.addObject("message", "身分證字號重複使用");
+			view2.addObject("warning","註冊失敗");
+	        return view2;
+		}
+		else if (RegisterDAO.ifEmailExist(examinee)){
+			view2.addObject("message2", "EMAIL重複使用");
+			view2.addObject("warning","註冊失敗");
+	        return view2;
+		}
+		else{
+			RegisterDAO.register(examinee);
+		}
 		return view;
 	}
 	

@@ -34,7 +34,7 @@ public class QueryController {
 		
 		
 		QueryDAO.testNumberQuery(examinee);
-		view.addObject("message", examinee.getTestNumber());
+		
 		TestRoom testroom = QueryDAO.testRoomQuery(examinee).getTestRoom();
 		QueryDAO.testRoomSetup(testroom);
 		
