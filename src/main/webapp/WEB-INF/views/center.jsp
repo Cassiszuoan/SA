@@ -61,7 +61,7 @@
         <div class="col-lg-6 col-lg-offset-3">
           <h4 class="chin-h4">報名各項考試、簡章下載檢閱、說明規範等</h4>
           <h1>大考報名</h1>
-          <button class="btn btn-lg btn-primary" type="submit">點此進入報考</button>
+          <a class="btn btn-lg btn-primary" role="button" href="apply">點此進入報考</a>
         </div>
         </div><!-- --/row ---->
       </div><!-- --/headerwrap ---->
@@ -74,11 +74,68 @@
 				<a href="#"><img src="pic/search4.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="testnumberquery"><img src="pic/search5.png" class="img-responsive"></a>
+				<a data-toggle="modal" data-target="#myModal"><img src="pic/search5.png" class="img-responsive"></a>
 			</div>
+			
+			
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">准考證查詢</h4>
+            </div>
+            <div class="modal-body">
+              
+              <form class="form-horizontal" role="form" action="testnumberquery" method="post">
+              <div class="modal-container">  
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputPwd" placeholder="身分證字號">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="exampleInputBirth" placeholder="出生年月日">
+                </div>
+              </div>
+                <div class="form-group">       
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">確認</button>
+                  <p>准考證號碼查詢結果: ${message}</p>
+     <p>考場查詢結果: 代號 ${id}  考場名稱：${name}  地址：${address}</p>
+                </div>            
+              </form>
+            </div>
+          </div>
+        </div> 
+      </div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="testroomquery"><img src="pic/search6.png" class="img-responsive"></a>
+				<a data-toggle="modal" data-target="#myModal2"><img src="pic/search6.png" class="img-responsive"></a>
 			</div>
+			 <!-- Modal -->
+      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">成績查詢</h4>
+            </div>
+            <div class="modal-body">
+              
+              <form class="form-horizontal" role="form" action="#" method="post">
+              <div class="modal-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputTestNum" placeholder="准考證號碼">
+                </div>
+              </div>
+                <div class="form-group">       
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">確認</button>
+                </div>            
+              </form>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <!--modal end -->
 			
 		</div><!-- --/row ---->
 	</div><!-- --/container ----><!-- --/social ---->

@@ -39,6 +39,8 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	
+	
 	public ModelAndView RegisterTestRoomList(){
 		ModelAndView view = new ModelAndView("register");
 		TestRoomDAO TestRoomDAO = (TestRoomDAO)context.getBean("TestRoomDAO");
@@ -49,15 +51,32 @@ public class RegisterController {
 		return view;
 	}
 	
+	@RequestMapping(value = "/center", method = RequestMethod.GET)
+	public ModelAndView Center(){
+		ModelAndView view = new ModelAndView("center");
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		Examinee examinee_session = (Examinee)context.getBean("examinee");
+		RegisterDAO.getExaminee(examinee_session);
+		view.addObject("message", examinee_session.getName());
+		return view;
+		
+	
+	}
 	
 	
 	
+
+	@RequestMapping(value = "/apply", method = RequestMethod.GET)
+	public ModelAndView Apply(Examinee examinee){
+		ModelAndView view = new ModelAndView("apply");
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		Examinee examinee_session = (Examinee)context.getBean("examinee");
+		RegisterDAO.getExaminee(examinee_session);
+		view.addObject("message", examinee_session.getName());
+		
+		return view;
+		
 	
-//
-//	@RequestMapping(value = "/register", method = RequestMethod.GET)
-//	public ModelAndView register(Examinee examinee) {
-//		ModelAndView view = new ModelAndView("register");
-//		return view;
-//	}
+	}
 
 }

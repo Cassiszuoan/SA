@@ -29,7 +29,7 @@ public class QueryController {
 	public ModelAndView testnumberquery(Examinee examinee){
 		
 		
-		ModelAndView view = new ModelAndView("testnumberquery");
+		ModelAndView view = new ModelAndView("center");
 		QueryDAO QueryDAO = (QueryDAO)context.getBean("QueryDAO");
 		
 		
