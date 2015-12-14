@@ -76,7 +76,7 @@ public class QueryDAOImpl implements QueryDAO {
 			if(rs.next()){
 				
 				
-				examinee.setTestNumber(rs.getInt("TEST_NUM"));
+				
 				
 			}
 			rs.close();

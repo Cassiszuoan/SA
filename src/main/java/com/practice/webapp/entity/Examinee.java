@@ -6,7 +6,7 @@ public class Examinee {
 private String name;
 	private String ID;
 	private String EMAIL;
-	private int testnumber;
+	
 	private String password;
 	private String birth;
 	private String phone;
@@ -57,13 +57,7 @@ private String name;
 	}
 	
 	
-	public int getTestNumber(){
-		return testnumber;
-	}
 	
-	public void setTestNumber(int testnumber){
-		this.testnumber = testnumber;
-	}
 	
 	
 	

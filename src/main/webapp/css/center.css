@@ -59,7 +59,7 @@
 
 
 body {
-    font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 16px;
     /*background-color: rgba(254, 245, 188, .5);*/
@@ -103,18 +103,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .dropdown-toggle {
 	color: #1abc9c;
-	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
+	font-family: Microsoft JhengHei;
 	font-weight: bold;
 }
 
 .navbar-default .navbar-nav .dropdown-menu > li > a {
 	color: #1abc9c;
-	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
+	font-family: Microsoft JhengHei;
 	font-size: 16px;
 }
 
 .centered > h1 {
-	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
+	font-family: Microsoft JhengHei;
 }
 
 
@@ -150,13 +150,13 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: 4px;
 	font-size: 80px;
 	font-weight: bold;
-	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
+	font-family: Microsoft JhengHei;
 }
 
 #headerwrap h4 {
 	font-weight: 700;
 	color: #ffffff;
-	font-family: Verdana,"Helvetica Neue", Helvetica, Arial, sans-serif;;
+	font-family: Microsoft JhengHei;
 }
 
 #social {
@@ -249,8 +249,17 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 30px;
 }
 
+.gallery img {
+	border-radius: 3%;
+}
+
 .gallery img:hover {
 	opacity: 0.4;
 	width: 100%;
 	border: 1px solid #000;
+}
+
+
+.modal-container {
+	padding: 50px 150px 50px 150px;
 }

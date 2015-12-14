@@ -109,7 +109,7 @@ public class RegisterDAOImpl implements RegisterDAO{
 				examinee.setID(rs.getString("ID"));
 				examinee.setEmail(rs.getString("EMAIL"));
 				examinee.setPassword(rs.getString("PASSWORD"));
-				examinee.setTestNumber(rs.getInt("TEST_NUM"));
+				
 				examinee.setName(rs.getString("NAME"));
 				examinee.setGender(rs.getString("GENDER"));
 				examinee.setBirth(rs.getString("BIRTH"));

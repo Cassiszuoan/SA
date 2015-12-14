@@ -43,8 +43,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="center">Home</a></li>
             <li class="active"><a href="">考試報名</a></li>
+            <li><a href="center">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${message}，你好</a>
               <ul class="dropdown-menu" role="menu">
@@ -57,26 +57,37 @@
       </div>
     </div>
       
-      <section id="works"></section>
+      
       <div class="container">
 		<div class="row centered mt mb">
-			<h1>大學入學考試報名</h1>
-			
+      <div class="headerwrap">
+  			
+      </div>
+		<section id="workwrap">
+      <h1>大學入學考試報名</h1>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<h4>學科能力測驗</h4>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;包括國文、英文、數學、社會、自然五考科，各科測驗範圍以高一及高二之必修課程綱要為準，考生五科都必須應考，成績採級分制，可用於繁星推薦入學、個人申請入學及科技校院申請入學等招生管道。</p>
-        <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考學測</a>
+  			<div class="cell">
+          <h4>學科能力測驗</h4>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;包括國文、英文、數學、社會、自然五考科，各科測驗範圍以高一及高二之必修課程綱要為準，考生五科都必須應考，成績採級分制，可用於繁星推薦入學、個人申請入學及科技校院申請入學等招生管道。</p>
+          <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考學測</a>
+        </div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<h4>指定科目考試</h4>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;以高一到高三之必修及選修課程綱要為準，成績採百分制，用於大學考試入學招生。各校系可依其需求，就考科當中，指定某些考科，以成績選才；考生則依個人興趣及能力，自由選擇應考，即「校系指定，考生選考」的雙向選擇。</p>
-        <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考指考</a>
-			</div>
+				<div class="cell">
+          <h4>指定科目考試</h4>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以高一到高三之必修及選修課程綱要為準，成績採百分制，用於大學考試入學招生。各校系可依其需求，就考科當中，指定某些考科，以成績選才；考生則依個人興趣及能力，自由選擇應考，即「校系指定，考生選考」的雙向選擇。</p>
+          <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考指考</a>
+			  </div>
+      </div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<h4>英語聽力測驗</h4>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;配合普通高級中學課程綱要之內涵，針對高中學生英語聽力進行的一項綜合評量。同時，除著重英語於日常生活中之應用與溝通外，也強調課堂學習相關之英語能力，以期能將所學與世界接軌。</p><br/>
-        <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考英聽</a>
-			</div>
+        <div class="cell">
+  				<h4>英語聽力測驗</h4>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配合普通高級中學課程綱要之內涵，針對高中學生英語聽力進行的一項綜合評量。同時，除著重英語於日常生活中之應用與溝通外，也強調課堂學習相關之英語能力，以期能將所學與世界接軌。</p><br/>
+          <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考英聽</a>
+        </div>
+			</section>
+      </div>
+      
 			
 		</div><!-- --/row ---->
 	</div><!-- --/container ----><!-- --/social ---->
