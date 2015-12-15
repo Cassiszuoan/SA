@@ -115,8 +115,7 @@ public class RegisterDAOImpl implements RegisterDAO{
 				examinee.setBirth(rs.getString("BIRTH"));
 				examinee.setPhone(rs.getString("PHONE"));
 				examinee.setPayed(rs.getBoolean("LOW_INCOME"));
-				examinee.setGSATscore(rs.getString("GSATscore"));
-				examinee.setASTscore(rs.getString("ASTscore"));
+				
 			    
 			}
 			rs.close();
@@ -202,6 +201,30 @@ public class RegisterDAOImpl implements RegisterDAO{
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public void delete(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "delete from Examinee where id = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			smt.executeUpdate();			
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
 	}
 	
 	}

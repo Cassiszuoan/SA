@@ -12,9 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.practice.webapp.dao.RegisterDAO;
+import com.practice.webapp.dao.ArticleDAO;
 import com.practice.webapp.dao.QueryDAO;
 import com.practice.webapp.dao.TestRoomDAO;
 import com.practice.webapp.entity.TestRoom;
+import com.practice.webapp.entity.Article;
 import com.practice.webapp.entity.Examinee;
 
 
@@ -29,7 +31,7 @@ public class RegisterController {
 	public ModelAndView Register(Examinee examinee){
 		
 		
-		ModelAndView view = new ModelAndView("/signin");
+		ModelAndView view = new ModelAndView("/confirm");
 		ModelAndView view2 = new ModelAndView("/register");
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		if(RegisterDAO.ifIDExist(examinee)){
@@ -44,9 +46,30 @@ public class RegisterController {
 	        return view2;
 		}
 		else{
-			RegisterDAO.register(examinee);
+			Examinee examinee_temp = (Examinee)context.getBean("examinee");
+			examinee_temp.setID(examinee.getID());
+			examinee_temp.setEmail(examinee.getEmail());
+			examinee_temp.setPassword(examinee.getPassword());
+			examinee_temp.setName(examinee.getName());
+			examinee_temp.setPhone(examinee.getPhone());
+			examinee_temp.setGender(examinee.getGender());
+			examinee_temp.setBirth(examinee.getBirth());
+            examinee_temp.setAddress(examinee.getAddress());	
+            examinee_temp.setEmergencyContact(examinee.getEmergencyContact());
+            examinee_temp.setEmergencyContactMobile(examinee.getEmergencyContactMobile());
+            examinee_temp.setEmergencyContactRelationship(examinee.getEmergencyContactRelationship());
+			return view;
 		}
-		return view;
+		
+	}
+	
+	@RequestMapping(value = "/ConfirmExaminee", method = RequestMethod.GET)
+	public ModelAndView ConfirmExaminee(Examinee examinee){
+		ModelAndView model = new ModelAndView("signin");
+		Examinee examinee_temp = (Examinee)context.getBean("examinee");
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		RegisterDAO.register(examinee_temp);
+		return model;
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -58,7 +81,7 @@ public class RegisterController {
 		List<TestRoom> TestRoomList = new ArrayList<TestRoom>();
 		TestRoomList = TestRoomDAO.getTestRoomList();
 		view.addObject("TestRoomList", TestRoomList);
-		System.out.println("Here>> "+TestRoomList.toString());
+		
 		return view;
 	}
 	
@@ -81,6 +104,11 @@ public class RegisterController {
 		
 	
 	}
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public ModelAndView Logout(){

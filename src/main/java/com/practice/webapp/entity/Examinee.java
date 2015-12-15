@@ -17,9 +17,9 @@ private String name;
 	private String EmergencyContactMobile;
 	private Boolean lowincome;
 	private Boolean payed;
-	private String ASTscore;
-	private String GSATscore;
-	private String ELscore;
+	private ASTscore ASTscore;
+	private GSATscore GSATscore;
+	private ELscore ELscore;
 	private int subject;
 	private TestRoom testroom = new TestRoom();
 	
@@ -132,29 +132,29 @@ private String name;
      
      
   
-     public String getGSATscore(){
+     public GSATscore getGSATscore(){
     	 return GSATscore;
      }
      
-     public void setGSATscore(String gsatscore){
+     public void setGSATscore(GSATscore gsatscore){
     	 this.GSATscore=gsatscore;
     	 
      }
      
-     public String getASTscore(){
+     public ASTscore getASTscore(){
     	 return ASTscore;
      }
      
-     public void setASTscore(String astscore){
+     public void setASTscore(ASTscore astscore){
     	 this.ASTscore =  astscore;
      }
      
      
-     public String getELscore(){
+     public ELscore getELscore(){
     	 return ELscore;
      }
      
-     public void setELscore(String elscore){
+     public void setELscore(ELscore elscore){
     	 this.ELscore =  elscore;
      }
      

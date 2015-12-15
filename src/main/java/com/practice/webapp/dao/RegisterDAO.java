@@ -8,6 +8,7 @@ public interface RegisterDAO {
 	
 	public void register(Examinee examinee);
 	public Boolean login(Examinee examinee);
+    public void delete(Examinee examinee);
 	public Examinee getExaminee(Examinee examinee);
 	public Boolean ifIDExist(Examinee examinee);
     public Boolean ifEmailExist(Examinee examinee);
