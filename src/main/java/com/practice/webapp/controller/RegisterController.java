@@ -65,29 +65,37 @@ public class RegisterController {
 	@RequestMapping(value = "/center", method = RequestMethod.GET)
 	public ModelAndView Center(){
 		ModelAndView view = new ModelAndView("center");
+		ModelAndView signin = new ModelAndView("signin");
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		Examinee examinee_session = (Examinee)context.getBean("examinee");
-		RegisterDAO.getExaminee(examinee_session);
-		view.addObject("message", examinee_session.getName());
-		return view;
+		if(examinee_session.getEmail().equals("")){
+		   return signin;
+		}
+		
+		else{
+			RegisterDAO.getExaminee(examinee_session);
+			view.addObject("message", examinee_session.getName());
+			return view;
+		}
+		
 		
 	
 	}
 	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView Logout(){
+		ModelAndView view = new ModelAndView("signin");
+		
+		Examinee examinee_session = (Examinee)context.getBean("examinee");
+		examinee_session.setEmail("");
+		examinee_session.setPassword("");
+		view.addObject("message", "登出成功");
+		return view;
+		
 	
+	}
 	
 
-	@RequestMapping(value = "/apply", method = RequestMethod.GET)
-	public ModelAndView Apply(Examinee examinee){
-		ModelAndView view = new ModelAndView("apply");
-		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
-		Examinee examinee_session = (Examinee)context.getBean("examinee");
-		RegisterDAO.getExaminee(examinee_session);
-		view.addObject("message", examinee_session.getName());
-		
-		return view;
-		
 	
-	}
 
 }

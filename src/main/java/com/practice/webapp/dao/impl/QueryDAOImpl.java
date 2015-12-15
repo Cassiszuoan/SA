@@ -29,16 +29,44 @@ public class QueryDAOImpl implements QueryDAO {
 		this.dataSource = dataSource;
 	}
 	
-	
+	@Override
+	public boolean ifExist(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = " select * from Examinee where ID = ? and BIRTH = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			
+			smt.setString(1, examinee.getID());
+			smt.setString(2, examinee.getBirth());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				return true;
+			}
+			rs.close();
+			smt.close();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return false;
+	}
 	@Override
 	public Examinee testRoomQuery(Examinee examinee) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM Examinee WHERE ID = ? and PASSWORD = ?";
+		String sql = "SELECT * FROM Examinee WHERE ID = ? and BIRTH = ?";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, examinee.getID());
-			smt.setString(2, examinee.getPassword());
+			smt.setString(2, examinee.getBirth());
 			rs = smt.executeQuery();
 			if(rs.next()){
 				
@@ -63,37 +91,6 @@ public class QueryDAOImpl implements QueryDAO {
 	}
 	
 
-	@Override
-	public Examinee testNumberQuery(Examinee examinee) {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM Examinee WHERE ID = ? and PASSWORD = ?";
-		try {
-			conn = dataSource.getConnection();
-			smt = conn.prepareStatement(sql);
-			smt.setString(1, examinee.getID());
-			smt.setString(2, examinee.getPassword());
-			rs = smt.executeQuery();
-			if(rs.next()){
-				
-				
-				
-				
-			}
-			rs.close();
-			smt.close();
- 
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
- 
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {}
-			}
-		}
-		return examinee;
-	}
 	
 	
 
@@ -109,6 +106,7 @@ public class QueryDAOImpl implements QueryDAO {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM Testroom WHERE testroomID = ?";
 		try {
+			
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setInt(1, testroom.getId());

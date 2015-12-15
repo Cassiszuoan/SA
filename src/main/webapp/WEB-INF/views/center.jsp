@@ -51,7 +51,7 @@
                   <li><a href="#">修改個人資料</a></li>
                   <li><a data-toggle="modal" data-target="#myModal">准考證查詢</a></li>
                   <li><a data-toggle="modal" data-target="#myModal2">成績查詢</a></li>
-                  <li><a href="#">登出</a></li>
+                  <li><a href="logout">登出</a></li>
                   </ul>
             </li>
           </ul>
@@ -92,17 +92,16 @@
               <form class="form-horizontal" role="form" action="testnumberquery" method="post">
               <div class="modal-container">  
                 <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputPwd" placeholder="身分證字號">
+                    <input type="text" class="form-control" id="exampleInputPwd" name="ID" placeholder="身分證字號">
                 </div>
                 <div class="form-group">
-                    <input type="date" class="form-control" id="exampleInputBirth" placeholder="出生年月日">
+                    <input type="date" class="form-control" id="exampleInputBirth" name="birth" placeholder="出生年月日">
                 </div>
               </div>
                 <div class="form-group">       
                   <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                   <button type="submit" class="btn btn-primary">確認</button>
-                  <p>准考證號碼查詢結果: ${message}</p>
-     <p>考場查詢結果: 代號 ${id}  考場名稱：${name}  地址：${address}</p>
+                  
                 </div>            
               </form>
             </div>

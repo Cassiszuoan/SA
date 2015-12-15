@@ -43,22 +43,13 @@
 
     <div class="container">
 
-      <form class="form-query" action="testnumberquery"  method="post">
+     
         
-		<label>身分證字號:</label>
-        <input class="form-control" type="text" id="ID" name="ID" placeholder="身分證字號">
-        <p></p>
-        
-        <label>密碼:</label>
-        <input class="form-control" type="password" id="password" name="password" placeholder="密碼">
-        <p></p>
-
-       
-        <button name="submit1" class="btn btn-lg btn-primary btn-block move" type="submit">查詢</button>
-      </form>
+		
      
     <p>准考證號碼查詢結果: ${message}</p>
      <p>考場查詢結果: 代號 ${id}  考場名稱：${name}  地址：${address}</p>
+     <label class="label label-warning">${warning}</label>
     </div> <!-- /container -->
 
 

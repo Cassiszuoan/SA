@@ -29,22 +29,26 @@ public class QueryController {
 	public ModelAndView testnumberquery(Examinee examinee){
 		
 		
-		ModelAndView view = new ModelAndView("center");
+		ModelAndView view = new ModelAndView("testnumberquery");
 		QueryDAO QueryDAO = (QueryDAO)context.getBean("QueryDAO");
 		
 		
-		QueryDAO.testNumberQuery(examinee);
+		if(QueryDAO.ifExist(examinee)){
+			TestRoom testroom = QueryDAO.testRoomQuery(examinee).getTestRoom();
+			testroom = QueryDAO.testRoomSetup(testroom);
+			
+			view.addObject("id", testroom.getId());
+			view.addObject("name",testroom.getName());
+			view.addObject("address",testroom.getAddress());
+			return view;
+		}
 		
-		TestRoom testroom = QueryDAO.testRoomQuery(examinee).getTestRoom();
-		QueryDAO.testRoomSetup(testroom);
+		else{
+			
+			view.addObject("warning","資料不存在");
+			return view;
+		}
 		
-		view.addObject("id", testroom.getId());
-		view.addObject("name",testroom.getName());
-		view.addObject("address",testroom.getAddress());
-		
-	
-		
-		return view;
 	}
 	
 	@RequestMapping(value = "/testnumberquery", method = RequestMethod.GET)
