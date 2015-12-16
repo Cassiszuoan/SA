@@ -1,7 +1,7 @@
 package com.practice.webapp.entity;
 import com.practice.webapp.entity.TestRoom;
 public class ASTscore {
-	private int id;
+	 private int id;
 	 private int testnumber;
 	 private TestRoom testroom;
 	 private int Chinese;

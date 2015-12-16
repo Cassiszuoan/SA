@@ -17,9 +17,9 @@ private String name;
 	private String EmergencyContactMobile;
 	private Boolean lowincome;
 	private Boolean payed;
-	private ASTscore ASTscore;
-	private GSATscore GSATscore;
-	private ELscore ELscore;
+	private ASTscore ASTscore = new ASTscore();
+	private GSATscore GSATscore = new GSATscore();
+	private ELscore ELscore = new ELscore();
 	private int subject;
 	private TestRoom testroom = new TestRoom();
 	

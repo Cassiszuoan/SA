@@ -10,6 +10,7 @@ public class GSATscore {
 	private int Society;
 	private int Science;
 	private TestRoom testroom;
+	private String ExamineeID;
 	public int getId() {
 		return id;
 	}
@@ -57,5 +58,11 @@ public class GSATscore {
 	}
 	public void setTestroom(TestRoom testroom) {
 		this.testroom = testroom;
+	}
+	public String getExamineeID() {
+		return ExamineeID;
+	}
+	public void setExamineeID(String examineeID) {
+		ExamineeID = examineeID;
 	}
 }

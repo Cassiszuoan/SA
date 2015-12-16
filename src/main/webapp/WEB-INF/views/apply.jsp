@@ -49,7 +49,9 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${message}，你好</a>
               <ul class="dropdown-menu" role="menu">
                   <li><a href="#">修改個人資料</a></li>
-                  <li><a href="#">登出</a></li>
+                  <li><a data-toggle="modal" data-target="#myModal">准考證查詢</a></li>
+                  <li><a data-toggle="modal" data-target="#myModal2">成績查詢</a></li>
+                  <li><a href="logout">登出</a></li>
                   </ul>
             </li>
           </ul>
@@ -69,28 +71,87 @@
   			<div class="cell">
           <h4>學科能力測驗</h4>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;包括國文、英文、數學、社會、自然五考科，各科測驗範圍以高一及高二之必修課程綱要為準，考生五科都必須應考，成績採級分制，可用於繁星推薦入學、個人申請入學及科技校院申請入學等招生管道。</p>
-          <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考學測</a>
+          <a href="applyGSAT" type="button" class="btn btn-lg btn-danger btn-block">報考學測</a>
+          <label class="label label-warning">${warning}</label>
         </div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<div class="cell">
           <h4>指定科目考試</h4>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以高一到高三之必修及選修課程綱要為準，成績採百分制，用於大學考試入學招生。各校系可依其需求，就考科當中，指定某些考科，以成績選才；考生則依個人興趣及能力，自由選擇應考，即「校系指定，考生選考」的雙向選擇。</p>
-          <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考指考</a>
+          <a href="applyAST" type="button" class="btn btn-lg btn-danger btn-block">報考指考</a>
 			  </div>
       </div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
         <div class="cell">
   				<h4>英語聽力測驗</h4>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配合普通高級中學課程綱要之內涵，針對高中學生英語聽力進行的一項綜合評量。同時，除著重英語於日常生活中之應用與溝通外，也強調課堂學習相關之英語能力，以期能將所學與世界接軌。</p><br/>
-          <a href="#" type="button" class="btn btn-lg btn-danger btn-block">報考英聽</a>
+          <a href="applyEL" type="button" class="btn btn-lg btn-danger btn-block">報考英聽</a>
+          <label class="label label-warning">${warning2}</label>
         </div>
 			</section>
       </div>
       
 			
 		</div><!-- --/row ---->
-	</div><!-- --/container ----><!-- --/social ---->
+	</div>
+	 <!-- Modal -->
+      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">成績查詢</h4>
+            </div>
+            <div class="modal-body">
+              
+              <form class="form-horizontal" role="form" action="#" method="post">
+              <div class="modal-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputTestNum" placeholder="准考證號碼">
+                </div>
+              </div>
+                <div class="form-group">       
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">確認</button>
+                </div>            
+              </form>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <!--modal end -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">准考證查詢</h4>
+            </div>
+            <div class="modal-body">
+              
+              <form class="form-horizontal" role="form" action="testnumberquery" method="post">
+              <div class="modal-container">  
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputPwd" name="ID" placeholder="身分證字號">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="exampleInputBirth" name="birth" placeholder="出生年月日">
+                </div>
+              </div>
+                <div class="form-group">       
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">確認</button>
+                  
+                </div>            
+              </form>
+            </div>
+          </div>
+        </div> 
+      </div>
+      
+      
+	<!-- --/container ----><!-- --/social ---->
   <div id="footerwrap">
 		<div class="container">
 			<div class="row centered">
