@@ -34,12 +34,22 @@ public class QueryController {
 		
 		
 		if(QueryDAO.ifExist(examinee)){
-			TestRoom testroom = QueryDAO.testRoomQuery(examinee).getTestRoom();
-			testroom = QueryDAO.testRoomSetup(testroom);
 			
-			view.addObject("id", testroom.getId());
-			view.addObject("name",testroom.getName());
-			view.addObject("address",testroom.getAddress());
+			//GSAT Query
+			TestRoom GSATtestroom = QueryDAO.GSATtestRoomQuery(examinee).getTestRoom();
+			GSATtestroom = QueryDAO.testRoomSetup(GSATtestroom);
+			view.addObject("GSATtestnumber",QueryDAO.GSATtestnumberQuery(examinee));
+			view.addObject("GSATid", GSATtestroom.getId());
+			view.addObject("GSATname",GSATtestroom.getName());
+			view.addObject("GSATaddress",GSATtestroom.getAddress());
+			// EL Query
+			TestRoom ELtestroom = QueryDAO.ELtestRoomQuery(examinee).getTestRoom();
+			GSATtestroom = QueryDAO.testRoomSetup(ELtestroom);
+			view.addObject("ELtestnumber",QueryDAO.ELtestnumberQuery(examinee));
+			view.addObject("ELid", ELtestroom.getId());
+			view.addObject("ELname",ELtestroom.getName());
+			view.addObject("ELaddress",ELtestroom.getAddress());
+			
 			return view;
 		}
 		

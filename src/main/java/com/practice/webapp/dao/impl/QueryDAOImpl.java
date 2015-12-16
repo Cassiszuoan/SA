@@ -59,18 +59,17 @@ public class QueryDAOImpl implements QueryDAO {
 		return false;
 	}
 	@Override
-	public Examinee testRoomQuery(Examinee examinee) {
+	public Examinee GSATtestRoomQuery(Examinee examinee) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM Examinee WHERE ID = ? and BIRTH = ?";
+		String sql = "SELECT * FROM GSATscore WHERE examineeID = ? ";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, examinee.getID());
-			smt.setString(2, examinee.getBirth());
 			rs = smt.executeQuery();
 			if(rs.next()){
 				
-				examinee.getTestRoom().setId(rs.getInt("testroom"));
+				examinee.getTestRoom().setId(rs.getInt("testroomID"));
 				
 				
 			}
@@ -133,6 +132,101 @@ public class QueryDAOImpl implements QueryDAO {
 			}
 		}
 		return testroom;
+	}
+
+	@Override
+	public int GSATtestnumberQuery(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM GSATscore WHERE examineeID = ? ";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				return rs.getInt("Test_Num");
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return 0;
+		
+	}
+
+	@Override
+	public Examinee ELtestRoomQuery(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM ELscore WHERE examineeID = ? ";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				examinee.getTestRoom().setId(rs.getInt("testroom_ID"));
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return examinee;
+	}
+
+	@Override
+	public int ELtestnumberQuery(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM ELscore WHERE examineeID = ? ";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				return rs.getInt("Test_Num");
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return 0;
+		
 	}
 
 }
