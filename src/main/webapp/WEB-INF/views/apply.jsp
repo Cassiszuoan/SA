@@ -80,6 +80,7 @@
           <h4>指定科目考試</h4>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以高一到高三之必修及選修課程綱要為準，成績採百分制，用於大學考試入學招生。各校系可依其需求，就考科當中，指定某些考科，以成績選才；考生則依個人興趣及能力，自由選擇應考，即「校系指定，考生選考」的雙向選擇。</p>
           <a href="applyAST" type="button" class="btn btn-lg btn-danger btn-block">報考指考</a>
+          <label class="label label-warning">${warning3}</label>
 			  </div>
       </div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">

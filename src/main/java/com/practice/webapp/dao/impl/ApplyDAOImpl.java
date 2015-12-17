@@ -191,7 +191,7 @@ public class ApplyDAOImpl implements ApplyDAO {
 	@Override
 	public void newASTscore(Examinee examinee) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT ASTscore(examineeID,Chinsese,English,MathA,MathB,History,Geography,Civics,Physics,Chemistry,Biology) "
+		String sql = "INSERT ASTscore(examineeID,Chinese,English,MathA,MathB,History,Geography,Civics,Physics,Chemistry,Biology) "
 				+ "VALUES(?,0,0,0,0,0,0,0,0,0,0)";
 		try {
 			conn = dataSource.getConnection();

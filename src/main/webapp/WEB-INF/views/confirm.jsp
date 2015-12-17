@@ -50,7 +50,7 @@
 					  		<td>${examinee.birth}</td>
 					  		
 					  		<td>
-					  			<a class="btn btn-sm btn-danger deleteBtn" href="register">重新填寫資料</a>
+					  			<a class="btn btn-sm btn-danger deleteBtn" href="doublecheck">重新填寫資料</a>
 					  			<a class="btn btn-sm btn-danger deleteBtn" href="ConfirmExaminee" data-toggle="modal">確認註冊</a>
 					  		</td>
 					  	</tr>

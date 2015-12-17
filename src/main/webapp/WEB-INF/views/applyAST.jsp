@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
   <head>
@@ -50,10 +50,17 @@
 					  		<td>${ID}</td>
 					  		
 					  		<td>
+					  	<form:form method="POST" commandName="examinee" action="confirmapplyAST">
+					  	  <form:checkboxes path="subject" items="${subject}" />
 					  			<a class="btn btn-sm btn-danger deleteBtn" href="modify">修改資料</a>
 					  			<a class="btn btn-sm btn-danger deleteBtn" href="apply">回到報考頁面</a>
-					  			<a class="btn btn-sm btn-danger deleteBtn" href="confirmapplyAST" data-toggle="modal">確認報考</a>
+					  			
+					  			<button name="submit" class="btn btn-sm btn-danger deleteBtn" type="submit">確認報考</button>
+					  		</form:form>
+
+					  		
 					  		</td>
+					  		
 					  	</tr>
      
         

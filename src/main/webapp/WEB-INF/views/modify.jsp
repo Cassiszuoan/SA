@@ -47,8 +47,8 @@
 
     <div class="container">
 
-      <form class="form-signin" action="register"  method="post">
-        <h2 class="form-signin-heading">填寫基本資料</h2><p><label class="label label-danger">${warning}</label></p>
+      <form class="form-signin" action="modifyData"  method="post">
+        <h2 class="form-signin-heading">更改基本資料</h2><p><label class="label label-danger">${warning}</label></p>
        
         <p></p>
         <label>姓名:</label>
@@ -64,15 +64,7 @@
 		<label>生日:</label>
 		<input class="form-control" type="date" id="birth" name="birth" placeholder="1990/01/01" value="${birth}">
 		<p></p>
-		<label>身分證字號:</label>
-		<P><label class="label label-warning">${message}</label></P>
-        <input class="form-control" type="text" id="ID" name="ID" placeholder="身分證字號" value="${id}">
-        <p></p>
-       
-        <label>EMAIL:</label>
-        <p><label class="label label-warning">${message2}</label></p>
-        <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="${email}">
-        <p></p>
+		
         
         <label>密碼:</label>
         <input class="form-control" type="password" id="password" name="password" placeholder="密碼" value="${password}">

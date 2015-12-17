@@ -99,19 +99,20 @@ public class RegisterDAOImpl implements RegisterDAO{
 	
 	public void modify(Examinee examinee) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE Examinee SET NAME=?, BIRTH=?, PHONE=?, ADDRESS=? , EMER_NAME=?,EMER_RELA=?,EMER_MOBILE=?"
+		String sql = "UPDATE Examinee SET NAME=?, BIRTH=?, PHONE=?, ADDRESS=? , EMER_NAME=?,EMER_RELA=?,EMER_MOBILE=? "
 				+ "WHERE ID = ?";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
-			smt.setString(1, "");
-			smt.setString(2, "");
-			smt.setString(3, "");
-			smt.setString(4, "");
-			smt.setString(5, "");
-			smt.setString(6, "");
-			smt.setString(7, "");
-			smt.setString(8, "");
+			smt.setString(1, examinee.getName());
+			smt.setString(2, examinee.getBirth());
+			smt.setString(3, examinee.getPhone());
+			smt.setString(4, examinee.getAddress());
+			smt.setString(5, examinee.getEmergencyContact());
+			smt.setString(6, examinee.getEmergencyContactRelationship());
+			smt.setString(7, examinee.getEmergencyContactMobile());
+			
+			smt.setString(8, examinee.getID());
 			
 			smt.executeUpdate();			
 			smt.close();
@@ -179,8 +180,35 @@ public class RegisterDAOImpl implements RegisterDAO{
     
     
     public void setSubject(Examinee examinee){
-    	
-    }
+    	String sql = " UPDATE Examinee SET Subject=? where ID = ?";
+    	ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
+		String subject="";
+		for(String s: list){
+			subject += s + "\t";
+		}
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, subject);
+			smt.setString(2, examinee.getID());
+			
+			
+			smt.executeUpdate();			
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
+	}
+    
 
 	@Override
 	public Boolean ifIDExist(Examinee examinee) {

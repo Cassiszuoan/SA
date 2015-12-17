@@ -1,4 +1,5 @@
 package com.practice.webapp.entity;
+import java.util.List;
 
 
 
@@ -20,7 +21,7 @@ private String name;
 	private ASTscore ASTscore = new ASTscore();
 	private GSATscore GSATscore = new GSATscore();
 	private ELscore ELscore = new ELscore();
-	private int subject;
+	private List<String>  subject;
 	private TestRoom testroom = new TestRoom();
 	
 	
@@ -158,10 +159,10 @@ private String name;
     	 this.ELscore =  elscore;
      }
      
-     public void setSubject(int subject){
+     public void setSubject(List<String> subject){
     	 this.subject = subject;
      }
-     public int getSubject(){
+     public List<String> getSubject(){
     	 return subject;
      }
      public void setPayed(Boolean payed){

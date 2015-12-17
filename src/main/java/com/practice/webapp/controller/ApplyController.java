@@ -1,4 +1,6 @@
 package com.practice.webapp.controller;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +42,9 @@ public class ApplyController {
 		}
 		if(examinee_session.getELscore().getId()!=1){
 			view.addObject("warning2", "已報考英聽");
+		}
+		if(examinee_session.getASTscore().getID()!=1){
+		view.addObject("warning3", "已報考指考");
 		}
 		return view;
 		
@@ -100,12 +105,35 @@ public class ApplyController {
 	}
 	
 	@RequestMapping(value = "/applyAST", method = RequestMethod.GET)
-	public ModelAndView ApplyAST(Examinee examinee){
+	public ModelAndView ApplyAST(){
 		ModelAndView view = new ModelAndView("applyAST");
 		ModelAndView view2 = new ModelAndView("redirect:/apply");
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		Examinee examinee_session = (Examinee)context.getBean("examinee");
 		RegisterDAO.getExaminee(examinee_session);
+		
+		List<String> subject = new ArrayList<String>();
+		
+		subject.add("國文");
+		
+		subject.add("英文");
+		
+		subject.add("數甲");
+		
+		subject.add("數乙");
+		
+		subject.add("物理");
+		subject.add("化學");
+		subject.add("生物");
+		subject.add("歷史");
+		subject.add("地理");
+        subject.add("公民");
+		
+	    view.addObject("subject",subject);
+	    view.addObject("examinee",examinee_session);
+	  
+	    
+	    
 		if(examinee_session.getASTscore().getID()==1){
 		view.addObject("name", examinee_session.getName());
 	    view.addObject("ID",examinee_session.getID());
@@ -156,14 +184,28 @@ public class ApplyController {
 		
 	}
 	
-@RequestMapping(value = "/confirmapplyAST", method = RequestMethod.GET)
+	
+	
+@RequestMapping(value = "/confirmapplyAST", method = RequestMethod.POST)
 	
 	public ModelAndView confirmApplyAST(Examinee examinee){
 		ModelAndView view = new ModelAndView("redirect:/apply");
 		ApplyDAO ApplyDAO = (ApplyDAO)context.getBean("ApplyDAO");
 		Examinee examinee_session = (Examinee)context.getBean("examinee");
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		view.addObject("examinee", examinee_session);
+		System.out.println("Here>>>>>"+examinee.getSubject());
+		
+		examinee_session.setSubject(examinee.getSubject());
+		ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
+		String subject="";
+		for(String s: list){
+			subject += s + "\t";
+		}
+		System.out.print(subject);
+		
 		RegisterDAO.getExaminee(examinee_session);
+		RegisterDAO.setSubject(examinee_session);
 		ApplyDAO.newASTscore(examinee_session);
 		ApplyDAO.getASTscore(examinee_session);
 		ApplyDAO.applyAST(examinee_session);

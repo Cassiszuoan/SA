@@ -63,6 +63,41 @@ public class RegisterController {
 		
 	}
 	
+	@RequestMapping(value = "/modify" , method = RequestMethod.GET)
+	public ModelAndView Modify(Examinee examinee){
+		ModelAndView model = new ModelAndView("modify");
+		
+		Examinee examinee_temp = (Examinee)context.getBean("examinee");
+		
+		  model.addObject("id",examinee_temp.getID());
+		  model.addObject("email",examinee_temp.getEmail());
+		  model.addObject("password",examinee_temp.getPassword());
+		  model.addObject("name",examinee_temp.getName());
+		  model.addObject("phone",examinee_temp.getPhone());
+		  model.addObject("gender",examinee_temp.getGender());
+		  model.addObject("birth",examinee_temp.getBirth());
+		  model.addObject("address",examinee_temp.getAddress());
+		  model.addObject("emercontact",examinee_temp.getEmergencyContact());
+		  model.addObject("emerrela",examinee_temp.getEmergencyContactRelationship());
+		  model.addObject("emermobile",examinee_temp.getEmergencyContactMobile());
+		  
+		  
+		  return model;
+	}
+	
+	@RequestMapping(value= "/modifyData",method = RequestMethod.POST)
+	public ModelAndView ModifyData(Examinee examinee){
+		ModelAndView model = new ModelAndView("center");
+		Examinee examinee_temp = (Examinee)context.getBean("examinee");
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		examinee.setID(examinee_temp.getID());
+		RegisterDAO.modify(examinee);
+		model.addObject("message", examinee.getName());
+		return model;
+		
+		
+	}
+	
 	@RequestMapping(value = "/ConfirmExaminee", method = RequestMethod.GET)
 	public ModelAndView ConfirmExaminee(Examinee examinee){
 		ModelAndView model = new ModelAndView("signin");
@@ -72,6 +107,24 @@ public class RegisterController {
 		return model;
 	}
 	
+	@RequestMapping(value= "/doublecheck" , method = RequestMethod.GET)
+	public ModelAndView DoubleCheck(Examinee examinee){
+	  ModelAndView model = new ModelAndView("register");
+	  Examinee examinee_temp = (Examinee)context.getBean("examinee");
+	  model.addObject("id",examinee_temp.getID());
+	  model.addObject("email",examinee_temp.getEmail());
+	  model.addObject("password",examinee_temp.getPassword());
+	  model.addObject("name",examinee_temp.getName());
+	  model.addObject("phone",examinee_temp.getPhone());
+	  model.addObject("gender",examinee_temp.getGender());
+	  model.addObject("birth",examinee_temp.getBirth());
+	  model.addObject("address",examinee_temp.getAddress());
+	  model.addObject("emercontact",examinee_temp.getEmergencyContact());
+	  model.addObject("emerrela",examinee_temp.getEmergencyContactRelationship());
+	  model.addObject("emermobile",examinee_temp.getEmergencyContactMobile());
+	  
+	  return model;
+	}
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	
 	

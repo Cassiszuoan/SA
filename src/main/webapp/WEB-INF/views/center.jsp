@@ -48,7 +48,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${message}，你好</a>
               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">修改個人資料</a></li>
+                  <li><a href="modify">修改個人資料</a></li>
                   <li><a data-toggle="modal" data-target="#myModal">准考證查詢</a></li>
                   <li><a data-toggle="modal" data-target="#myModal2">成績查詢</a></li>
                   <li><a href="logout">登出</a></li>
