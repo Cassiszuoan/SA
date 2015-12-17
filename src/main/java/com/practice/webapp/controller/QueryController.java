@@ -47,10 +47,23 @@ public class QueryController {
 				view.addObject("GSATwarning","尚未報考學測");
 			}
 			else{
-			view.addObject("GSATtestnumber",QueryDAO.GSATtestnumberQuery(examinee));
+				
+				
+				 if(QueryDAO.GSATtestnumberQuery(examinee)==100000000){
+				    	view.addObject("GSATtestnumber","學測准考證尚未分配");
+				    }
+				    else{
+					view.addObject("GSATtestnumber",QueryDAO.GSATtestnumberQuery(examinee));
+				    }
+			if(GSATtestroom.getId()==0){
+				view.addObject("GSATid", "尚未分配考場");
+			}
+			else{
 			view.addObject("GSATid", GSATtestroom.getId());
 			view.addObject("GSATname",GSATtestroom.getName());
 			view.addObject("GSATaddress",GSATtestroom.getAddress());
+			}
+			
 			}
 			// EL Query
 			
@@ -60,10 +73,23 @@ public class QueryController {
 				view.addObject("ELwarning","尚未報考英聽");
 			}
 			else{
+		    if(QueryDAO.ELtestnumberQuery(examinee)==300000000){
+		    	view.addObject("ELtestnumber","英聽准考證尚未分配");
+		    }
+		    else{
 			view.addObject("ELtestnumber",QueryDAO.ELtestnumberQuery(examinee));
+		    }
+			
+			if(ELtestroom.getId()==0){
+				view.addObject("ELid", "尚未分配考場");
+			}
+			else{
+				
+			
 			view.addObject("ELid", ELtestroom.getId());
 			view.addObject("ELname",ELtestroom.getName());
 			view.addObject("ELaddress",ELtestroom.getAddress());
+			}
 			}
 			//AST Query
 			TestRoom ASTtestroom = QueryDAO.ASTtestRoomQuery(examinee).getTestRoom();
@@ -72,10 +98,20 @@ public class QueryController {
 				view.addObject("ASTwarning","尚未報考指考");
 			}
 			else{
-			view.addObject("ASTtestnumber",QueryDAO.ASTtestnumberQuery(examinee));
+				 if(QueryDAO.ASTtestnumberQuery(examinee)==200000000){
+				    	view.addObject("ASTtestnumber","指考准考證尚未分配");
+				    }
+				    else{
+					view.addObject("ASTtestnumber",QueryDAO.ASTtestnumberQuery(examinee));
+				    }
+			if(ASTtestroom.getId()==0){
+				view.addObject("ASTid", "尚未分配考場");
+			}
+			else{
 			view.addObject("ASTid", ASTtestroom.getId());
 			view.addObject("ASTname",ASTtestroom.getName());
 			view.addObject("ASTaddress",ASTtestroom.getAddress());
+			}
 			}
 			
 			return view;
