@@ -52,7 +52,7 @@
 					  		<td>
 					  			<a class="btn btn-sm btn-danger deleteBtn" href="modify">修改資料</a>
 					  			<a class="btn btn-sm btn-danger deleteBtn" href="apply">回到報考頁面</a>
-					  			<a class="btn btn-sm btn-danger deleteBtn" href="confirmapplyEL" data-toggle="modal">確認報考</a>
+					  			<a class="btn btn-sm btn-danger deleteBtn" href="confirmapplyAST" data-toggle="modal">確認報考</a>
 					  		</td>
 					  	</tr>
      

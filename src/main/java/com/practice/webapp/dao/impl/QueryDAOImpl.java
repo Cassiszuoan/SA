@@ -229,4 +229,67 @@ public class QueryDAOImpl implements QueryDAO {
 		
 	}
 
+	@Override
+	public Examinee ASTtestRoomQuery(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM ASTscore WHERE examineeID = ? ";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				examinee.getTestRoom().setId(rs.getInt("testroomID"));
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return examinee;
+	
+	}
+
+	@Override
+	public int ASTtestnumberQuery(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM ASTscore WHERE examineeID = ? ";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				return rs.getInt("Test_Num");
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return 0;
+	}
+
 }

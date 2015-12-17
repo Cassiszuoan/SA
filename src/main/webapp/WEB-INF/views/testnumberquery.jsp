@@ -48,11 +48,21 @@
 		
      
     <p>學測准考證號碼查詢結果: ${GSATtestnumber}</p>
+    <label class="label label-warning">${GSATwarning}</label>
      <p>學測考場查詢結果:   代號 ${GSATid}     考場名稱：${GSATname}     地址：${GSATaddress}</p>
      
      
+      <p>指考准考證號碼查詢結果: ${ASTtestnumber}</p>
+      <label class="label label-warning">${ASTwarning}</label>
+     <p>指考考場查詢結果: 代號 ${ASTid}  考場名稱：${ASTname}  地址：${ASTaddress}</p>
+     
+     
      <p>英聽准考證號碼查詢結果: ${ELtestnumber}</p>
+     <label class="label label-warning">${ELwarning}</label>
      <p>英聽考場查詢結果: 代號 ${ELid}  考場名稱：${ELname}  地址：${ELaddress}</p>
+     
+     
+    
      <label class="label label-warning">${warning}</label>
     </div> <!-- /container -->
 

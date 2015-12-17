@@ -107,12 +107,7 @@ public class ApplyDAOImpl implements ApplyDAO {
 		
 	}
 
-	@Override
-	public void applyAST(Examinee examinee) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	public void newELscore(Examinee examinee){
 		String sql = "INSERT ELscore(score,examineeID) "
 				+ "VALUES(0,?)";
@@ -191,6 +186,92 @@ public class ApplyDAOImpl implements ApplyDAO {
 		}
 		
 	}
+
+
+	@Override
+	public void newASTscore(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "INSERT ASTscore(examineeID,Chinsese,English,MathA,MathB,History,Geography,Civics,Physics,Chemistry,Biology) "
+				+ "VALUES(?,0,0,0,0,0,0,0,0,0,0)";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			smt.executeUpdate();			
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
+	}
+
+
+	@Override
+	public int getASTscore(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "Select * from ASTscore where examineeID = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			
+			rs = smt.executeQuery();
+			if(rs.next()){
+				examinee.getASTscore().setID(rs.getInt("Score_ID"));
+			}
+			rs.close();
+			smt.close();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
+		return 1;
+		
+	}
+	
+	@Override
+	public void applyAST(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE Examinee SET ASTscore = ? "
+				+ "WHERE ID = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setInt(1, examinee.getASTscore().getID());
+			smt.setString(2, examinee.getID());
+			
+			smt.executeUpdate();			
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
+	}
+
 
 
 }

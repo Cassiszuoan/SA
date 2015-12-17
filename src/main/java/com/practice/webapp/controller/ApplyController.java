@@ -99,6 +99,32 @@ public class ApplyController {
 	
 	}
 	
+	@RequestMapping(value = "/applyAST", method = RequestMethod.GET)
+	public ModelAndView ApplyAST(Examinee examinee){
+		ModelAndView view = new ModelAndView("applyAST");
+		ModelAndView view2 = new ModelAndView("redirect:/apply");
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		Examinee examinee_session = (Examinee)context.getBean("examinee");
+		RegisterDAO.getExaminee(examinee_session);
+		if(examinee_session.getASTscore().getID()==1){
+		view.addObject("name", examinee_session.getName());
+	    view.addObject("ID",examinee_session.getID());
+	    view.addObject("birth",examinee_session.getBirth());
+	    view.addObject("phone", examinee_session.getPhone());
+	    view.addObject("address",examinee_session.getAddress());
+	    view.addObject("gender",examinee_session.getGender());
+	    view.addObject("emercontact",examinee_session.getEmergencyContact());
+	    view.addObject("emerrealtion",examinee_session.getEmergencyContactRelationship());
+	    view.addObject("emermobile",examinee_session.getEmergencyContactMobile());
+		return view;
+		}
+		else{
+			view.addObject("message", examinee_session.getName());
+			return view2;
+		}
+	
+	}
+	
 @RequestMapping(value = "/confirmapplyEL", method = RequestMethod.GET)
 	
 	public ModelAndView confirmApplyEL(Examinee examinee){
@@ -125,6 +151,22 @@ public class ApplyController {
 		ApplyDAO.newGSATscore(examinee_session);
 		ApplyDAO.getGSATscore(examinee_session);
 		ApplyDAO.applyGSAT(examinee_session);
+		return view;
+		
+		
+	}
+	
+@RequestMapping(value = "/confirmapplyAST", method = RequestMethod.GET)
+	
+	public ModelAndView confirmApplyAST(Examinee examinee){
+		ModelAndView view = new ModelAndView("redirect:/apply");
+		ApplyDAO ApplyDAO = (ApplyDAO)context.getBean("ApplyDAO");
+		Examinee examinee_session = (Examinee)context.getBean("examinee");
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		RegisterDAO.getExaminee(examinee_session);
+		ApplyDAO.newASTscore(examinee_session);
+		ApplyDAO.getASTscore(examinee_session);
+		ApplyDAO.applyAST(examinee_session);
 		return view;
 		
 		

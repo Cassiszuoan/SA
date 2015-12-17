@@ -26,12 +26,12 @@ public class AccountController {
 		
 		if (RegisterDAO.login(examinee)){
 			//save username and password in the session bean
-			Examinee examinee_session = (Examinee)context.getBean("examinee");
-			examinee_session.setEmail(examinee.getEmail());
-			examinee_session.setPassword(examinee.getPassword());
+			Examinee examinee_temp = (Examinee)context.getBean("examinee");
+			examinee_temp.setEmail(examinee.getEmail());
+			examinee_temp.setPassword(examinee.getPassword());
 			System.out.println("Successful!");
-			RegisterDAO.getExaminee(examinee_session);
-			view.addObject("message", examinee_session.getName());
+			RegisterDAO.getExaminee(examinee_temp);
+			view.addObject("message", examinee_temp.getName());
 		}
 		else{
 			view = new ModelAndView("signin");
@@ -40,9 +40,9 @@ public class AccountController {
 			System.out.println(examinee.getPassword());
 			System.out.println("failed!");
 			//reset username and password in the session bean
-			Examinee examinee_session = (Examinee)context.getBean("examinee");
-			examinee_session.setEmail("");
-			examinee_session.setPassword("");
+			Examinee examinee_temp = (Examinee)context.getBean("examinee");
+			examinee_temp.setEmail("");
+			examinee_temp.setPassword("");
 		}	
 
 		return view;

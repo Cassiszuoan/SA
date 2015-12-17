@@ -9,6 +9,8 @@ public interface QueryDAO {
 	public int GSATtestnumberQuery(Examinee examinee);
 	public Examinee ELtestRoomQuery(Examinee examinee);
 	public int ELtestnumberQuery(Examinee examinee);
+	public Examinee ASTtestRoomQuery(Examinee examinee);
+	public int ASTtestnumberQuery(Examinee examinee);
 	public TestRoom testRoomSetup(TestRoom testroom);
 	public String ScoreQuery(Examinee examinee);
 	public boolean ifExist(Examinee examinee);
