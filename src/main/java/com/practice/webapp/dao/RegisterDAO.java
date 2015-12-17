@@ -12,6 +12,7 @@ public interface RegisterDAO {
 	public Examinee getExaminee(Examinee examinee);
 	public Boolean ifIDExist(Examinee examinee);
     public Boolean ifEmailExist(Examinee examinee);
+    public void modify(Examinee examinee);
 	
     
     public void setSubject(Examinee examinee);

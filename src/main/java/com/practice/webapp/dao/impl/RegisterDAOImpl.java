@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 
 //import com.mysql.jdbc.Statement;
 import com.practice.webapp.dao.RegisterDAO;
+import com.practice.webapp.entity.Article;
 import com.practice.webapp.entity.ArticleCategory;
 import com.practice.webapp.entity.Examinee;
 import com.practice.webapp.entity.TestRoom;
@@ -96,7 +97,36 @@ public class RegisterDAOImpl implements RegisterDAO{
 		
 	}
 	
-	
+	public void modify(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE Examinee SET NAME=?, BIRTH=?, PHONE=?, ADDRESS=? , EMER_NAME=?,EMER_RELA=?,EMER_MOBILE=?"
+				+ "WHERE ID = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, "");
+			smt.setString(2, "");
+			smt.setString(3, "");
+			smt.setString(4, "");
+			smt.setString(5, "");
+			smt.setString(6, "");
+			smt.setString(7, "");
+			smt.setString(8, "");
+			
+			smt.executeUpdate();			
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+	}
 	public Examinee getExaminee(Examinee examinee){
 		String sql = "SELECT * FROM Examinee WHERE EMAIL = ?";
 		try {

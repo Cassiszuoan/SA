@@ -64,7 +64,7 @@ body {
     font-size: 16px;
     /*background-color: rgba(254, 245, 188, .5);*/
     background-image: url(pic/bg_new.jpg);
-  	background-size: 1600px 1600px;
+  	background-size: cover;
   	background-repeat : repeat;
 
     -webkit-font-smoothing: antialiased;
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-default {
-	background-color: transparent;
+	background-color: #000;
 	border-color: transparent;
 }
 
@@ -123,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 
 #headerwrap {
-	background: url(#) no-repeat center top;
+	background: url(pic/bg_books3.jpg) no-repeat center top;
 	margin-top: -70px;
 	padding-top: 250px;
 	text-align:center;
@@ -148,6 +148,47 @@ h1, h2, h3, h4, h5, h6 {
 	padding-top: 10px;
 	padding-bottom: 20px;
 	letter-spacing: 4px;
+	font-size: 60px;
+	font-weight: bold;
+	font-family: Microsoft JhengHei;
+}
+
+#headerwrap h4 {
+	font-weight: 700;
+	color: #ffffff;
+	font-family: Microsoft JhengHei;
+	margin-top: -20px;
+	font-size: 12px;
+}
+
+
+@media (min-width: 768px) {
+  #headerwrap {	
+	background: url(pic/bg_books4.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+ }
+
+ #headerwrap h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
 	font-size: 80px;
 	font-weight: bold;
 	font-family: Microsoft JhengHei;
@@ -157,6 +198,9 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	color: #ffffff;
 	font-family: Microsoft JhengHei;
+	margin-top: -20px;
+	font-size: 18px;
+}
 }
 
 #social {
@@ -262,4 +306,50 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-container {
 	padding: 50px 150px 50px 150px;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  min-height: 650px;
+  width: 100%;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  min-height: 650px;
+  width: 100%;
+  background-color: transparent;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 650px;
+
+}
+
+.carousel-caption2 {
+  padding-top: 50px;
+}
+
+.carousel-caption2 > h1{
+	font-size: 26px;
+}
+
+.carousel-caption2 > h1, .carousel-caption2 > h4 {
+	text-align: center;
+	font-family: Microsoft JhengHei;
+}
+
+.h4-color {
+	color: #000;
+	margin-top: -20px;
 }

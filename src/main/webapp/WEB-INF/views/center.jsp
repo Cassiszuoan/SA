@@ -67,6 +67,248 @@
         </div>
         </div><!-- --/row ---->
       </div><!-- --/headerwrap ---->
+
+      <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <div class="container">
+            <div class="carousel-caption2">
+              <table class="table table-condensed">
+                    <tr>
+                      <td class="active">集體報名前置作業系統</td>
+                      <td class="success">104.10.06 - 104.11.12</td>
+                      <td class="warning">限集體報名單位使用《學測、英聽、術科均使用同一前置作業系統》</td>
+                    </tr>
+                    <tr>
+                      <td class="active">個別報名</td>
+                      <td class="success">104.10.29 - 104.11.12</td>
+                      <td class="warning">限非應屆畢業生使用</td>
+                    </tr>
+                    <tr>
+                      <td class="active">身心障礙考生應考服務網</td>
+                      <td class="success">104.10.29 - 104.11.12</td>
+                      <td class="warning">...</td>
+                    </tr>
+                    <tr>
+                      <td class="active">報名處理進度查詢</td>
+                      <td class="success">104.10.29 - 104.11.12 </td>
+                      <td class="warning">...</td>
+                    </tr>
+                    <tr>
+                      <td class="active">報名資料確認查詢</td>
+                      <td class="success"> 104.12.09 - 104.12.11</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">個別報名考生准考證資料更正</td>
+                      <td class="success">104.12.24 - 104.12.29</td>
+                      <td class="warning">限非應屆畢業生使用</td>
+                    </tr>
+                     <tr>
+                      <td class="active">准考證郵寄掛號號碼查詢</td>
+                      <td class="success">104.12.24 - 105.01.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                     <tr>
+                      <td class="active">准考證號碼查詢</td>
+                      <td class="success"> 104.12.24 - 105.08.31</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">試場查詢</td>
+                      <td class="success">105.01.08 - 105.01.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">突發傷病考生應考服務網</td>
+                      <td class="success">105.01.08 - 105.01.19 </td>
+                      <td class="warning"></td>
+                    </tr>
+                     <tr>
+                      <td class="active">成績查詢</td>
+                      <td class="success">105.02.18 - 105.08.31</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">成績複查申請</td>
+                      <td class="success">105.02.19 - 105.02.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">成績複查結果查詢</td>
+                      <td class="success">105.02.26 - 105.03.25</td>
+                      <td class="warning"></td>
+                    </tr>
+                </table>
+              <h1>105學年度學科能力測驗</h1>
+              <h4>各項系統開放時間</h4>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption2">
+              <p>
+                <table class="table table-condensed">
+                    <tr>
+                      <td class="active">集體報名前置作業系統</td>
+                      <td class="success">104.10.06 - 104.11.12</td>
+                      <td class="warning">限集體報名單位使用《學測、英聽、術科均使用同一前置作業系統》</td>
+                    </tr>
+                    <tr>
+                      <td class="active">個別報名</td>
+                      <td class="success">104.10.29 - 104.11.12</td>
+                      <td class="warning">限非應屆畢業生使用</td>
+                    </tr>
+                    <tr>
+                      <td class="active">身心障礙考生應考服務網</td>
+                      <td class="success">104.10.29 - 104.11.12</td>
+                      <td class="warning">...</td>
+                    </tr>
+                    <tr>
+                      <td class="active">報名處理進度查詢</td>
+                      <td class="success">104.10.29 - 104.11.12 </td>
+                      <td class="warning">...</td>
+                    </tr>
+                    <tr>
+                      <td class="active">報名資料確認查詢</td>
+                      <td class="success"> 104.12.09 - 104.12.11</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">個別報名考生准考證資料更正</td>
+                      <td class="success">104.12.24 - 104.12.29</td>
+                      <td class="warning">限非應屆畢業生使用</td>
+                    </tr>
+                     <tr>
+                      <td class="active">准考證郵寄掛號號碼查詢</td>
+                      <td class="success">104.12.24 - 105.01.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                     <tr>
+                      <td class="active">准考證號碼查詢</td>
+                      <td class="success"> 104.12.24 - 105.08.31</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">試場查詢</td>
+                      <td class="success">105.01.08 - 105.01.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">突發傷病考生應考服務網</td>
+                      <td class="success">105.01.08 - 105.01.19 </td>
+                      <td class="warning"></td>
+                    </tr>
+                     <tr>
+                      <td class="active">成績查詢</td>
+                      <td class="success">105.02.18 - 105.08.31</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">成績複查申請</td>
+                      <td class="success">105.02.19 - 105.02.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">成績複查結果查詢</td>
+                      <td class="success">105.02.26 - 105.03.25</td>
+                      <td class="warning"></td>
+                    </tr>
+                </table>
+              <p>
+                <h1>105學年度指定科目考試</h1>
+                <h4>各項系統開放時間</h4>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption2">
+              <table class="table table-condensed">
+                    <tr>
+                      <td class="active">集體報名前置作業系統</td>
+                      <td class="success">104.10.06 - 104.11.12</td>
+                      <td class="warning">限集體報名單位使用《學測、英聽、術科均使用同一前置作業系統》</td>
+                    </tr>
+                    <tr>
+                      <td class="active">個別報名</td>
+                      <td class="success">104.10.29 - 104.11.12</td>
+                      <td class="warning">限非應屆畢業生使用</td>
+                    </tr>
+                    <tr>
+                      <td class="active">身心障礙考生應考服務網</td>
+                      <td class="success">104.10.29 - 104.11.12</td>
+                      <td class="warning">...</td>
+                    </tr>
+                    <tr>
+                      <td class="active">報名處理進度查詢</td>
+                      <td class="success">104.10.29 - 104.11.12 </td>
+                      <td class="warning">...</td>
+                    </tr>
+                    <tr>
+                      <td class="active">報名資料確認查詢</td>
+                      <td class="success"> 104.12.09 - 104.12.11</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">個別報名考生准考證資料更正</td>
+                      <td class="success">104.12.24 - 104.12.29</td>
+                      <td class="warning">限非應屆畢業生使用</td>
+                    </tr>
+                     <tr>
+                      <td class="active">准考證郵寄掛號號碼查詢</td>
+                      <td class="success">104.12.24 - 105.01.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                     <tr>
+                      <td class="active">准考證號碼查詢</td>
+                      <td class="success"> 104.12.24 - 105.08.31</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">試場查詢</td>
+                      <td class="success">105.01.08 - 105.01.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">突發傷病考生應考服務網</td>
+                      <td class="success">105.01.08 - 105.01.19 </td>
+                      <td class="warning"></td>
+                    </tr>
+                     <tr>
+                      <td class="active">成績查詢</td>
+                      <td class="success">105.02.18 - 105.08.31</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">成績複查申請</td>
+                      <td class="success">105.02.19 - 105.02.23</td>
+                      <td class="warning"></td>
+                    </tr>
+                    <tr>
+                      <td class="active">成績複查結果查詢</td>
+                      <td class="success">105.02.26 - 105.03.25</td>
+                      <td class="warning"></td>
+                    </tr>
+                </table>
+                <h1>高中英語聽力測驗</h1>
+                <h4>各項系統開放時間</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div><!-- /.carousel -->
+
       <section id="works"></section>
       <div class="container">
 		<div class="row centered mt mb">
