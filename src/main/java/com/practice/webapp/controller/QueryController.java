@@ -14,8 +14,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.practice.webapp.dao.RegisterDAO;
 import com.practice.webapp.dao.ProductDAO;
 import com.practice.webapp.dao.QueryDAO;
+import com.practice.webapp.entity.ASTscore;
+import com.practice.webapp.entity.ELscore;
 import com.practice.webapp.entity.Examinee;
 import com.practice.webapp.entity.TestRoom;
+import com.practice.webapp.entity.GSATscore;
 
 @Controller
 public class QueryController {
@@ -132,6 +135,45 @@ public class QueryController {
 	
 		
 		return model;
+	}
+	
+	@RequestMapping(value = "/scorequery", method = RequestMethod.POST)
+	public ModelAndView GSATscoreQuery(Examinee examinee){
+		
+		ModelAndView model = new ModelAndView("scorequery");
+		QueryDAO QueryDAO = (QueryDAO)context.getBean("QueryDAO");
+		Examinee examinee_temp = (Examinee)context.getBean("examinee");
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		RegisterDAO.getExaminee(examinee_temp);
+		
+		if(QueryDAO.ifExist(examinee)){
+		QueryDAO.GSATScoreQuery(examinee_temp);
+        QueryDAO.GSATScoreSetup(examinee_temp.getGSATscore());
+        GSATscore GSATscore = examinee_temp.getGSATscore();
+        System.out.println("國文： "+GSATscore.getChinese());
+        
+        
+        
+        QueryDAO.ELScoreQuery(examinee_temp);
+        QueryDAO.ELScoreSetup(examinee_temp.getELscore());
+        ELscore ELscore = examinee_temp.getELscore();
+        System.out.println("英聽成績： "+ELscore.getScore());
+        
+        
+        
+        QueryDAO.ASTScoreQuery(examinee_temp);
+        QueryDAO.ASTScoreSetup(examinee_temp.getASTscore());
+        ASTscore ASTscore = examinee_temp.getASTscore();
+        System.out.println("指考國文成績： "+ASTscore.getChinese());
+        return model;
+		}
+		
+		
+     else{
+			
+			model.addObject("warning","資料不存在");
+			return model;
+		}
 	}
 
 }

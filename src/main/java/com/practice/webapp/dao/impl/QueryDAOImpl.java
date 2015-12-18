@@ -1,6 +1,10 @@
 package com.practice.webapp.dao.impl;
 import com.practice.webapp.dao.QueryDAO;
+import com.practice.webapp.entity.ASTscore;
+import com.practice.webapp.entity.ELscore;
 import com.practice.webapp.entity.Examinee;
+import com.practice.webapp.entity.GSATscore;
+
 import com.practice.webapp.entity.TestRoom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,8 +17,7 @@ import javax.sql.DataSource;
 
 //import com.mysql.jdbc.Statement;
 import com.practice.webapp.dao.RegisterDAO;
-import com.practice.webapp.entity.Examinee;
-import com.practice.webapp.entity.TestRoom;
+
 public class QueryDAOImpl implements QueryDAO {
      
 	
@@ -94,11 +97,226 @@ public class QueryDAOImpl implements QueryDAO {
 	
 
 	@Override
-	public String ScoreQuery(Examinee examinee) {
+	public Examinee GSATScoreQuery(Examinee examinee) {
 		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM GSATscore WHERE examineeID = ?";
+		try {
+			
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				examinee.getGSATscore().setId(rs.getInt("Score_ID"));
+				
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return examinee;
+		
+	}
+	
+	
+	
+	public GSATscore GSATScoreSetup(GSATscore gsatscore){
+		String sql = "SELECT * FROM GSATscore WHERE Score_ID = ?";
+		try {
+			
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setInt(1, gsatscore.getId());
+			
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				
+				gsatscore.setChinese(rs.getInt("Chinese"));
+				gsatscore.setEnglish(rs.getInt("English"));
+				gsatscore.setMath(rs.getInt("Math"));
+				gsatscore.setScience(rs.getInt("Science"));
+				gsatscore.setSociety(rs.getInt("Society"));
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return gsatscore;
+		
+	}
+	@Override
+	public Examinee ELScoreQuery(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM ELscore WHERE examineeID = ?";
+		try {
+			
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				examinee.getELscore().setId(rs.getInt("Score_ID"));
+				
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return examinee;
+		
 	}
 
+	
+	
+	public ELscore ELScoreSetup(ELscore elscore){
+		String sql = "SELECT * FROM ELscore WHERE Score_ID = ?";
+		try {
+			
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setInt(1, elscore.getId());
+			
+			rs = smt.executeQuery();
+			if(rs.next()){
+			
+				elscore.setScore(rs.getInt("score"));
+				
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return elscore;
+		
+	}
+	
+	
+	@Override
+	public Examinee ASTScoreQuery(Examinee examinee) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM ASTscore WHERE examineeID = ?";
+		try {
+			
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			
+			rs = smt.executeQuery();
+			if(rs.next()){
+				
+				examinee.getASTscore().setID(rs.getInt("Score_ID"));
+				
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return examinee;
+		
+	}
+	
+	
+	public ASTscore ASTScoreSetup(ASTscore astscore){
+		String sql = "SELECT * FROM ASTscore WHERE Score_ID = ?";
+		try {
+			
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setInt(1, astscore.getID());
+			
+			rs = smt.executeQuery();
+			if(rs.next()){
+			
+				astscore.setChinese(rs.getInt("Chinese"));
+				astscore.setEnglish(rs.getInt("English"));
+				astscore.setMathA(rs.getInt("MathA"));
+				astscore.setMathB(rs.getInt("MathB"));
+				astscore.setHistory(rs.getInt("History"));
+				astscore.setGeography(rs.getInt("Geography"));
+				astscore.setCivics(rs.getInt("Civics"));
+				astscore.setPhysics(rs.getInt("Physics"));
+				astscore.setChemistry(rs.getInt("Chemistry"));
+				astscore.setBiology(rs.getInt("Biology"));
+				
+				
+				
+				
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return astscore;
+		
+	}
 
 	@Override
 	public TestRoom testRoomSetup(TestRoom testroom) {
