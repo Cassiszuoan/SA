@@ -82,6 +82,44 @@ public class AdminDAOImpl implements AdminDAO{
 	
 	
 	
-	
+public Examinee get(Examinee examinee) {
+		
+		String sql = "SELECT * FROM Examinee WHERE ID = ?";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			smt.setString(1, examinee.getID());
+			rs = smt.executeQuery();
+			if(rs.next()){
+				examinee.setID(rs.getString("ID"));
+				examinee.setEmail(rs.getString("EMAIL"));
+				examinee.setPassword(rs.getString("PASSWORD"));
+				examinee.setName(rs.getString("NAME"));
+				examinee.setGender(rs.getString("GENDER"));
+				examinee.setBirth(rs.getString("BIRTH"));
+				examinee.setPhone(rs.getString("PHONE"));
+				examinee.setAddress(rs.getString("ADDRESS"));
+				examinee.getASTscore().setID(rs.getInt("ASTscore"));
+				examinee.getGSATscore().setId(rs.getInt("GSATscore"));
+				examinee.getELscore().setId(rs.getInt("ELScore"));
+				examinee.setEmergencyContact(rs.getString("EMER_NAME"));
+				examinee.setEmergencyContactRelationship(rs.getString("EMER_RELA"));
+				examinee.setEmergencyContactMobile(rs.getString("EMER_MOBILE"));
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return examinee;
+	}
 
 }

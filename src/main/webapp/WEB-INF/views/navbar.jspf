@@ -16,9 +16,9 @@
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/reorderProduct.jsp' ? ' active' : ''}"><a href="reorderProduct">考場分配</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/po.jsp' ? ' active' : ''}"><a href="po">分數分配</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/availableProduct.jsp' ? ' active' : ''}"><a href="availableProduct">產品銷售</a></li>
-            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/examineelist.jsp' ? ' active' : ''}"><a href="examineeList">學生資料</a></li>
+            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/examineelist.jsp' ? ' active' : ''}"><a href="examineelist">學生資料</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/showCart.jsp' ? ' active' : ''}"><a href="showCart">購物車</a></li>         
-            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/index.jsp' ? ' active' : ''}"><a href="login">登入</a></li>
+            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/admin.jsp' ? ' active' : ''}"><a href="adminlogout">登出</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -6,4 +6,5 @@ public interface AdminDAO {
     
 	public List<Examinee> getList(String sql);
 	public List<Examinee> getAllExamineeList();
+	public Examinee get(Examinee examinee);
 }

@@ -54,8 +54,8 @@
 					  		<td>${examinee.getEmergencyContactMobile()}</td>
 					  		
 					  		<td>
-					  			<a class="btn btn-default" href="updateExaminee?id=${examinee.ID}">修改</a>
-					  			<a class="btn btn-sm btn-danger deleteBtn" href="#" data-toggle="modal" data-target="#deleteModal" data-id="${Examinee.ID}">刪除</a>
+					  			<a class="btn btn-default" href="updateExaminee?ID=${examinee.ID}">修改</a>
+					  			<a class="btn btn-sm btn-danger deleteBtn" href="#" data-toggle="modal" data-target="#deleteModal" data-id="${examinee.ID}">刪除</a>
 					  		</td>
 					  	</tr>
 				  	</c:forEach>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="modal-footer">
 	                <form id="deleteForm" action="deleteExaminee" method="post">
-	            		<input type="hidden" name="id" id="deleteID">
+	            		<input type="hidden" name="ID" id="deleteID">
 	                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 	                    <button type="submit" class="btn btn-danger">確認刪除</button>
                     </form>

@@ -29,12 +29,12 @@ public class AdminController {
 	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
 	@RequestMapping(value = "/adminlogin", method = RequestMethod.POST)
 	public ModelAndView adminLogin(@ModelAttribute Admin admin) {
-		
+		Admin admin_session = (Admin)context.getBean("admin");
 		ModelAndView model = new ModelAndView("redirect:/examineelist");
 		//you can modify this part to check username and password with DB, AD, LDAP, or open id
 		if ("admin".equals(admin.getUsername()) && "admin".equals(admin.getPassword())){
 			//save username and password in the session bean
-			Admin admin_session = (Admin)context.getBean("admin");
+			
 			admin_session.setUsername(admin.getUsername());
 			admin_session.setPassword(admin.getPassword());
 			System.out.println("Successful!");
@@ -44,14 +44,21 @@ public class AdminController {
 			model.addObject("message", "登入失敗");
 			System.out.println("failed!");
 			//reset username and password in the session bean
-			Admin admin_session = (Admin)context.getBean("admin");
+			
 			admin_session.setUsername("");
 			admin_session.setPassword("");
 		}	
 
 		return model;
 	}
-	
+	@RequestMapping(value = "/adminlogout", method = RequestMethod.GET)
+	public ModelAndView AdminLogout() {
+		ModelAndView view = new ModelAndView("admin");
+		Admin admin_session = (Admin)context.getBean("admin");
+		admin_session.setUsername("");
+		admin_session.setPassword("");
+		return view;
+	}
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView Admin(Examinee examinee) {
 		ModelAndView view = new ModelAndView("admin");
@@ -63,15 +70,25 @@ public class AdminController {
 	public ModelAndView getExamineeList(){
 	
 		ModelAndView model = new ModelAndView("examineelist");
+		ModelAndView model2 = new ModelAndView("admin");
 		
-		
-		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
-		List<Examinee> ExamineeList = new ArrayList<Examinee>();
-		ExamineeList = AdminDAO.getAllExamineeList();
-		
-		model.addObject("ExamineeList", ExamineeList);
-		
-		return model;
+		Admin admin_session = (Admin)context.getBean("admin");
+		if("admin".equals(admin_session.getUsername()) && "admin".equals(admin_session.getPassword())){
+			
+			
+			
+			AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+			List<Examinee> ExamineeList = new ArrayList<Examinee>();
+			ExamineeList = AdminDAO.getAllExamineeList();
+			
+			model.addObject("ExamineeList", ExamineeList);
+			
+			return model;
+		}
+		else{
+			model2.addObject("message", "請先登入");
+			return model2;
+		}
 	}
 	
 	
@@ -95,20 +112,32 @@ public class AdminController {
 	@RequestMapping(value = "/updateExaminee", method = RequestMethod.GET)
 	public ModelAndView updateExamineePage(@ModelAttribute Examinee examinee){
 		ModelAndView model = new ModelAndView("updateExaminee");
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
 		
-		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
-		
-		examinee = RegisterDAO.getExaminee(examinee);
-		
+		examinee = AdminDAO.get(examinee);
 		model.addObject("examinee", examinee);
+		
+		
+		
+		
 		return model;
 	}
 	
 	@RequestMapping(value = "/updateExaminee", method = RequestMethod.POST)
-	public ModelAndView updateProduct(@ModelAttribute Examinee examinee){
-		ModelAndView model = new ModelAndView("redirect:/examineeList");
+	public ModelAndView updateExaminee(@ModelAttribute Examinee examinee){
+		ModelAndView model = new ModelAndView("redirect:/examineelist");
+
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		System.out.println("id="+examinee.getID());
 		RegisterDAO.modify(examinee);
+		return model;
+	}
+	
+	@RequestMapping(value = "/deleteExaminee", method = RequestMethod.POST)
+	public ModelAndView deleteExaminee(@ModelAttribute Examinee examinee){
+		ModelAndView model = new ModelAndView("redirect:/examineelist");
+		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		RegisterDAO.delete(examinee);
 		return model;
 	}
 

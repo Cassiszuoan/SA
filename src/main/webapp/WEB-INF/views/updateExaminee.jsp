@@ -24,6 +24,7 @@
 			<br>
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
+			
 				<form method="post" action="updateExaminee" id="updateForm">
 					<input type="hidden" name="id" value="${examinee.ID}">
 					
@@ -57,17 +58,6 @@
         <input class="form-control" type="password" id="password" name="password" placeholder="密碼" value="${examinee.password}">
         <p></p>
 
-      <%--   <div class="form-group">
-					    <label for="TestRoom.id">考場選擇</label>
-				  		<select class="form-control" id="TestRoom.id" name="TestRoom.id">
-				  		<c:forEach items="${TestRoomList}" var="testroom">
-					  		<option value="${testroom.id}">
-					  			${testroom.name}
-				  			</option>
-				  		</c:forEach>
-						</select>
-				  	</div>
-        <p></p> --%>
          <label>聯絡電話:</label>     
         <input class="form-control" type="text" id="phone" name="phone" placeholder="聯絡電話" value="${examinee.phone}">
         <p></p>
