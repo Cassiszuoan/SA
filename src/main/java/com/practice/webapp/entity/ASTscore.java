@@ -14,6 +14,7 @@ public class ASTscore {
 	 private int Physics;
 	 private int Chemistry;
 	 private int Biology;
+	 private String examineeID;
 	 
 	 public void setID(int id){
 		 this.id=id;
@@ -98,6 +99,12 @@ public class ASTscore {
 	}
 	public void setChemistry(int chemistry) {
 		Chemistry = chemistry;
+	}
+	public String getExamineeID() {
+		return examineeID;
+	}
+	public void setExamineeID(String examineeID) {
+		this.examineeID = examineeID;
 	}
 	
 

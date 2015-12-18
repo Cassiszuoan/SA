@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.practice.webapp.dao.AdminDAO;
 import com.practice.webapp.dao.ProductDAO;
+import com.practice.webapp.entity.ASTscore;
 //import com.mysql.jdbc.Statement;
 import com.practice.webapp.entity.Admin;
 import com.practice.webapp.entity.ELscore;
@@ -323,6 +324,128 @@ public void ELallocate(ELscore eLscore) {
 		}
 	}
 	
+}
+@Override
+public List<ASTscore> getASTList() {
+	// TODO Auto-generated method stub
+	List<ASTscore> ASTscorelist = new ArrayList<ASTscore>();
+	String sql="SELECT * FROM ASTscore";
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		rs = smt.executeQuery();
+		while(rs.next()){
+			ASTscore ASTscore = new ASTscore();
+			ASTscore.setChinese(rs.getInt("Chinese"));
+			ASTscore.setEnglish(rs.getInt("English"));
+			ASTscore.setMathA(rs.getInt("MathA"));
+			ASTscore.setMathB(rs.getInt("MathB"));
+			ASTscore.setHistory(rs.getInt("History"));
+			ASTscore.setGeography(rs.getInt("Geography"));
+			ASTscore.setCivics(rs.getInt("Civics"));
+			ASTscore.setChemistry(rs.getInt("Chemistry"));
+			ASTscore.setBiology(rs.getInt("Biology"));
+			ASTscore.setPhysics(rs.getInt("Physics"));
+			ASTscore.setID(rs.getInt("Score_ID"));
+			ASTscore.setExamineeID(rs.getString("examineeID"));
+			TestRoom  testroom= new TestRoom();
+			testroom.setId(rs.getInt("testroomiD"));
+			ASTscore.setTestroom(testroom);
+			ASTscore.setTestnumber(rs.getInt("Test_Num"));
+			ASTscorelist.add(ASTscore);
+		}
+		rs.close();
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
+	return ASTscorelist;
+}
+@Override
+public ASTscore get(ASTscore ASTscore) {
+	// TODO Auto-generated method stub
+	String sql = "SELECT * FROM ASTscore WHERE Score_ID = ?";
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setInt(1, ASTscore.getID());
+		rs = smt.executeQuery();
+		if(rs.next()){
+			ASTscore.setID(rs.getInt("Score_ID"));
+			ASTscore.setChinese(rs.getInt("Chinese"));
+			ASTscore.setEnglish(rs.getInt("English"));
+			ASTscore.setMathA(rs.getInt("MathA"));
+			ASTscore.setMathB(rs.getInt("MathB"));
+			ASTscore.setHistory(rs.getInt("History"));
+			ASTscore.setGeography(rs.getInt("Geography"));
+			ASTscore.setCivics(rs.getInt("Civics"));
+			ASTscore.setPhysics(rs.getInt("Physics"));
+			ASTscore.setChemistry(rs.getInt("Chemistry"));
+			ASTscore.setBiology(rs.getInt("Biology"));
+			ASTscore.setExamineeID(rs.getString("examineeID"));
+			TestRoom  testroom= new TestRoom();
+			testroom.setId(rs.getInt("testroomID"));
+			ASTscore.setTestroom(testroom);
+			ASTscore.setTestnumber(rs.getInt("Test_Num"));
+		}
+		rs.close();
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
+	return ASTscore;
+}
+@Override
+public void ASTallocate(ASTscore ASTscore) {
+	// TODO Auto-generated method stub
+	String sql = "UPDATE ASTscore SET Chinese=?, English=?, MathA=?, MathB=? , History=?, Geography=?,Civics=?,Physics=?,Chemistry=?,Biology=?,testroomID=? ,Test_Num=? Where Score_ID = ?";
+	
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		
+		smt.setInt(1, ASTscore.getChinese());
+		smt.setInt(2, ASTscore.getEnglish());
+		smt.setInt(3, ASTscore.getMathA());
+		smt.setInt(4, ASTscore.getMathB());
+		smt.setInt(5, ASTscore.getHistory());
+		smt.setInt(6, ASTscore.getGeography());
+		smt.setInt(7, ASTscore.getCivics());
+		smt.setInt(8, ASTscore.getPhysics());
+		smt.setInt(9, ASTscore.getChemistry());
+		smt.setInt(10, ASTscore.getBiology());
+		smt.setInt(11, ASTscore.getTestroom().getId());
+		smt.setInt(12, ASTscore.getTestnumber());
+		smt.setInt(13, ASTscore.getID());
+		smt.executeUpdate();			
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
 }
 
 }

@@ -140,34 +140,7 @@ http://www.templatemo.com/tm-467-easy-profile
 		</div>
 	</div>
 </section>
-<!--  modals -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-              <h4 class="modal-title" id="myModalLabel">成績查詢</h4>
-            </div>
-            <div class="modal-body">
-              
-              <form class="form-horizontal" role="form" action="scorequery" method="post">
-              <div class="modal-container">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputPwd" name="ID" placeholder="身分證字號">
-                </div>
-                <div class="form-group">
-                    <input type="date" class="form-control" id="exampleInputBirth" name="birth" placeholder="出生年月日">
-                </div>
-                <div class="form-group">       
-                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                  <button type="submit" class="btn btn-primary">確認</button>
-                </div>            
-              </form>
-            </div>
-          </div>
-        </div> 
-      </div>
-<!-- modals -->
+
 <!-- contact and test-data -->
 <section class="container">
 	<div class="row">
@@ -204,6 +177,36 @@ http://www.templatemo.com/tm-467-easy-profile
 </section>
 </div>
 
+
+
+<!--  modals -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">成績查詢</h4>
+            </div>
+            <div class="modal-body">
+              
+              <form class="form-horizontal" role="form" action="scorequery" method="post">
+              <div class="modal-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputPwd" name="ID" placeholder="身分證字號">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="exampleInputBirth" name="birth" placeholder="出生年月日">
+                </div>
+                <div class="form-group">       
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">確認</button>
+                </div>            
+              </form>
+            </div>
+          </div>
+        </div> 
+      </div>
+<!-- modals -->
 <!-- footer section -->
 <div id="footerwrap">
     <div class="container">

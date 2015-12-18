@@ -21,6 +21,7 @@ import com.practice.webapp.entity.TestRoom;
 import com.practice.webapp.entity.Examinee;
 import com.practice.webapp.entity.GSATscore;
 import com.practice.webapp.entity.Product;
+import com.practice.webapp.entity.ASTscore;
 import com.practice.webapp.entity.Admin;
 import com.practice.webapp.entity.Article;
 import com.practice.webapp.entity.ELscore;
@@ -208,6 +209,63 @@ public class AdminController {
 
 		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
 		AdminDAO.ELallocate(ELscore);
+		
+		
+		return model;
+	}
+	//指考
+	@RequestMapping(value = "/ASTallocate", method = RequestMethod.GET)
+	public ModelAndView getASTList(){
+	
+		ModelAndView model = new ModelAndView("ASTallocate");
+		ModelAndView model2 = new ModelAndView("admin");
+		
+		Admin admin_session = (Admin)context.getBean("admin");
+		if("admin".equals(admin_session.getUsername()) && "admin".equals(admin_session.getPassword())){
+			
+			
+			
+			AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+			List<ASTscore> ASTList = new ArrayList<ASTscore>();
+			ASTList = AdminDAO.getASTList();
+			
+			model.addObject("ASTList", ASTList);
+			
+			return model;
+		}
+		else{
+			model2.addObject("message", "請先登入");
+			return model2;
+		}
+	}
+	
+	
+	@RequestMapping(value = "/updateAST", method = RequestMethod.GET)
+	public ModelAndView updateASPage(@ModelAttribute ASTscore ASTscore){
+		ModelAndView model = new ModelAndView("updateAST");
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		TestRoomDAO TestRoomDAO = (TestRoomDAO)context.getBean("TestRoomDAO");
+		List<TestRoom>TestRoomList = new ArrayList<TestRoom>();
+		TestRoomList=TestRoomDAO.getTestRoomList();
+		ASTscore = AdminDAO.get(ASTscore);
+		System.out.println(ASTscore.getChinese());
+		model.addObject("TestRoomList",TestRoomList);
+		model.addObject("ASTscore", ASTscore);
+		
+		
+		
+		
+		
+		
+		return model;
+	}
+	
+	@RequestMapping(value = "/updateAST", method = RequestMethod.POST)
+	public ModelAndView updateAST(@ModelAttribute ASTscore ASTscore){
+		ModelAndView model = new ModelAndView("redirect:/ASTallocate");
+
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		AdminDAO.ASTallocate(ASTscore);
 		
 		
 		return model;
