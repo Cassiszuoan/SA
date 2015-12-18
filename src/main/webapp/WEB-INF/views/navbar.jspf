@@ -13,7 +13,7 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">           
-            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/reorderProduct.jsp' ? ' active' : ''}"><a href="reorderProduct">考場分配</a></li>
+            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/GSATtestroomallocate.jsp' ? ' active' : ''}"><a href="GSATallocate">學測</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/po.jsp' ? ' active' : ''}"><a href="po">分數分配</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/availableProduct.jsp' ? ' active' : ''}"><a href="availableProduct">產品銷售</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/examineelist.jsp' ? ' active' : ''}"><a href="examineelist">學生資料</a></li>

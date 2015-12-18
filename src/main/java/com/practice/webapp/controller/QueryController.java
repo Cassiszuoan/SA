@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.practice.webapp.dao.RegisterDAO;
+import com.practice.webapp.dao.AdminDAO;
 import com.practice.webapp.dao.ProductDAO;
 import com.practice.webapp.dao.QueryDAO;
 import com.practice.webapp.entity.ASTscore;
@@ -36,14 +37,21 @@ public class QueryController {
 		QueryDAO QueryDAO = (QueryDAO)context.getBean("QueryDAO");
 		Examinee examinee_temp = (Examinee)context.getBean("examinee");
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
 		RegisterDAO.getExaminee(examinee_temp);
+		AdminDAO.get(examinee);
+		view.addObject("name",examinee.getName());
+		view.addObject("id",examinee.getID());
+		view.addObject("emermobile",examinee.getEmergencyContactMobile());
 		
 		
 		if(QueryDAO.ifExist(examinee)){
 			
 			//GSAT Query
 			TestRoom GSATtestroom = QueryDAO.GSATtestRoomQuery(examinee).getTestRoom();
+			
 			GSATtestroom = QueryDAO.testRoomSetup(GSATtestroom);
+			
 			
 			
 			if(examinee_temp.getGSATscore().getId()==1){
@@ -59,9 +67,10 @@ public class QueryController {
 					view.addObject("GSATtestnumber",QueryDAO.GSATtestnumberQuery(examinee));
 				    }
 			if(GSATtestroom.getId()==0){
-				view.addObject("GSATid", "尚未分配考場");
+				view.addObject("GSATname", "尚未分配考場");
 			}
 			else{
+			
 			view.addObject("GSATid", GSATtestroom.getId());
 			view.addObject("GSATname",GSATtestroom.getName());
 			view.addObject("GSATaddress",GSATtestroom.getAddress());
@@ -84,7 +93,7 @@ public class QueryController {
 		    }
 			
 			if(ELtestroom.getId()==0){
-				view.addObject("ELid", "尚未分配考場");
+				view.addObject("ELname", "尚未分配考場");
 			}
 			else{
 				
@@ -108,7 +117,7 @@ public class QueryController {
 					view.addObject("ASTtestnumber",QueryDAO.ASTtestnumberQuery(examinee));
 				    }
 			if(ASTtestroom.getId()==0){
-				view.addObject("ASTid", "尚未分配考場");
+				view.addObject("ASTname", "尚未分配考場");
 			}
 			else{
 			view.addObject("ASTid", ASTtestroom.getId());

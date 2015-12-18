@@ -19,6 +19,8 @@ import com.practice.webapp.dao.ProductDAO;
 import com.practice.webapp.entity.Admin;
 import com.practice.webapp.entity.Examinee;
 import com.practice.webapp.entity.Product;
+import com.practice.webapp.entity.TestRoom;
+import com.practice.webapp.entity.GSATscore;
 public class AdminDAOImpl implements AdminDAO{
 	private DataSource dataSource;
 	private Connection conn = null ;
@@ -31,6 +33,44 @@ public class AdminDAOImpl implements AdminDAO{
 	public List<Examinee> getAllExamineeList() {
 		String sql = "SELECT * FROM Examinee";
 		return getList(sql);
+	}
+	
+	public List<GSATscore> getGSATList(){
+		List<GSATscore> GSATscorelist = new ArrayList<GSATscore>();
+		String sql="SELECT * FROM GSATscore";
+		try {
+			conn = dataSource.getConnection();
+			smt = conn.prepareStatement(sql);
+			rs = smt.executeQuery();
+			while(rs.next()){
+				GSATscore GSATscore = new GSATscore();
+				GSATscore.setChinese(rs.getInt("Chinese"));
+				GSATscore.setEnglish(rs.getInt("English"));
+				GSATscore.setMath(rs.getInt("Math"));
+				GSATscore.setScience(rs.getInt("Science"));
+				GSATscore.setSociety(rs.getInt("Society"));
+				GSATscore.setId(rs.getInt("Score_ID"));
+				GSATscore.setExamineeID(rs.getString("examineeID"));
+				TestRoom  testroom= new TestRoom();
+				testroom.setId(rs.getInt("testroomiD"));
+				GSATscore.setTestroom(testroom);
+				GSATscore.setTestnumber(rs.getInt("Test_Num"));
+				GSATscorelist.add(GSATscore);
+			}
+			rs.close();
+			smt.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return GSATscorelist;
 	}
 	@Override
 	public List<Examinee> getList(String sql) {
@@ -121,5 +161,73 @@ public Examinee get(Examinee examinee) {
 		}
 		return examinee;
 	}
+@Override
+public GSATscore get(GSATscore GSATscore) {
+	// TODO Auto-generated method stub
+	String sql = "SELECT * FROM GSATscore WHERE Score_ID = ?";
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setInt(1, GSATscore.getId());
+		rs = smt.executeQuery();
+		if(rs.next()){
+			GSATscore.setChinese(rs.getInt("Chinese"));
+			GSATscore.setEnglish(rs.getInt("English"));
+			GSATscore.setMath(rs.getInt("Math"));
+			GSATscore.setScience(rs.getInt("Science"));
+			GSATscore.setSociety(rs.getInt("Society"));
+			GSATscore.setExamineeID(rs.getString("examineeID"));
+			TestRoom  testroom= new TestRoom();
+			testroom.setId(rs.getInt("testroomiD"));
+			GSATscore.setTestroom(testroom);
+			GSATscore.setTestnumber(rs.getInt("Test_Num"));
+		}
+		rs.close();
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
+	return GSATscore;
+}
+@Override
+public void GSATallocate(GSATscore GSATscore) {
+	// TODO Auto-generated method stub
+	String sql = "UPDATE GSATscore SET Chinese=?, English=?, Math=?, Society=? , Science=?,testroomID=?, Test_Num=?"
+			+ "WHERE Score_ID = ?";
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		
+		smt.setInt(1, GSATscore.getChinese());
+		smt.setInt(2, GSATscore.getEnglish());
+		smt.setInt(3, GSATscore.getMath());
+		smt.setInt(4, GSATscore.getSociety());
+		smt.setInt(5, GSATscore.getScience());
+		smt.setInt(6, 0);
+		smt.setInt(7, GSATscore.getTestnumber());
+		smt.setInt(8, GSATscore.getId());
+		smt.executeUpdate();			
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
+	
+}
 
 }

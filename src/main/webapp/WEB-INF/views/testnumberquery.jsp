@@ -36,14 +36,11 @@ http://www.templatemo.com/tm-467-easy-profile
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Home</a></li>
-            <li class="active"><a href="">准考證查詢</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">某某，你好</a>
-              <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">修改個人資料</a></li>
+            <li><a href="center">Home</a></li>
+            <li><a href="modify">修改個人資料</a></li>
+                  
                   <li><a data-toggle="modal" data-target="#myModal2">成績查詢</a></li>
-                  <li><a href="#">登出</a></li>
+                  <li><a href="logout">登出</a></li>
               </ul>
             </li>
           </ul>
@@ -64,7 +61,7 @@ http://www.templatemo.com/tm-467-easy-profile
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
-				<img src="pic/line.jpg" class="img-responsive img-circle tm-border" alt="templatemo easy profile">
+				
 				<hr>
 				<h1 class="white bold font-change shadow">年度大考</h1>
 				<h1 class="tm-title bold font-change">准考證查詢</h1>
@@ -85,19 +82,19 @@ http://www.templatemo.com/tm-467-easy-profile
 		</div>
 		<div class="col-md-8 col-sm-12">
 			<div class="test-data">
-				<h4 class="test-data-title">准考證號碼：402401486</h4>
+				<h4 class="test-data-title">准考證號碼：${GSATtestnumber}${GSATwarning}</h4>
 				<hr>
 				<table class="table table-bordered table-border" rules="none">
 					<tr>
-						<td>姓名：高立蕎</td>
-						<td>考場：國立臺中一中</td>
+						<td>姓名：${name}</td>
+						<td>考場：${GSATname}</td>
 					</tr>
 					<tr>
-						<td>身分證字號：B122859509</td>
+						<td>身分證字號：${id}</td>
 						<td>測驗日期：106 / 2 /10</td>
 					</tr>
 					<tr>
-						<td>緊急連絡人電話：0917818929</td>
+						<td>緊急連絡人電話：${emermobile}</td>
 						<td></td>
 					</tr>
 					
@@ -120,19 +117,19 @@ http://www.templatemo.com/tm-467-easy-profile
 		</div>
 		<div class="col-md-8 col-sm-12">
 			<div class="test-data">
-				<h4 class="test-data-title">准考證號碼：402401486</h4>
+				<h4 class="test-data-title">准考證號碼：${ASTtestnumber}${ASTwarning}</h4>
 				<hr>
 				<table class="table table-bordered table-border" rules="none">
 					<tr>
-						<td>姓名：高立蕎</td>
-						<td>考場：國立臺中一中</td>
+						<td>姓名：${name}</td>
+						<td>考場：${ASTname}</td>
 					</tr>
 					<tr>
-						<td>身分證字號：B122859509</td>
+						<td>身分證字號：${id}</td>
 						<td>測驗日期：106 / 2 /10</td>
 					</tr>
 					<tr>
-						<td>緊急連絡人電話：0917818929</td>
+						<td>緊急連絡人電話：${emermobile}</td>
 						<td></td>
 					</tr>
 					
@@ -143,7 +140,34 @@ http://www.templatemo.com/tm-467-easy-profile
 		</div>
 	</div>
 </section>
-
+<!--  modals -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">成績查詢</h4>
+            </div>
+            <div class="modal-body">
+              
+              <form class="form-horizontal" role="form" action="scorequery" method="post">
+              <div class="modal-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputPwd" name="ID" placeholder="身分證字號">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="exampleInputBirth" name="birth" placeholder="出生年月日">
+                </div>
+                <div class="form-group">       
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">確認</button>
+                </div>            
+              </form>
+            </div>
+          </div>
+        </div> 
+      </div>
+<!-- modals -->
 <!-- contact and test-data -->
 <section class="container">
 	<div class="row">
@@ -155,19 +179,19 @@ http://www.templatemo.com/tm-467-easy-profile
 		</div>
 		<div class="col-md-8 col-sm-12">
 			<div class="test-data">
-				<h4 class="test-data-title">准考證號碼：402401486</h4>
+				<h4 class="test-data-title">准考證號碼：${ELtestnumber}${ELwarning}</h4>
 				<hr>
 				<table class="table table-bordered table-border" rules="none">
 					<tr>
-						<td>姓名：高立蕎</td>
-						<td>考場：國立臺中一中</td>
+						<td>姓名：${name}</td>
+						<td>考場：${ELname}</td>
 					</tr>
 					<tr>
-						<td>身分證字號：B122859509</td>
+						<td>身分證字號：${id}</td>
 						<td>測驗日期：106 / 2 /10</td>
 					</tr>
 					<tr>
-						<td>緊急連絡人電話：0917818929</td>
+						<td>緊急連絡人電話：${emermobile}</td>
 						<td></td>
 					</tr>
 					

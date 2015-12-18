@@ -19,6 +19,7 @@ import com.practice.webapp.dao.ApplyDAO;
 import com.practice.webapp.dao.ProductDAO;
 import com.practice.webapp.entity.TestRoom;
 import com.practice.webapp.entity.Examinee;
+import com.practice.webapp.entity.GSATscore;
 import com.practice.webapp.entity.Product;
 import com.practice.webapp.entity.Admin;
 
@@ -90,6 +91,64 @@ public class AdminController {
 			return model2;
 		}
 	}
+	
+	@RequestMapping(value = "/GSATallocate", method = RequestMethod.GET)
+	public ModelAndView getGSATList(){
+	
+		ModelAndView model = new ModelAndView("GSATallocate");
+		ModelAndView model2 = new ModelAndView("admin");
+		
+		Admin admin_session = (Admin)context.getBean("admin");
+		if("admin".equals(admin_session.getUsername()) && "admin".equals(admin_session.getPassword())){
+			
+			
+			
+			AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+			List<GSATscore> GSATList = new ArrayList<GSATscore>();
+			GSATList = AdminDAO.getGSATList();
+			
+			model.addObject("GSATList", GSATList);
+			
+			return model;
+		}
+		else{
+			model2.addObject("message", "請先登入");
+			return model2;
+		}
+	}
+	
+	
+	@RequestMapping(value = "/updateGSAT", method = RequestMethod.GET)
+	public ModelAndView updateGSATPage(@ModelAttribute GSATscore GSATscore){
+		ModelAndView model = new ModelAndView("updateGSAT");
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		
+		GSATscore = AdminDAO.get(GSATscore);
+		System.out.println("Chinese: "+GSATscore.getChinese());
+		model.addObject("GSATscore", GSATscore);
+		
+		
+		
+		
+		
+		
+		return model;
+	}
+	
+	@RequestMapping(value = "/updateGSAT", method = RequestMethod.POST)
+	public ModelAndView updateGSAT(@ModelAttribute GSATscore GSATscore){
+		ModelAndView model = new ModelAndView("redirect:/GSATallocate");
+
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		AdminDAO.GSATallocate(GSATscore);
+		
+		
+		return model;
+	}
+	
+	
+	
+	
 	
 	
 	@RequestMapping(value = "/insertExaminee", method = RequestMethod.GET)
