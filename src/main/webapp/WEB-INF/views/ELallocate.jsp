@@ -29,57 +29,43 @@
 				  		<th>報名編號</th>
 				  		<th>准考證號碼</th>
 				  		<th>考生身分證字號</th>
-				  		<th>國文</th>
-				  		<th>英文</th>
-				  		<th>數學</th>
-				  		<th>社會</th>
-				  		<th>自然</th>
+				  		<th>成績</th>
 				  		<th>考場</th>
 				  		
 				  		<th>編輯</th>
 				  	</tr>
-				  	<c:forEach items="${GSATList}" var="GSAT">
+				  	<c:forEach items="${ELList}" var="EL">
 					  	<tr>
-					  		<td>${GSAT.getId()}</td>
+					  		<td>${EL.getId()}</td>
 					  		
-												
-				           
-								    
-					  		<c:set var="val" value= "${GSAT.getTestnumber()}" />
+					  		
+					  		
+					  		<c:set var="val" value= "${EL.getTestnumber()}" />
 							<c:choose> 
-							  <c:when test="${val == '100000000'}">
+							  <c:when test="${val == '300000000'}">
 							    <td>准考證尚未設定</td>	
 							  </c:when>
 							  <c:otherwise>
-							    <td>${GSAT.getTestnumber()}</td>	
+							    <td>${EL.getTestnumber()}</td>	
 							  </c:otherwise>
 							</c:choose>
 					  		
 					  		
+					  		<td>${EL.examineeID}</td>
 					  		
-					  		
-					  		<td>${GSAT.examineeID}</td>
-					  		
-					  		
-					  		<td>${GSAT.getChinese()}</td>
-					  		<td>${GSAT.getEnglish()}</td>
-					  		<td>${GSAT.getMath()}</td>
-					  		<td>${GSAT.getSociety()}</td>
-					  		<td>${GSAT.getScience()}</td>
-					  		
-					  		
-					  		<c:set var="val" value= "${GSAT.getTestroom().getId()}" />
+					  		<td>${EL.getScore()}</td>
+					  		<c:set var="val" value= "${EL.getTestroom().getId()}" />
 							<c:choose> 
 							  <c:when test="${val == '0'}">
 							    <td>考場尚未設定</td>	
 							  </c:when>
 							  <c:otherwise>
-							    <td>${GSAT.getTestroom().getId()}</td>	
+							    <td>${EL.getTestroom().getId()}</td>	
 							  </c:otherwise>
 							</c:choose>
 					  		
 					  		<td>
-					  			<a class="btn btn-default" href="updateGSAT?id=${GSAT.getId()}">修改</a>
+					  			<a class="btn btn-default" href="updateEL?id=${EL.getId()}">修改</a>
 					  			
 					  		</td>
 					  	</tr>
@@ -92,8 +78,7 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">刪除</h4>
+                    
                 </div>
                 <div class="modal-body">
                     <p>確認刪除後，相關之訊息也將刪除</p>

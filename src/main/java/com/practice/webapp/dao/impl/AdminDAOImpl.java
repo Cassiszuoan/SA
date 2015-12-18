@@ -17,6 +17,7 @@ import com.practice.webapp.dao.AdminDAO;
 import com.practice.webapp.dao.ProductDAO;
 //import com.mysql.jdbc.Statement;
 import com.practice.webapp.entity.Admin;
+import com.practice.webapp.entity.ELscore;
 import com.practice.webapp.entity.Examinee;
 import com.practice.webapp.entity.Product;
 import com.practice.webapp.entity.TestRoom;
@@ -214,6 +215,100 @@ public void GSATallocate(GSATscore GSATscore) {
 		smt.setInt(6, GSATscore.getTestroom().getId());
 		smt.setInt(7, GSATscore.getTestnumber());
 		smt.setInt(8, GSATscore.getId());
+		smt.executeUpdate();			
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
+	
+}
+@Override
+public List<ELscore> getELList() {
+	// TODO Auto-generated method stub
+	List<ELscore> ELscorelist = new ArrayList<ELscore>();
+	String sql="SELECT * FROM ELscore";
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		rs = smt.executeQuery();
+		while(rs.next()){
+			ELscore ELscore = new ELscore();
+			ELscore.setId(rs.getInt("Score_ID"));
+			ELscore.setTestnumber(rs.getInt("Test_Num"));
+			ELscore.setScore(rs.getInt("score"));
+			TestRoom  testroom= new TestRoom();
+			testroom.setId(rs.getInt("testroom_ID"));
+			ELscore.setTestroom(testroom);
+			ELscore.setExamineeID(rs.getString("examineeID"));
+			ELscorelist.add(ELscore);
+		}
+		rs.close();
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
+	return ELscorelist;
+}
+@Override
+public ELscore get(ELscore eLscore) {
+	String sql = "SELECT * FROM ELscore WHERE Score_ID = ?";
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		smt.setInt(1, eLscore.getId());
+		rs = smt.executeQuery();
+		if(rs.next()){
+			eLscore.setTestnumber(rs.getInt("Test_Num"));
+			eLscore.setScore(rs.getInt("score"));
+			TestRoom  testroom= new TestRoom();
+			testroom.setId(rs.getInt("testroom_ID"));
+			eLscore.setTestroom(testroom);
+			eLscore.setExamineeID(rs.getString("examineeID"));
+		}
+		rs.close();
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
+	return eLscore;
+}
+@Override
+public void ELallocate(ELscore eLscore) {
+	// TODO Auto-generated method stub
+	String sql = "UPDATE ELscore SET Score=?, testroom_ID=? ,Test_Num=? Where Score_ID = ?";
+	
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		
+		smt.setInt(1,eLscore.getScore());
+		smt.setInt(2, eLscore.getTestroom().getId());
+		smt.setInt(3, eLscore.getTestnumber());
+		smt.setInt(4, eLscore.getId());
 		smt.executeUpdate();			
 		smt.close();
 

@@ -5,6 +5,7 @@ public class ELscore {
  private int score;
  private int testnumber;
  private TestRoom testroom;
+ private String ExamineeID;
 public int getId() {
 	return id;
 }
@@ -28,6 +29,12 @@ public int getTestnumber() {
 }
 public void setTestnumber(int testnumber) {
 	this.testnumber = testnumber;
+}
+public String getExamineeID() {
+	return ExamineeID;
+}
+public void setExamineeID(String examineeID) {
+	ExamineeID = examineeID;
 }
  
 

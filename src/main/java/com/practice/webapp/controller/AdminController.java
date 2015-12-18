@@ -23,12 +23,15 @@ import com.practice.webapp.entity.GSATscore;
 import com.practice.webapp.entity.Product;
 import com.practice.webapp.entity.Admin;
 import com.practice.webapp.entity.Article;
+import com.practice.webapp.entity.ELscore;
 
 
 @Controller
 public class AdminController {
 	
 	ApplicationContext context =  new ClassPathXmlApplicationContext("spring-module.xml");
+	
+	//登入
 	@RequestMapping(value = "/adminlogin", method = RequestMethod.POST)
 	public ModelAndView adminLogin(@ModelAttribute Admin admin) {
 		Admin admin_session = (Admin)context.getBean("admin");
@@ -67,7 +70,7 @@ public class AdminController {
 		return view;
 	}
 	
-	
+	//學生資料表
 	@RequestMapping(value = "/examineelist", method = RequestMethod.GET)
 	public ModelAndView getExamineeList(){
 	
@@ -93,6 +96,8 @@ public class AdminController {
 		}
 	}
 	
+	
+	//學測
 	@RequestMapping(value = "/GSATallocate", method = RequestMethod.GET)
 	public ModelAndView getGSATList(){
 	
@@ -149,11 +154,67 @@ public class AdminController {
 		return model;
 	}
 	
+	//英聽
+	@RequestMapping(value = "/ELallocate", method = RequestMethod.GET)
+	public ModelAndView getELList(){
+	
+		ModelAndView model = new ModelAndView("ELallocate");
+		ModelAndView model2 = new ModelAndView("admin");
+		
+		Admin admin_session = (Admin)context.getBean("admin");
+		if("admin".equals(admin_session.getUsername()) && "admin".equals(admin_session.getPassword())){
+			
+			
+			
+			AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+			List<ELscore> ELList = new ArrayList<ELscore>();
+			ELList = AdminDAO.getELList();
+			
+			model.addObject("ELList", ELList);
+			
+			return model;
+		}
+		else{
+			model2.addObject("message", "請先登入");
+			return model2;
+		}
+	}
 	
 	
+	@RequestMapping(value = "/updateEL", method = RequestMethod.GET)
+	public ModelAndView updateELPage(@ModelAttribute ELscore ELscore){
+		ModelAndView model = new ModelAndView("updateEL");
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		TestRoomDAO TestRoomDAO = (TestRoomDAO)context.getBean("TestRoomDAO");
+		List<TestRoom>TestRoomList = new ArrayList<TestRoom>();
+		TestRoomList=TestRoomDAO.getTestRoomList();
+		System.out.println("EL test:"+ELscore.getId());
+	    ELscore = AdminDAO.get(ELscore);
+	    
+	    model.addObject("TestRoomList",TestRoomList);
+		model.addObject("ELscore", ELscore);
+		
+	
+		
+		
+		
+		
+	return model;
+	}
+	
+	@RequestMapping(value = "/updateEL", method = RequestMethod.POST)
+	public ModelAndView updateEL(@ModelAttribute ELscore ELscore){
+		ModelAndView model = new ModelAndView("redirect:/ELallocate");
+
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		AdminDAO.ELallocate(ELscore);
+		
+		
+		return model;
+	}
 	
 	
-	
+	//新增刪除修改學生
 	@RequestMapping(value = "/insertExaminee", method = RequestMethod.GET)
 	public ModelAndView insertExamineePage(){
 		ModelAndView model = new ModelAndView("insertExaminee");

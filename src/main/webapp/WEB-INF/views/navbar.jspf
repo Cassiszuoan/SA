@@ -13,9 +13,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">           
-            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/GSATtestroomallocate.jsp' ? ' active' : ''}"><a href="GSATallocate">學測</a></li>
+            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/GSATallocate.jsp' ? ' active' : ''}"><a href="GSATallocate">學測</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/po.jsp' ? ' active' : ''}"><a href="po">分數分配</a></li>
-            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/availableProduct.jsp' ? ' active' : ''}"><a href="availableProduct">產品銷售</a></li>
+            <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/ELallocate.jsp' ? ' active' : ''}"><a href="ELallocate">英聽</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/examineelist.jsp' ? ' active' : ''}"><a href="examineelist">學生資料</a></li>
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/showCart.jsp' ? ' active' : ''}"><a href="showCart">購物車</a></li>         
             <li class="${pageContext.request.requestURI eq '/practice/WEB-INF/views/admin.jsp' ? ' active' : ''}"><a href="adminlogout">登出</a></li>
