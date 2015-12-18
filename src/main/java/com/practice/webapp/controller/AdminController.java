@@ -22,6 +22,7 @@ import com.practice.webapp.entity.Examinee;
 import com.practice.webapp.entity.GSATscore;
 import com.practice.webapp.entity.Product;
 import com.practice.webapp.entity.Admin;
+import com.practice.webapp.entity.Article;
 
 
 @Controller
@@ -122,9 +123,11 @@ public class AdminController {
 	public ModelAndView updateGSATPage(@ModelAttribute GSATscore GSATscore){
 		ModelAndView model = new ModelAndView("updateGSAT");
 		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
-		
+		TestRoomDAO TestRoomDAO = (TestRoomDAO)context.getBean("TestRoomDAO");
+		List<TestRoom>TestRoomList = new ArrayList<TestRoom>();
+		TestRoomList=TestRoomDAO.getTestRoomList();
 		GSATscore = AdminDAO.get(GSATscore);
-		System.out.println("Chinese: "+GSATscore.getChinese());
+		model.addObject("TestRoomList",TestRoomList);
 		model.addObject("GSATscore", GSATscore);
 		
 		

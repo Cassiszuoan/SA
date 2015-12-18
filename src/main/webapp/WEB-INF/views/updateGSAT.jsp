@@ -28,7 +28,8 @@
 				<form method="post" action="updateGSAT" id="updateForm">
 					<input type="hidden" name="id" value="${GSATscore.id}">
 					
-
+        <label>報名編號:${GSATscore.id}</label>
+        <p></p>
         <label>准考證號碼:</label>
         <input class="form-control" type="text" id="name" name="testnumber"   value= "${GSATscore.getTestnumber()}" >
         <p></p>
@@ -56,7 +57,16 @@
         <input class="form-control" type="text" id="phone" name="science" min="0" max="15" value="${GSATscore.getScience()}">
         <p></p>
         
-        
+        <div class="form-group">
+					    <label for="TestRoom.id">考場選擇</label>
+				  		<select class="form-control" id="TestRoom.id" name="testroom.id">
+				  		<c:forEach items="${TestRoomList}" var="testroom">
+					  		<option value="${testroom.id}">
+					  			${testroom.name}
+				  			</option>
+				  		</c:forEach>
+						</select>
+				  	</div>
         
         
         <p></p>

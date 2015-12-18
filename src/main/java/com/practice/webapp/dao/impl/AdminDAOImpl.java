@@ -200,8 +200,8 @@ public GSATscore get(GSATscore GSATscore) {
 @Override
 public void GSATallocate(GSATscore GSATscore) {
 	// TODO Auto-generated method stub
-	String sql = "UPDATE GSATscore SET Chinese=?, English=?, Math=?, Society=? , Science=?,testroomID=?, Test_Num=?"
-			+ "WHERE Score_ID = ?";
+	String sql = "UPDATE GSATscore SET Chinese=?, English=?, Math=?, Society=? , Science=?, testroomID=? ,Test_Num=? Where Score_ID = ?";
+			
 	try {
 		conn = dataSource.getConnection();
 		smt = conn.prepareStatement(sql);
@@ -211,7 +211,7 @@ public void GSATallocate(GSATscore GSATscore) {
 		smt.setInt(3, GSATscore.getMath());
 		smt.setInt(4, GSATscore.getSociety());
 		smt.setInt(5, GSATscore.getScience());
-		smt.setInt(6, 0);
+		smt.setInt(6, GSATscore.getTestroom().getId());
 		smt.setInt(7, GSATscore.getTestnumber());
 		smt.setInt(8, GSATscore.getId());
 		smt.executeUpdate();			
