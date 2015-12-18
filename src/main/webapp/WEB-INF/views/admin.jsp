@@ -8,15 +8,15 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <title>產品管理</title>
+    <title>系統後台</title>
 </head>
 <body>
 	<%@include file="navbar.jspf" %>
     <div class="container theme-showcase" role="main">
     
       <div class="jumbotron" >    
-        <h1>產品管理系統</h1>
-        <p class="lead">本系統為輔仁大學資訊管理學系之範例程式</p>
+        <h1>大考中心報名系統後台</h1>
+        <p class="lead">本系統為大考中心報名系統後台管理</p>
       </div>
       <form action="adminlogin" method="post" role="form">
 			<div class="form-group">

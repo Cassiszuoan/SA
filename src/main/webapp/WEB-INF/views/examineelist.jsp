@@ -9,40 +9,53 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <title>產品管理</title>
+    <title>後台</title>
 </head>
 <body>
 	<%@include file="navbar.jspf" %>
     <div class="container theme-showcase" role="main">
     
       <div class="jumbotron" >    
-        <h1>產品管理系統</h1>
-        <p class="lead">本系統為輔仁大學資訊管理學系之範例程式</p>
+        <h1>大考中心報名系統</h1>
+        <p class="lead">本系統為大考中心報名系統後台</p>
       </div>
 	<div class="container">
 		<div class="row">
 			<br>
 			<div class="col-md-12">
-	  			<a class="btn btn-primary" href="insertProduct">新增</a>
+	  			<a class="btn btn-primary" href="insertExaminee">新增</a>
 				<table class="table">
 				  	<tr>
-				  		<th>編號</th>
-				  		<th>類別</th>
-				  		<th>描述</th>
-				  		<th>庫存量</th>
-				  		<th>安全存量</th>
+				  		<th>身分證字號</th>
+				  		<th>EMAIL</th>
+				  		<th>姓名</th>
+				  		<th>密碼</th>
+				  		<th>生日</th>
+				  		<th>性別</th>
+				  		<th>電話</th>
+				  		<th>聯絡地址</th>
+				  		<th>緊急聯絡人</th>
+				  		<th>與緊急聯絡人之關係</th>
+				  		<th>緊急聯絡人電話</th>
 				  		<th>編輯</th>
 				  	</tr>
-				  	<c:forEach items="${productList}" var="product">
+				  	<c:forEach items="${ExamineeList}" var="examinee">
 					  	<tr>
-					  		<td>${product.id}</td>
-					  		<td>${product.category}</td>
-					  		<td>${product.desc}</td>
-					  		<td>${product.inventory}</td>
-					  		<td>${product.reorderPoint}</td>
+					  		<td>${examinee.ID}</td>
+					  		<td>${examinee.email}</td>
+					  		<td>${examinee.name}</td>
+					  		<td>${examinee.password}</td>
+					  		<td>${examinee.birth}</td>
+					  		<td>${examinee.gender}</td>
+					  		<td>${examinee.phone}</td>
+					  		<td>${examinee.address}</td>
+					  		<td>${examinee.getEmergencyContact()}</td>
+					  		<td>${examinee.getEmergencyContactRelationship()}</td>
+					  		<td>${examinee.getEmergencyContactMobile()}</td>
+					  		
 					  		<td>
-					  			<a class="btn btn-default" href="updateProduct?id=${product.id}">修改</a>
-					  			<a class="btn btn-sm btn-danger deleteBtn" href="#" data-toggle="modal" data-target="#deleteModal" data-id="${product.id}">刪除</a>
+					  			<a class="btn btn-default" href="updateExaminee?id=${examinee.ID}">修改</a>
+					  			<a class="btn btn-sm btn-danger deleteBtn" href="#" data-toggle="modal" data-target="#deleteModal" data-id="${Examinee.ID}">刪除</a>
 					  		</td>
 					  	</tr>
 				  	</c:forEach>
@@ -61,7 +74,7 @@
                     <p>確認刪除後，相關之訊息也將刪除</p>
                 </div>
                 <div class="modal-footer">
-	                <form id="deleteForm" action="deleteProduct" method="post">
+	                <form id="deleteForm" action="deleteExaminee" method="post">
 	            		<input type="hidden" name="id" id="deleteID">
 	                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 	                    <button type="submit" class="btn btn-danger">確認刪除</button>

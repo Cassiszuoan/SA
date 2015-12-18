@@ -37,6 +37,9 @@
 	<bean id="ApplyDAO" class="com.practice.webapp.dao.impl.ApplyDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	<bean id="AdminDAO" class="com.practice.webapp.dao.impl.AdminDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
   	<bean id="shoppingCart" class="com.practice.webapp.entity.ShoppingCart" scope="session">
 		<aop:scoped-proxy/>
     </bean>

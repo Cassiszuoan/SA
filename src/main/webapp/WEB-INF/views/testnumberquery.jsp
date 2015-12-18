@@ -1,74 +1,213 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <html>
-  <head>
-    <meta http-equiv="Content-Type"content="text/html;charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<head>
+	<meta charset="utf-8">
+	<title>Easy Profile Blue - templatemo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
 
-    <title>Signin Template for Bootstrap</title>
+<!-- 
+Easy Profile Template
+http://www.templatemo.com/tm-467-easy-profile
+-->
+	<!-- stylesheet css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/testSearch.css">
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span><img src="pic/ceecLogo2.png"></span>&nbsp;大學入學考試中心</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="">Home</a></li>
+            <li class="active"><a href="">准考證查詢</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">某某，你好</a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">修改個人資料</a></li>
+                  <li><a data-toggle="modal" data-target="#myModal2">成績查詢</a></li>
+                  <li><a href="#">登出</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/register.css" rel="stylesheet">
+<!-- preloader section -->
+<div class="preloader">
+	<div class="sk-spinner sk-spinner-wordpress">
+       <span class="sk-inner-circle"></span>
+     </div>
+</div>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+<!-- header section -->
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<img src="pic/line.jpg" class="img-responsive img-circle tm-border" alt="templatemo easy profile">
+				<hr>
+				<h1 class="white bold font-change shadow">年度大考</h1>
+				<h1 class="tm-title bold font-change">准考證查詢</h1>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container-entire">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!-- about and skills section -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<div class="test-topic">
+				<h3 class="accent">105學年度</h3>
+				<h1>學科能力測驗</h1>
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-12">
+			<div class="test-data">
+				<h4 class="test-data-title">准考證號碼：402401486</h4>
+				<hr>
+				<table class="table table-bordered table-border" rules="none">
+					<tr>
+						<td>姓名：高立蕎</td>
+						<td>考場：國立臺中一中</td>
+					</tr>
+					<tr>
+						<td>身分證字號：B122859509</td>
+						<td>測驗日期：106 / 2 /10</td>
+					</tr>
+					<tr>
+						<td>緊急連絡人電話：0917818929</td>
+						<td></td>
+					</tr>
+					
+				</table>
+				<hr>
+				<p><a class="push" href="#">查尋郵寄掛號</a></p>
+			</div>
+		</div>
+	</div>
+</section>
 
-  <script language="javascript">
-      function change(Obj){  
-          Obj.form.submit();
-      }  
-  </script>
-  
-  </head>
+<!-- test-topic and languages -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<div class="test-topic">
+				<h3 class="accent">105學年度</h3>
+				<h1>指定科目考試</h1>					
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-12">
+			<div class="test-data">
+				<h4 class="test-data-title">准考證號碼：402401486</h4>
+				<hr>
+				<table class="table table-bordered table-border" rules="none">
+					<tr>
+						<td>姓名：高立蕎</td>
+						<td>考場：國立臺中一中</td>
+					</tr>
+					<tr>
+						<td>身分證字號：B122859509</td>
+						<td>測驗日期：106 / 2 /10</td>
+					</tr>
+					<tr>
+						<td>緊急連絡人電話：0917818929</td>
+						<td></td>
+					</tr>
+					
+				</table>
+				<hr>
+				<p><a class="push" href="#">查尋郵寄掛號</a></p>
+			</div>
+		</div>
+	</div>
+</section>
 
-  <body>
+<!-- contact and test-data -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<div class="test-topic">
+				<h3 class="accent">105學年度</h3>
+				<h1>高中英文聽力測驗</h1>
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-12">
+			<div class="test-data">
+				<h4 class="test-data-title">准考證號碼：402401486</h4>
+				<hr>
+				<table class="table table-bordered table-border" rules="none">
+					<tr>
+						<td>姓名：高立蕎</td>
+						<td>考場：國立臺中一中</td>
+					</tr>
+					<tr>
+						<td>身分證字號：B122859509</td>
+						<td>測驗日期：106 / 2 /10</td>
+					</tr>
+					<tr>
+						<td>緊急連絡人電話：0917818929</td>
+						<td></td>
+					</tr>
+					
+				</table>
+				<hr>
+				<p><a class="push" href="#">查尋郵寄掛號</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+</div>
 
+<!-- footer section -->
+<div id="footerwrap">
     <div class="container">
+      <div class="row centered">
+        <div class="col-lg-4">
+          <p><b>版權所有 大學入學考試中心</b></p>
+        </div>
+      
+        <div class="col-lg-4">
+          <p>http://www.ceec.edu.tw/</p>
+        </div>
+        <div class="col-lg-4">
+          <p>總機：(02)2366-1416</p>
+          <p>語音查詢：(02)2364-3677</p>
+          <p>傳真：(02)2362-0755</p>
+          <p>地址：10673 台北市舟山路237號</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- --/footerwrap ---->
 
-     
-        
-		
-     
-    <p>學測准考證號碼查詢結果: ${GSATtestnumber}</p>
-    <label class="label label-warning">${GSATwarning}</label>
-     <p>學測考場查詢結果:   代號 ${GSATid}     考場名稱：${GSATname}     地址：${GSATaddress}</p>
-     
-     
-      <p>指考准考證號碼查詢結果: ${ASTtestnumber}</p>
-      <label class="label label-warning">${ASTwarning}</label>
-     <p>指考考場查詢結果: 代號 ${ASTid}  考場名稱：${ASTname}  地址：${ASTaddress}</p>
-     
-     
-     <p>英聽准考證號碼查詢結果: ${ELtestnumber}</p>
-     <label class="label label-warning">${ELwarning}</label>
-     <p>英聽考場查詢結果: 代號 ${ELid}  考場名稱：${ELname}  地址：${ELaddress}</p>
-     
-     
-    
-     <label class="label label-warning">${warning}</label>
-    </div> <!-- /container -->
+<!-- javascript js -->	
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</body>
 </html>
