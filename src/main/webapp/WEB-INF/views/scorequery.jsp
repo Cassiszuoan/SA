@@ -1,61 +1,272 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <html>
-  <head>
-    <meta http-equiv="Content-Type"content="text/html;charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<head>
+	<meta charset="utf-8">
+	<title>Easy Profile Blue - templatemo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
 
-    <title>Signin Template for Bootstrap</title>
+<!-- 
+Easy Profile Template
+http://www.templatemo.com/tm-467-easy-profile
+-->
+	<!-- stylesheet css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/testSearch.css">
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span><img src="pic/ceecLogo2.png"></span>&nbsp;大學入學考試中心</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="center">Home</a></li>
+            <li><a href="modify">修改個人資料</a></li>
+                  
+                  <li><a data-toggle="modal" data-target="#myModal2">成績查詢</a></li>
+                  <li><a href="logout">登出</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/register.css" rel="stylesheet">
+<!-- preloader section -->
+<div class="preloader">
+	<div class="sk-spinner sk-spinner-wordpress">
+       <span class="sk-inner-circle"></span>
+     </div>
+</div>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+<!-- header section -->
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				
+				
+				<h1 class="white bold font-change shadow">年度大考</h1>
+				
+				<h1 class="tm-title bold font-change">成績查詢</h1>
+				<hr>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container-entire">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!-- about and skills section -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<div class="test-topic">
+				<h3 class="accent">105學年度</h3>
+				<h1>學科能力測驗</h1>
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-12">
+			<div class="test-data">
+				<h4 class="test-data-title">准考證號碼：${GSATtestnumber}${GSATwarning}</h4>
+				<hr>
+				<table class="table table-bordered table-border" rules="none">
+					<tr>
+						<td>姓名：${name}</td>
+						<td>考場：${GSATname}</td>
+					</tr>
+					<tr>
+						<td>身分證字號：${id}</td>
+						
+					</tr>
+			
+					
+					<tr>
+						<td>國文：${GSATscore.getChinese()}</td>
+						<td>英文：${GSATscore.getEnglish()}</td>
+					</tr>
+					
+					<tr>
+						<td>數學 : ${GSATscore.getMath()}</td>
+						<td>社會 : ${GSATscore.getSociety()}</td>
+					</tr>
+					
+					<tr>
+						<td>自然 ：${GSATscore.getScience()}</td>
+						<td></td>
+					</tr>
+					
+				</table>
+				<hr>
+				<p><a class="push" href="#">查尋郵寄掛號</a></p>
+			</div>
+		</div>
+	</div>
+</section>
 
-  <script language="javascript">
-      function change(Obj){  
-          Obj.form.submit();
-      }  
-  </script>
-  
-  </head>
+<!-- test-topic and languages -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<div class="test-topic">
+				<h3 class="accent">105學年度</h3>
+				<h1>指定科目考試</h1>					
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-12">
+			<div class="test-data">
+				<h4 class="test-data-title">准考證號碼：${ASTtestnumber}${ASTwarning}</h4>
+				<hr>
+				<table class="table table-bordered table-border" rules="none">
+					<tr>
+						<td>姓名：${name}</td>
+						<td>考場：${ASTname}</td>
+					</tr>
+					<tr>
+						<td>身分證字號：${id}</td>
+						
+					</tr>
+					
+					
+					<tr>
+						<td>國文：${ASTscore.getChinese()}</td>
+						<td>英文：${ASTscore.getEnglish()}</td>
+					</tr>
+					<tr>
+						<td>數甲：${ASTscore.getMathA()}</td>
+						<td>數乙：${ASTscore.getMathB()}</td>
+					</tr>
+					<tr>
+						<td>歷史：${ASTscore.getHistory()}</td>
+						<td>地理：${ASTscore.getGeography()}</td>
+					</tr>
+					<tr>
+						<td>公民：${ASTscore.getCivics()}</td>
+						<td>物理：${ASTscore.getPhysics()}</td>
+					</tr>
+					<tr>
+						<td>化學：${ASTscore.getChemistry()}</td>
+						<td>生物：${ASTscore.getBiology()}</td>
+					</tr>
+					
+				</table>
+				<hr>
+				<p><a class="push" href="#">查尋郵寄掛號</a></p>
+			</div>
+		</div>
+	</div>
+</section>
 
-  <body>
+<!-- contact and test-data -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<div class="test-topic">
+				<h3 class="accent">105學年度</h3>
+				<h1>高中英文聽力測驗</h1>
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-12">
+			<div class="test-data">
+				<h4 class="test-data-title">准考證號碼：${ELtestnumber}${ELwarning}</h4>
+				<hr>
+				<table class="table table-bordered table-border" rules="none">
+					<tr>
+						<td>姓名：${name}</td>
+						<td>考場：${ELname}</td>
+					</tr>
+					<tr>
+						<td>身分證字號：${id}</td>
+						
+					</tr>
+					<tr>
+					
+						<td>成績：${Elscore.getScore()}</td>
+					</tr>
+					
+				</table>
+				<hr>
+				<p><a class="push" href="#">查尋郵寄掛號</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+</div>
 
+
+
+<!--  modals -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">成績查詢</h4>
+            </div>
+            <div class="modal-body">
+              
+              <form class="form-horizontal" role="form" action="scorequery" method="post">
+              <div class="modal-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputPwd" name="ID" placeholder="身分證字號">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="exampleInputBirth" name="birth" placeholder="出生年月日">
+                </div>
+                <div class="form-group">       
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">確認</button>
+                </div>            
+              </form>
+            </div>
+          </div>
+        </div> 
+      </div>
+<!-- modals -->
+<!-- footer section -->
+<div id="footerwrap">
     <div class="container">
+      <div class="row centered">
+        <div class="col-lg-4">
+          <p><b>版權所有 大學入學考試中心</b></p>
+        </div>
+      
+        <div class="col-lg-4">
+          <p>http://www.ceec.edu.tw/</p>
+        </div>
+        <div class="col-lg-4">
+          <p>總機：(02)2366-1416</p>
+          <p>語音查詢：(02)2364-3677</p>
+          <p>傳真：(02)2362-0755</p>
+          <p>地址：10673 台北市舟山路237號</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- --/footerwrap ---->
 
-     
-        
-		
-     
-   
-     
-    
-     <label class="label label-warning">${warning}</label>
-    </div> <!-- /container -->
+<!-- javascript js -->	
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</body>
 </html>

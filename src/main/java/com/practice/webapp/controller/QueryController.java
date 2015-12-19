@@ -147,35 +147,126 @@ public class QueryController {
 	}
 	
 	@RequestMapping(value = "/scorequery", method = RequestMethod.POST)
-	public ModelAndView GSATscoreQuery(Examinee examinee){
+	public ModelAndView scoreQuery(Examinee examinee){
 		
 		ModelAndView model = new ModelAndView("scorequery");
 		QueryDAO QueryDAO = (QueryDAO)context.getBean("QueryDAO");
 		Examinee examinee_temp = (Examinee)context.getBean("examinee");
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		RegisterDAO.getExaminee(examinee_temp);
+		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		AdminDAO.get(examinee);
+		model.addObject("name",examinee.getName());
+		model.addObject("id",examinee.getID());
+		model.addObject("emermobile",examinee.getEmergencyContactMobile());
 		
-		if(QueryDAO.ifExist(examinee)){
-		QueryDAO.GSATScoreQuery(examinee_temp);
-        QueryDAO.GSATScoreSetup(examinee_temp.getGSATscore());
-        GSATscore GSATscore = examinee_temp.getGSATscore();
-        System.out.println("國文： "+GSATscore.getChinese());
-        
-        
-        
-        QueryDAO.ELScoreQuery(examinee_temp);
-        QueryDAO.ELScoreSetup(examinee_temp.getELscore());
-        ELscore ELscore = examinee_temp.getELscore();
-        System.out.println("英聽成績： "+ELscore.getScore());
-        
-        
-        
-        QueryDAO.ASTScoreQuery(examinee_temp);
-        QueryDAO.ASTScoreSetup(examinee_temp.getASTscore());
-        ASTscore ASTscore = examinee_temp.getASTscore();
-        System.out.println("指考國文成績： "+ASTscore.getChinese());
-        return model;
+		
+		
+		
+		
+		
+if(QueryDAO.ifExist(examinee)){
+			
+			//GSAT Query
+			TestRoom GSATtestroom = QueryDAO.GSATtestRoomQuery(examinee).getTestRoom();
+			
+			GSATtestroom = QueryDAO.testRoomSetup(GSATtestroom);
+			
+			
+			
+			if(examinee_temp.getGSATscore().getId()==1){
+				model.addObject("GSATwarning","尚未報考學測");
+			}
+			else{
+				
+				
+				 if(QueryDAO.GSATtestnumberQuery(examinee)==100000000){
+				    	model.addObject("GSATtestnumber","學測准考證尚未分配");
+				    }
+				    else{
+					model.addObject("GSATtestnumber",QueryDAO.GSATtestnumberQuery(examinee));
+				    }
+			if(GSATtestroom.getId()==0){
+				model.addObject("GSATname", "尚未分配考場");
+			}
+			else{
+				
+				QueryDAO.GSATScoreQuery(examinee_temp);
+		        QueryDAO.GSATScoreSetup(examinee_temp.getGSATscore());
+		        GSATscore GSATscore = examinee_temp.getGSATscore();
+		        System.out.println("國文： "+GSATscore.getChinese());
+		        model.addObject("GSATscore",GSATscore);
+			
+			model.addObject("GSATid", GSATtestroom.getId());
+			model.addObject("GSATname",GSATtestroom.getName());
+			model.addObject("GSATaddress",GSATtestroom.getAddress());
+			}
+			
+			}
+			// EL Query
+			
+			TestRoom ELtestroom = QueryDAO.ELtestRoomQuery(examinee).getTestRoom();
+			GSATtestroom = QueryDAO.testRoomSetup(ELtestroom);
+			if(examinee_temp.getELscore().getId()==1){
+				model.addObject("ELwarning","尚未報考英聽");
+			}
+			else{
+		    if(QueryDAO.ELtestnumberQuery(examinee)==300000000){
+		    	model.addObject("ELtestnumber","英聽准考證尚未分配");
+		    }
+		    else{
+			model.addObject("ELtestnumber",QueryDAO.ELtestnumberQuery(examinee));
+		    }
+			
+			if(ELtestroom.getId()==0){
+				model.addObject("ELname", "尚未分配考場");
+			}
+			else{
+				
+				QueryDAO.ELScoreQuery(examinee_temp);
+		        QueryDAO.ELScoreSetup(examinee_temp.getELscore());
+		        ELscore ELscore = examinee_temp.getELscore();
+		        System.out.println("英聽成績： "+ELscore.getScore());
+		        model.addObject("ELscore",ELscore);
+			model.addObject("ELid", ELtestroom.getId());
+			model.addObject("ELname",ELtestroom.getName());
+			model.addObject("ELaddress",ELtestroom.getAddress());
+			}
+			}
+			//AST Query
+			TestRoom ASTtestroom = QueryDAO.ASTtestRoomQuery(examinee).getTestRoom();
+			ASTtestroom = QueryDAO.testRoomSetup(ASTtestroom);
+			if(examinee_temp.getASTscore().getID()==1){
+				model.addObject("ASTwarning","尚未報考指考");
+			}
+			else{
+				 if(QueryDAO.ASTtestnumberQuery(examinee)==200000000){
+				    	model.addObject("ASTtestnumber","指考准考證尚未分配");
+				    }
+				    else{
+					model.addObject("ASTtestnumber",QueryDAO.ASTtestnumberQuery(examinee));
+				    }
+			if(ASTtestroom.getId()==0){
+				model.addObject("ASTname", "尚未分配考場");
+			}
+			else{
+				
+				 QueryDAO.ASTScoreQuery(examinee_temp);
+			        QueryDAO.ASTScoreSetup(examinee_temp.getASTscore());
+			        ASTscore ASTscore = examinee_temp.getASTscore();
+			        System.out.println("指考國文成績： "+ASTscore.getChinese());
+			        model.addObject("ASTscore",ASTscore);
+			        
+			model.addObject("ASTid", ASTtestroom.getId());
+			model.addObject("ASTname",ASTtestroom.getName());
+			model.addObject("ASTaddress",ASTtestroom.getAddress());
+			}
+			}
+			
+			return model;
 		}
+		
+		
 		
 		
      else{
@@ -183,6 +274,7 @@ public class QueryController {
 			model.addObject("warning","資料不存在");
 			return model;
 		}
+
 	}
 
 }
