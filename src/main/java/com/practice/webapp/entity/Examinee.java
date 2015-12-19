@@ -16,7 +16,7 @@ private String name;
 	private String EmergencyContact;
 	private String EmergencyContactRelationship;
 	private String EmergencyContactMobile;
-	private Boolean lowincome;
+	private int lowincome;
 	private Boolean payed;
 	private ASTscore ASTscore = new ASTscore();
 	private GSATscore GSATscore = new GSATscore();
@@ -123,13 +123,7 @@ private String name;
     	 return EmergencyContactMobile;
      }
      
-     public void setLowIncome(Boolean lowincome){
-    	 this.lowincome = lowincome;
-     }
-     
-     public Boolean getLowIncome(){
-    	 return lowincome;
-     }
+    
      
      
   
@@ -179,6 +173,12 @@ private String name;
      public TestRoom getTestRoom(){
     	 return testroom;
      }
+	public int getLowincome() {
+		return lowincome;
+	}
+	public void setLowincome(int lowincome) {
+		this.lowincome = lowincome;
+	}
      
      
 

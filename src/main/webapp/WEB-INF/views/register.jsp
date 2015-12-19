@@ -36,7 +36,7 @@ http://www.templatemo.com/tm-467-easy-profile
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="">註冊</a></li>
-            <li><a href="login">登入</a></li>
+            <li><a href="signin">登入</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -97,9 +97,11 @@ http://www.templatemo.com/tm-467-easy-profile
                 <div class="col-sm-8">
                   <label class="radio-inline">
                     <input type="radio" name="gender" value="男"> 男
+                    
                   </label>
                   <label class="radio-inline">
                     <input type="radio" name="gender" value="女"> 女
+                    
                   </label>
                 </div>
               </div>
@@ -143,16 +145,16 @@ http://www.templatemo.com/tm-467-easy-profile
                 <label class="col-sm-4 control-label">是否為低收入戶</label>
                 <div class="col-sm-8">
                   <label class="radio-inline">
-                    <input type="radio" name="LOW_INCOME" value="y"> 是
+                    <input type="radio" name="lowincome" value="0"> 是
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="LOWINCOME" value="n"> 否
+                    <input type="radio" name="lowincome" value="1"> 否
                   </label>
                 </div>
               </div>
               <hr>
               <center>
-              <button type="button" class="btn-lg btn-primary btn-control">回上一頁</button>
+              <a href="signin" class="btn-lg btn btn-info" role="button">回上一頁</a>
               <button type="submit" class="btn-lg btn-success btn-control">送出</button>
             </center>
             </form>
