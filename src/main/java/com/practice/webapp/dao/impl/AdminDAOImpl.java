@@ -348,6 +348,9 @@ public List<ASTscore> getASTList() {
 			ASTscore.setPhysics(rs.getInt("Physics"));
 			ASTscore.setID(rs.getInt("Score_ID"));
 			ASTscore.setExamineeID(rs.getString("examineeID"));
+			
+			getSubject();
+			ASTscore.setSubject(rs.getString("subject"));
 			TestRoom  testroom= new TestRoom();
 			testroom.setId(rs.getInt("testroomiD"));
 			ASTscore.setTestroom(testroom);
@@ -395,6 +398,7 @@ public ASTscore get(ASTscore ASTscore) {
 			testroom.setId(rs.getInt("testroomID"));
 			ASTscore.setTestroom(testroom);
 			ASTscore.setTestnumber(rs.getInt("Test_Num"));
+			ASTscore.setSubject(rs.getString("subject"));
 		}
 		rs.close();
 		smt.close();
@@ -446,6 +450,32 @@ public void ASTallocate(ASTscore ASTscore) {
 			} catch (SQLException e) {}
 		}
 	}
+}
+@Override
+public void getSubject() {
+	// TODO Auto-generated method stub
+	String sql="Update  ASTscore JOIN Examinee ON ASTscore.examineeID = Examinee.ID SET ASTscore.subject = Examinee.Subject ";
+	
+	try {
+		conn = dataSource.getConnection();
+		smt = conn.prepareStatement(sql);
+		
+	    
+		
+		smt.executeUpdate();			
+		smt.close();
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {}
+		}
+	}
+	
 }
 
 }

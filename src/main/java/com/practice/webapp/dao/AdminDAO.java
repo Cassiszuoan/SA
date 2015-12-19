@@ -21,5 +21,6 @@ public interface AdminDAO {
 	public ELscore get(ELscore eLscore);
 	public void ELallocate(ELscore eLscore);
 	public void ASTallocate(ASTscore ASTscore);
+	public void getSubject();
 	
 }

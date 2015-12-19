@@ -55,7 +55,7 @@
 					  		
 					  		<td>
 					  			<a class="btn btn-default" href="updateExaminee?ID=${examinee.ID}">修改</a>
-					  			<a class="btn btn-sm btn-danger deleteBtn" href="#" data-toggle="modal" data-target="#deleteModal" data-id="${examinee.ID}">刪除</a>
+					  			<a class="btn btn-default btn-danger deleteBtn" href="#" data-toggle="modal" data-target="#deleteModal" data-id="${examinee.ID}">刪除</a>
 					  		</td>
 					  	</tr>
 				  	</c:forEach>

@@ -15,6 +15,8 @@ public class ASTscore {
 	 private int Chemistry;
 	 private int Biology;
 	 private String examineeID;
+	 private boolean isPayed;
+	 private String subject;
 	 
 	 public void setID(int id){
 		 this.id=id;
@@ -105,6 +107,18 @@ public class ASTscore {
 	}
 	public void setExamineeID(String examineeID) {
 		this.examineeID = examineeID;
+	}
+	public boolean isPayed() {
+		return isPayed;
+	}
+	public void setPayed(boolean isPayed) {
+		this.isPayed = isPayed;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 	
 

@@ -29,6 +29,7 @@
 				  		<th>報名編號</th>
 				  		<th>准考證號碼</th>
 				  		<th>考生身分證字號</th>
+				  		<th>已選擇考科</th>
 				  		<th>國文</th>
 				  		<th>英文</th>
 				  		<th>數甲</th>
@@ -64,7 +65,7 @@
 					  		
 					  		
 					  		<td>${AST.examineeID}</td>
-					  		
+					  		<td>${AST.getSubject()}</td>
 					  		
 					  		<td>${AST.getChinese()}</td>
 					  		<td>${AST.getEnglish()}</td>

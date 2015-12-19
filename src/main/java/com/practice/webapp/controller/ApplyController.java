@@ -66,8 +66,9 @@ public class ApplyController {
 	    view.addObject("address",examinee_session.getAddress());
 	    view.addObject("gender",examinee_session.getGender());
 	    view.addObject("emercontact",examinee_session.getEmergencyContact());
-	    view.addObject("emerrealtion",examinee_session.getEmergencyContactRelationship());
+	    view.addObject("emerrelation",examinee_session.getEmergencyContactRelationship());
 	    view.addObject("emermobile",examinee_session.getEmergencyContactMobile());
+	    view.addObject("message", examinee_session.getName());
 		return view;
 		}
 		else{

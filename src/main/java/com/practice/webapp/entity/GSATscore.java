@@ -11,6 +11,7 @@ public class GSATscore {
 	private int Science;
 	private TestRoom testroom;
 	private String ExamineeID;
+	private boolean isPayed;
 	public int getId() {
 		return id;
 	}
@@ -64,5 +65,11 @@ public class GSATscore {
 	}
 	public void setExamineeID(String examineeID) {
 		ExamineeID = examineeID;
+	}
+	public boolean isPayed() {
+		return isPayed;
+	}
+	public void setPayed(boolean isPayed) {
+		this.isPayed = isPayed;
 	}
 }
