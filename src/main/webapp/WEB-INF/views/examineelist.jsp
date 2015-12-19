@@ -6,7 +6,7 @@
 <head>
  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <title>後台</title>
@@ -63,7 +63,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade bs-example-modal-sm" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	
+	
+
+    </div><!-- /.container -->
+    
+    
+    <div class="modal fade bs-example-modal-sm" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -83,10 +89,8 @@
             </div>
         </div>
     </div>
-	
-
-    </div><!-- /.container -->
-
+    
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

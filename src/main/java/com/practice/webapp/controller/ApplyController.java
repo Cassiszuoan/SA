@@ -96,6 +96,7 @@ public class ApplyController {
 	    view.addObject("emercontact",examinee_session.getEmergencyContact());
 	    view.addObject("emerrealtion",examinee_session.getEmergencyContactRelationship());
 	    view.addObject("emermobile",examinee_session.getEmergencyContactMobile());
+	    view.addObject("message", examinee_session.getName());
 		return view;
 		}
 		else{
