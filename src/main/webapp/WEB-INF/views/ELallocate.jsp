@@ -31,7 +31,7 @@
 				  		<th>考生身分證字號</th>
 				  		<th>成績</th>
 				  		<th>考場</th>
-				  		
+				  		<th>是否繳費</th>
 				  		<th>編輯</th>
 				  	</tr>
 				  	<c:forEach items="${ELList}" var="EL">
@@ -63,7 +63,7 @@
 							    <td>${EL.getTestroom().getId()}</td>	
 							  </c:otherwise>
 							</c:choose>
-					  		
+					  		<td>${EL.isPayed()}</td>
 					  		<td>
 					  			<a class="btn btn-default" href="updateEL?id=${EL.getId()}">修改</a>
 					  			

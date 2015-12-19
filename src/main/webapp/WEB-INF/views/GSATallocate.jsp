@@ -35,7 +35,7 @@
 				  		<th>社會</th>
 				  		<th>自然</th>
 				  		<th>考場</th>
-				  		
+				  		<th>是否繳費</th>
 				  		<th>編輯</th>
 				  	</tr>
 				  	<c:forEach items="${GSATList}" var="GSAT">
@@ -77,7 +77,7 @@
 							    <td>${GSAT.getTestroom().getId()}</td>	
 							  </c:otherwise>
 							</c:choose>
-					  		
+					  		<td>${GSAT.isPayed()}</td>
 					  		<td>
 					  			<a class="btn btn-default" href="updateGSAT?id=${GSAT.getId()}">修改</a>
 					  			

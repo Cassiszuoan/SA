@@ -41,6 +41,7 @@
 				  		<th>化學</th>
 				  		<th>生物</th>
 				  		<th>考場</th>
+				  		<th>是否繳費</th>
 				  		
 				  		<th>編輯</th>
 				  	</tr>
@@ -88,6 +89,8 @@
 							    <td>${AST.getTestroom().getId()}</td>	
 							  </c:otherwise>
 							</c:choose>
+							
+							<td>${AST.isPayed()}</td>
 					  		
 					  		<td>
 					  			<a class="btn btn-default" href="updateAST?ID=${AST.getID()}">修改</a>
