@@ -17,6 +17,8 @@ public interface AdminDAO {
 	public GSATscore get(GSATscore GSATscore);
 	public ASTscore get(ASTscore ASTscore);
 	
+	
+	
 	public void GSATallocate(GSATscore GSATscore);
 	public ELscore get(ELscore eLscore);
 	public void ELallocate(ELscore eLscore);

@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Easy Profile Blue - templatemo</title>
+	<title>進度查詢</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="">
@@ -18,7 +18,7 @@ Easy Profile Template
 http://www.templatemo.com/tm-467-easy-profile
 -->
 	<!-- stylesheet css -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/testSearch.css">
 </head>
@@ -95,7 +95,42 @@ http://www.templatemo.com/tm-467-easy-profile
 						<td>${GSATtestnumber}</td>
 						<td>${GSATpayed}</td>
 						<td>
-							<a role="button" class="btn btn-default" href="#">查看</a>
+							<a role="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">查看</a>
+							
+							
+							
+							
+		
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">學測費用</h4>
+      </div>
+      <div class="modal-body">
+         <p>${income}</p>
+         <p>應付費用： ${GSATshouldpay}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->			
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
 							<a role="button" class="btn btn-default" href="#">列印</a>
 						</td>
 					</tr>
@@ -134,7 +169,32 @@ http://www.templatemo.com/tm-467-easy-profile
 						<td>${subject}</td>
 						<td>${ASTpayed}</td>
 						<td>
-							<a role="button" class="btn btn-default" href="#">查看</a>
+							<a role="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2">查看</a>
+							
+							
+							
+							
+		
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">指考費用</h4>
+      </div>
+      <div class="modal-body">
+<p>${income}</p>
+         <p>應付費用： ${ASTshouldpay}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
 							<a role="button" class="btn btn-default" href="#">列印</a>
 						</td>
 					</tr>
@@ -171,7 +231,32 @@ http://www.templatemo.com/tm-467-easy-profile
 						<td>${ELtestnumber}</td>
 						<td>${ELpayed}</td>
 						<td>
-							<a role="button" class="btn btn-default" href="#">查看</a>
+							<a role="button" class="btn btn-default" data-toggle="modal" data-target="#myModal3">查看</a>
+							
+							
+							
+							
+		
+<!-- Modal -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">英聽費用</h4>
+      </div>
+      <div class="modal-body">
+        <p>${income}</p>
+         <p>應付費用： ${ELshouldpay}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
 							<a role="button" class="btn btn-default" href="#">列印</a>
 						</td>
 					</tr>

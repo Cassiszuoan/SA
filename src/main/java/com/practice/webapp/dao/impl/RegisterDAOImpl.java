@@ -152,6 +152,7 @@ public class RegisterDAOImpl implements RegisterDAO{
 				examinee.setEmergencyContact(rs.getString("EMER_NAME"));
 				examinee.setEmergencyContactRelationship(rs.getString("EMER_RELA"));
 				examinee.setEmergencyContactMobile(rs.getString("EMER_MOBILE"));
+				examinee.setLowincome(rs.getInt("LOW_INCOME"));
 				
 				
 				

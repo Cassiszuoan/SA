@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href=".../.../favicon.ico">
 
-    <title></title>
+    <title>報考中心</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">

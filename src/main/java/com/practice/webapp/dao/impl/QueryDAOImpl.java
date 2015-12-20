@@ -218,7 +218,7 @@ public class QueryDAOImpl implements QueryDAO {
 			if(rs.next()){
 			
 				elscore.setScore(rs.getInt("score"));
-				elscore.setPayed(rs.getBoolean("isPayed"));
+				elscore.setIsPayed(rs.getInt("isPayed"));
 				
 				
 				
@@ -298,7 +298,7 @@ public class QueryDAOImpl implements QueryDAO {
 				astscore.setPhysics(rs.getInt("Physics"));
 				astscore.setChemistry(rs.getInt("Chemistry"));
 				astscore.setBiology(rs.getInt("Biology"));
-				astscore.setPayed(rs.getBoolean("isPayed"));
+				astscore.setIsPayed(rs.getInt("isPayed"));
 				
 				
 				

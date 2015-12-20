@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href=".../.../favicon.ico">
 
-    <title></title>
+    <title>大考中心首頁</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">

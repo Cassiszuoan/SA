@@ -6,11 +6,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Easy Profile Blue - templatemo</title>
+  <title>更改個人資料</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="">
   <meta name="description" content="">
+  
+  
+  
 
 <!-- 
 Easy Profile Template
@@ -48,12 +51,13 @@ http://www.templatemo.com/tm-467-easy-profile
       <div class="icon-remind"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></div>
       <div class="test-remind">
           <div class="row test-data-content">
-            <h1 class="bold">註冊須知</h1>
-            <h5><a href="http://www.ceec.edu.tw/CeecPersonDataProtect/%E6%95%B4%E5%90%88%E7%89%88-%E6%B8%AC%E9%A9%97%E6%9C%8D%E5%8B%99%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E8%92%90%E9%9B%86%281030213%29.pdf" target="blank">測驗服務之個人資料蒐集、處理及利用告知事項</a></h5>
+            <h1 class="bold">修改個人資料</h1>
+            <h5>請仔細填寫資料</h5>
           </div>
       </div>
     </div>
   </div>
+
 
 <!-- about and skills section -->
 
@@ -114,12 +118,11 @@ http://www.templatemo.com/tm-467-easy-profile
               <div class="form-group">
                 <label class="col-sm-4 control-label">是否為低收入戶</label>
                 <div class="col-sm-8">
-                  <label class="radio-inline">
-                    <input type="radio" name="LOW_INCOME" value="y"> 是
-                  </label>
-                  <label class="radio-inline">
-                    <input type="radio" name="LOWINCOME" value="n"> 否
-                  </label>
+                  <select class="form-control" name="lowincome" >
+                  <option value="0">是</option>
+                  <option value="1">否</option>
+                  </select>
+                  
                 </div>
               </div>
               <hr>

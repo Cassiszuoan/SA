@@ -315,12 +315,40 @@ public class QueryController {
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
 		RegisterDAO.getExaminee(examinee_temp);
+		
+	
 		if(QueryDAO.ifExist(examinee)){
 		AdminDAO.get(examinee);
 		view.addObject("name",examinee.getName());
 		view.addObject("id",examinee.getID());
 		view.addObject("emermobile",examinee.getEmergencyContactMobile());
 		ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
+		
+		String[] parts = list.get(0).split("\t");
+		System.out.println(parts);
+		// counting 
+		int count = parts.length;
+		int ASTpay = count*250 + 200; 
+		if(examinee_temp.getLowincome()==1){
+			view.addObject("income","身份： 低收入戶");
+			view.addObject("GSATshouldpay",0+"元");
+			view.addObject("ASTshouldpay",0+"元");
+			view.addObject("ELshouldpay",0+"元");
+		}
+		
+		else{
+			view.addObject("income","非低收入戶");
+			view.addObject("GSATshouldpay",1050+"元");
+			view.addObject("ASTshouldpay","您報考"+count+" 科 費用為: "+ASTpay+" 元");
+			view.addObject("ELshouldpay",350+"元");
+		}
+		
+		
+		
+		
+		
+		
+		
 		String subjectlist = "";
 		for(String s: list)
 		{

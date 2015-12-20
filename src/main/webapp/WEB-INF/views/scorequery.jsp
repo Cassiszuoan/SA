@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Easy Profile Blue - templatemo</title>
+	<title>分數查詢</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="">
@@ -186,7 +186,7 @@ http://www.templatemo.com/tm-467-easy-profile
 					
 					
 					<tr>
-						<c:set var="val" value= "${ASTTscore.getChinese()}" />
+						<c:set var="val" value= "${ASTscore.getChinese()}" />
 							<c:choose> 
 							  <c:when test="${val == '-1'}">
 							    <td>國文： 分數尚未設定或未報考</td>	
@@ -195,6 +195,7 @@ http://www.templatemo.com/tm-467-easy-profile
 							    <td>國文： ${ASTscore.getChinese()}</td>	
 							  </c:otherwise>
 							</c:choose>
+							
 						<c:set var="val" value= "${ASTscore.getEnglish()}" />
 							<c:choose> 
 							  <c:when test="${val == '-1'}">
