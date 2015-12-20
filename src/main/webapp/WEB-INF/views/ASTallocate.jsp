@@ -67,18 +67,111 @@
 					  		
 					  		<td>${AST.examineeID}</td>
 					  		<td>${AST.getSubject()}</td>
+					  		<c:set var="val" value= "${AST.getChinese()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getChinese()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					  		
-					  		<td>${AST.getChinese()}</td>
-					  		<td>${AST.getEnglish()}</td>
-					  		<td>${AST.getMathA()}</td>
-					  		<td>${AST.getMathB()}</td>
-					  		<td>${AST.getHistory()}</td>
-					  		<td>${AST.getGeography()}</td>
-					        <td>${AST.getCivics()}</td>
-					        <td>${AST.getPhysics()}</td>
-					  		<td>${AST.getChemistry()}</td>
-					        <td>${AST.getBiology()}</td>
+					  		<c:set var="val" value= "${AST.getEnglish()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getEnglish()}</td>	
+							  </c:otherwise>
+							</c:choose>
+							
+							<c:set var="val" value= "${AST.getMathA()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getMathA()}</td>	
+							  </c:otherwise>
+							</c:choose>
+							
+							
+							<c:set var="val" value= "${AST.getMathB()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getMathB()}</td>	
+							  </c:otherwise>
+							</c:choose>
+							
+							
+							<c:set var="val" value= "${AST.getHistory()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getHistory()}</td>	
+							  </c:otherwise>
+							</c:choose>
+							
+					  	
+					  		<c:set var="val" value= "${AST.getGeography()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getGeography()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					  		
+					  		
+					  		<c:set var="val" value= "${AST.getCivics()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getCivics()}</td>	
+							  </c:otherwise>
+							</c:choose>
+					        
+					        
+					        <c:set var="val" value= "${AST.getPhysics()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getPhysics()}</td>	
+							  </c:otherwise>
+							</c:choose>
+					        
+					        
+					        <c:set var="val" value= "${AST.getChemistry()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getChemistry()}</td>	
+							  </c:otherwise>
+							</c:choose>
+					  		
+					       <c:set var="val" value= "${AST.getBiology()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${AST.getBiology()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					  		
 					  		<c:set var="val" value= "${AST.getTestroom().getId()}" />
 							<c:choose> 

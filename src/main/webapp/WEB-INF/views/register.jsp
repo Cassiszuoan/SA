@@ -63,10 +63,12 @@ http://www.templatemo.com/tm-467-easy-profile
         <div class="test-data">
           <div class="row test-data-content">
             <h2 class="shadow">基本資料填寫</h2>
+            <label class="label label-warning">${warning}</label>
             <hr>
             <form class="form-horizontal" role="form" action="register" method="post">
               <div class="form-group">
                 <label class="col-sm-4 control-label">E-Mail</label>
+                <label class="label label-warning">${message2}</label>
                 <div class="col-sm-8">
                   <input type="email" class="form-control" name="email">
                 </div>
@@ -86,23 +88,19 @@ http://www.templatemo.com/tm-467-easy-profile
               </div>
               <div class="form-group">
                 <label class="col-sm-4 control-label">身分證字號</label>
+                <label class="label label-warning">${message}</label>
                 <div class="col-sm-8">
-                  <input class="form-control" type="text" maxlength="10" onkeyup="value=value.replace(^\\d{17}(\\d|x)$,'') " 
-　　 onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(^\\d{17}(\\d|x)$,''))"
-　　 name="ID">
+                  <input class="form-control" type="text" maxlength="10" name="ID">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-4 control-label">性別</label>
                 <div class="col-sm-8">
-                  <label class="radio-inline">
-                    <input type="radio" name="gender" value="男"> 男
-                    
-                  </label>
-                  <label class="radio-inline">
-                    <input type="radio" name="gender" value="女"> 女
-                    
-                  </label>
+                  <select class="form-control" name="gender" >
+                  <option value="男">男</option>
+                  <option value="女">女</option>
+                  </select>
+                  
                 </div>
               </div>
               <div class="form-group">
@@ -144,12 +142,11 @@ http://www.templatemo.com/tm-467-easy-profile
               <div class="form-group">
                 <label class="col-sm-4 control-label">是否為低收入戶</label>
                 <div class="col-sm-8">
-                  <label class="radio-inline">
-                    <input type="radio" name="lowincome" value="0"> 是
-                  </label>
-                  <label class="radio-inline">
-                    <input type="radio" name="lowincome" value="1"> 否
-                  </label>
+                  <select class="form-control" name="lowincome" >
+                  <option value="0">是</option>
+                  <option value="1">否</option>
+                  </select>
+                  
                 </div>
               </div>
               <hr>

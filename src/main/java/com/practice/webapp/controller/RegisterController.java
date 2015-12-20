@@ -54,10 +54,18 @@ public class RegisterController {
 			examinee_temp.setPhone(examinee.getPhone());
 			examinee_temp.setGender(examinee.getGender());
 			examinee_temp.setBirth(examinee.getBirth());
-            examinee_temp.setAddress(examinee.getAddress());	
+            examinee_temp.setAddress(examinee.getAddress());
+            examinee_temp.setLowincome(examinee.getLowincome());
             examinee_temp.setEmergencyContact(examinee.getEmergencyContact());
             examinee_temp.setEmergencyContactMobile(examinee.getEmergencyContactMobile());
             examinee_temp.setEmergencyContactRelationship(examinee.getEmergencyContactRelationship());
+           
+            if(examinee_temp.getLowincome()==0){
+          	  view.addObject("lowincome", "是");
+          	  }
+          	  else{
+                view.addObject("lowincome", "否");  
+          	  }
 			return view;
 		}
 		
@@ -122,6 +130,12 @@ public class RegisterController {
 	  model.addObject("emercontact",examinee_temp.getEmergencyContact());
 	  model.addObject("emerrela",examinee_temp.getEmergencyContactRelationship());
 	  model.addObject("emermobile",examinee_temp.getEmergencyContactMobile());
+	  if(examinee_temp.getLowincome()==0){
+	  model.addObject("lowincome", "是");
+	  }
+	  else{
+      model.addObject("lowincome", "否");  
+	  }
 	  
 	  return model;
 	}

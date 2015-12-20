@@ -30,7 +30,7 @@ public class ApplyDAOImpl implements ApplyDAO {
 	
 	public void newGSATscore(Examinee examinee){
 		String sql = "INSERT GSATscore(Chinese,English,Math,Society,Science,examineeID) "
-				+ "VALUES(0,0,0,0,0,?)";
+				+ "VALUES(-1,-1,-1,-1,-1,?)";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
@@ -110,7 +110,7 @@ public class ApplyDAOImpl implements ApplyDAO {
 	
 	public void newELscore(Examinee examinee){
 		String sql = "INSERT ELscore(score,examineeID) "
-				+ "VALUES(0,?)";
+				+ "VALUES(-1,?)";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);
@@ -192,7 +192,7 @@ public class ApplyDAOImpl implements ApplyDAO {
 	public void newASTscore(Examinee examinee) {
 		// TODO Auto-generated method stub
 		String sql = "INSERT ASTscore(examineeID,Chinese,English,MathA,MathB,History,Geography,Civics,Physics,Chemistry,Biology) "
-				+ "VALUES(?,0,0,0,0,0,0,0,0,0,0)";
+				+ "VALUES(?,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1)";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql);

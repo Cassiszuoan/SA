@@ -69,6 +69,13 @@ public class ApplyController {
 	    view.addObject("emerrelation",examinee_session.getEmergencyContactRelationship());
 	    view.addObject("emermobile",examinee_session.getEmergencyContactMobile());
 	    view.addObject("message", examinee_session.getName());
+	    examinee_session.setLowincome(examinee.getLowincome());
+        if(examinee_session.getLowincome()==0){
+      	  view.addObject("lowincome", "是");
+      	  }
+      	  else{
+            view.addObject("lowincome", "否");  
+      	  }
 		return view;
 		}
 		else{
@@ -94,9 +101,15 @@ public class ApplyController {
 	    view.addObject("address",examinee_session.getAddress());
 	    view.addObject("gender",examinee_session.getGender());
 	    view.addObject("emercontact",examinee_session.getEmergencyContact());
-	    view.addObject("emerrealtion",examinee_session.getEmergencyContactRelationship());
+	    view.addObject("emerrelation",examinee_session.getEmergencyContactRelationship());
 	    view.addObject("emermobile",examinee_session.getEmergencyContactMobile());
 	    view.addObject("message", examinee_session.getName());
+	    if(examinee_session.getLowincome()==0){
+	      	  view.addObject("lowincome", "是");
+	      	  }
+	      	  else{
+	            view.addObject("lowincome", "否");  
+	      	  }
 		return view;
 		}
 		else{
@@ -144,8 +157,14 @@ public class ApplyController {
 	    view.addObject("address",examinee_session.getAddress());
 	    view.addObject("gender",examinee_session.getGender());
 	    view.addObject("emercontact",examinee_session.getEmergencyContact());
-	    view.addObject("emerrealtion",examinee_session.getEmergencyContactRelationship());
+	    view.addObject("emerrelation",examinee_session.getEmergencyContactRelationship());
 	    view.addObject("emermobile",examinee_session.getEmergencyContactMobile());
+	    if(examinee_session.getLowincome()==0){
+	      	  view.addObject("lowincome", "是");
+	      	  }
+	      	  else{
+	            view.addObject("lowincome", "否");  
+	      	  }
 		return view;
 		}
 		else{

@@ -39,13 +39,21 @@ public class QueryController {
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
 		RegisterDAO.getExaminee(examinee_temp);
+		if(QueryDAO.ifExist(examinee)){
 		AdminDAO.get(examinee);
 		view.addObject("name",examinee.getName());
 		view.addObject("id",examinee.getID());
 		view.addObject("emermobile",examinee.getEmergencyContactMobile());
+		ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
+		String subjectlist = "";
+		for(String s: list)
+		{
+			subjectlist+=s + "\t";
+		}
+		
+		view.addObject("subject",subjectlist);
 		
 		
-		if(QueryDAO.ifExist(examinee)){
 			
 			//GSAT Query
 			TestRoom GSATtestroom = QueryDAO.GSATtestRoomQuery(examinee).getTestRoom();
@@ -155,17 +163,26 @@ public class QueryController {
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		RegisterDAO.getExaminee(examinee_temp);
 		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		if(QueryDAO.ifExist(examinee)){
 		AdminDAO.get(examinee);
 		model.addObject("name",examinee.getName());
 		model.addObject("id",examinee.getID());
 		model.addObject("emermobile",examinee.getEmergencyContactMobile());
+		ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
+		String subjectlist = "";
+		for(String s: list)
+		{
+			subjectlist+=s + "\t";
+		}
+		
+		model.addObject("subject",subjectlist);
 		
 		
 		
 		
 		
 		
-if(QueryDAO.ifExist(examinee)){
+
 			
 			//GSAT Query
 			TestRoom GSATtestroom = QueryDAO.GSATtestRoomQuery(examinee).getTestRoom();

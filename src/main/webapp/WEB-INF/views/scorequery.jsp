@@ -66,6 +66,7 @@ http://www.templatemo.com/tm-467-easy-profile
 				<h1 class="white bold font-change shadow">年度大考</h1>
 				
 				<h1 class="tm-title bold font-change">成績查詢</h1>
+				<label class="label label-warning">${warning}</label>
 				<hr>
 			</div>
 		</div>
@@ -98,17 +99,57 @@ http://www.templatemo.com/tm-467-easy-profile
 			
 					
 					<tr>
-						<td>國文：${GSATscore.getChinese()}</td>
-						<td>英文：${GSATscore.getEnglish()}</td>
+						<c:set var="val" value= "${GSATscore.getChinese()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>國文： 分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>國文： ${GSATscore.getChinese()}</td>	
+							  </c:otherwise>
+							</c:choose>
+						<c:set var="val" value= "${GSATscore.getEnglish()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>英文： 分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>英文： ${GSATscore.getEnglish()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					</tr>
 					
 					<tr>
-						<td>數學 : ${GSATscore.getMath()}</td>
-						<td>社會 : ${GSATscore.getSociety()}</td>
+						<c:set var="val" value= "${GSATscore.getMath()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>數學： 分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>數學： ${GSATscore.getMath()}</td>	
+							  </c:otherwise>
+							</c:choose>
+						<c:set var="val" value= "${GSATscore.getSociety()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>社會： 分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>社會： ${GSATscore.getSociety()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					</tr>
 					
 					<tr>
-						<td>自然 ：${GSATscore.getScience()}</td>
+						<c:set var="val" value= "${GSATscore.getScience()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>自然： 分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>自然： ${GSATscore.getScience()}</td>	
+							  </c:otherwise>
+							</c:choose>
 						<td></td>
 					</tr>
 					
@@ -140,29 +181,109 @@ http://www.templatemo.com/tm-467-easy-profile
 					</tr>
 					<tr>
 						<td>身分證字號：${id}</td>
-						
+						<td>已報考科目： ${subject}</td>
 					</tr>
 					
 					
 					<tr>
-						<td>國文：${ASTscore.getChinese()}</td>
-						<td>英文：${ASTscore.getEnglish()}</td>
+						<c:set var="val" value= "${ASTTscore.getChinese()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>國文： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>國文： ${ASTscore.getChinese()}</td>	
+							  </c:otherwise>
+							</c:choose>
+						<c:set var="val" value= "${ASTscore.getEnglish()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>英文： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>英文： ${ASTscore.getEnglish()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					</tr>
 					<tr>
-						<td>數甲：${ASTscore.getMathA()}</td>
-						<td>數乙：${ASTscore.getMathB()}</td>
+						<c:set var="val" value= "${ASTscore.getMathA()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>數甲： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>數甲： ${ASTscore.getMathA()}</td>	
+							  </c:otherwise>
+							</c:choose>
+						<c:set var="val" value= "${ASTscore.getMathB()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>數乙： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>數乙： ${ASTscore.getMathB()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					</tr>
 					<tr>
-						<td>歷史：${ASTscore.getHistory()}</td>
-						<td>地理：${ASTscore.getGeography()}</td>
+						<c:set var="val" value= "${ASTscore.getHistory()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>歷史： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>歷史： ${ASTscore.getHistory()}</td>	
+							  </c:otherwise>
+							</c:choose>
+						<c:set var="val" value= "${ASTscore.getGeography()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>地理： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>地理： ${ASTscore.getGeography()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					</tr>
 					<tr>
-						<td>公民：${ASTscore.getCivics()}</td>
-						<td>物理：${ASTscore.getPhysics()}</td>
+						<c:set var="val" value= "${ASTscore.getCivics()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>公民： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>公民： ${ASTscore.getCivics()}</td>	
+							  </c:otherwise>
+							</c:choose>
+						<c:set var="val" value= "${ASTscore.getPhysics()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>物理： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>物理： ${ASTscore.getPhysics()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					</tr>
 					<tr>
-						<td>化學：${ASTscore.getChemistry()}</td>
-						<td>生物：${ASTscore.getBiology()}</td>
+						<c:set var="val" value= "${ASTscore.getChemistry()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>化學： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>化學： ${ASTscore.getChemistry()}</td>	
+							  </c:otherwise>
+							</c:choose>
+						<c:set var="val" value= "${ASTscore.getBiology()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>生物： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>生物： ${ASTscore.getBiology()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					</tr>
 					
 				</table>
@@ -197,7 +318,15 @@ http://www.templatemo.com/tm-467-easy-profile
 					</tr>
 					<tr>
 					
-						<td>成績：${Elscore.getScore()}</td>
+						<c:set var="val" value= "${ELscore.getScore()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>英聽成績： 分數尚未設定或未報考</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>英聽成績： ${ELscore.getScore()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					</tr>
 					
 				</table>

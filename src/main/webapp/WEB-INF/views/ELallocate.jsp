@@ -53,7 +53,15 @@
 					  		
 					  		<td>${EL.examineeID}</td>
 					  		
-					  		<td>${EL.getScore()}</td>
+					  		<c:set var="val" value= "${EL.getScore()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${EL.getScore()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					  		<c:set var="val" value= "${EL.getTestroom().getId()}" />
 							<c:choose> 
 							  <c:when test="${val == '0'}">

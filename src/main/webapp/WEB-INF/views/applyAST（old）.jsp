@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
   <head>
@@ -45,14 +45,22 @@
      
      
      <tr>
-					  		<td>${examinee.ID}</td>
+					  		<td>${name}</td>
 					  		
-					  		<td>${examinee.birth}</td>
+					  		<td>${ID}</td>
 					  		
 					  		<td>
-					  			<a class="btn btn-sm btn-danger deleteBtn" href="doublecheck">重新填寫資料</a>
-					  			<a class="btn btn-sm btn-danger deleteBtn" href="ConfirmExaminee" data-toggle="modal">確認註冊</a>
+					  	<form:form method="POST" commandName="examinee" action="confirmapplyAST">
+					  	  <form:checkboxes path="subject" items="${subject}" />
+					  			<a class="btn btn-sm btn-danger deleteBtn" href="modify">修改資料</a>
+					  			<a class="btn btn-sm btn-danger deleteBtn" href="apply">回到報考頁面</a>
+					  			
+					  			<button name="submit" class="btn btn-sm btn-danger deleteBtn" type="submit">確認報考</button>
+					  		</form:form>
+
+					  		
 					  		</td>
+					  		
 					  	</tr>
      
         

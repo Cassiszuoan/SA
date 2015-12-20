@@ -133,6 +133,8 @@ public Examinee get(Examinee examinee) {
 			smt.setString(1, examinee.getID());
 			rs = smt.executeQuery();
 			if(rs.next()){
+				List<String> SubjectList= new ArrayList<String>();
+				SubjectList.add(rs.getString("Subject"));
 				examinee.setID(rs.getString("ID"));
 				examinee.setEmail(rs.getString("EMAIL"));
 				examinee.setPassword(rs.getString("PASSWORD"));
@@ -147,6 +149,7 @@ public Examinee get(Examinee examinee) {
 				examinee.setEmergencyContact(rs.getString("EMER_NAME"));
 				examinee.setEmergencyContactRelationship(rs.getString("EMER_RELA"));
 				examinee.setEmergencyContactMobile(rs.getString("EMER_MOBILE"));
+				examinee.setSubject(SubjectList);
 			}
 			rs.close();
 			smt.close();

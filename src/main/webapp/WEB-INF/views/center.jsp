@@ -315,7 +315,7 @@
 			<h1>各項查詢</h1>
 			
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="#"><img src="pic/search4.png" class="img-responsive"></a>
+				<a data-toggle="modal" data-target="#myModal3"><img src="pic/search4.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a data-toggle="modal" data-target="#myModal"><img src="pic/search5.png" class="img-responsive"></a>
@@ -381,6 +381,34 @@
         </div> 
       </div>
       <!--modal end -->
+      
+      
+      <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">進度查詢</h4>
+            </div>
+            <div class="modal-body">
+              
+              <form class="form-horizontal" role="form" action="progressquery" method="post">
+              <div class="modal-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputPwd" name="ID" placeholder="身分證字號">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="exampleInputBirth" name="birth" placeholder="出生年月日">
+                </div>
+                <div class="form-group">       
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary">確認</button>
+                </div>            
+              </form>
+            </div>
+          </div>
+        </div> 
+      </div>
 			
 		</div><!-- --/row ---->
 	</div><!-- --/container ----><!-- --/social ---->

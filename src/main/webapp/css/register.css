@@ -282,6 +282,9 @@ header hr {
   width: 60%;
 }
 
+.test-data-content .form-horizontal .form-group .col-sm-8 > select {
+  width: 60%;
+}
 .container-entire h2 {
   color: #fff;
 }

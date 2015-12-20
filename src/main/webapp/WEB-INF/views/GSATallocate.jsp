@@ -61,11 +61,53 @@
 					  		<td>${GSAT.examineeID}</td>
 					  		
 					  		
-					  		<td>${GSAT.getChinese()}</td>
-					  		<td>${GSAT.getEnglish()}</td>
-					  		<td>${GSAT.getMath()}</td>
-					  		<td>${GSAT.getSociety()}</td>
-					  		<td>${GSAT.getScience()}</td>
+					  		<c:set var="val" value= "${GSAT.getChinese()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${GSAT.getChinese()}</td>	
+							  </c:otherwise>
+							</c:choose>
+					  		<c:set var="val" value= "${GSAT.getEnglish()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${GSAT.getEnglish()}</td>	
+							  </c:otherwise>
+							</c:choose>
+					  		
+					  		<c:set var="val" value= "${GSAT.getMath()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${GSAT.getMath()}</td>	
+							  </c:otherwise>
+							</c:choose>
+					  		
+					  		<c:set var="val" value= "${GSAT.getSociety()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${GSAT.getSociety()}</td>	
+							  </c:otherwise>
+							</c:choose>
+					  		<c:set var="val" value= "${GSAT.getScience()}" />
+							<c:choose> 
+							  <c:when test="${val == '-1'}">
+							    <td>分數尚未設定</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>${GSAT.getScience()}</td>	
+							  </c:otherwise>
+							</c:choose>
 					  		
 					  		
 					  		<c:set var="val" value= "${GSAT.getTestroom().getId()}" />
