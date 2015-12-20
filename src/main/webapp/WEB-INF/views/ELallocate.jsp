@@ -71,7 +71,19 @@
 							    <td>${EL.getTestroom().getId()}</td>	
 							  </c:otherwise>
 							</c:choose>
-					  		<td>${EL.isPayed()}</td>
+					  		
+					  		
+					  		
+					  		<c:set var="val" value= "${EL.getIsPayed()}" />
+							<c:choose> 
+							  <c:when test="${val == '1'}">
+							    <td>已繳費</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>未繳費</td>	
+							  </c:otherwise>
+							</c:choose>
+					  		
 					  		<td>
 					  			<a class="btn btn-default" href="updateEL?id=${EL.getId()}">修改</a>
 					  			

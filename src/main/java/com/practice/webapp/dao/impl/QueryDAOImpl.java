@@ -150,6 +150,7 @@ public class QueryDAOImpl implements QueryDAO {
 				gsatscore.setMath(rs.getInt("Math"));
 				gsatscore.setScience(rs.getInt("Science"));
 				gsatscore.setSociety(rs.getInt("Society"));
+				gsatscore.setIsPayed(rs.getInt("isPayed"));
 				
 			}
 			rs.close();
@@ -217,6 +218,7 @@ public class QueryDAOImpl implements QueryDAO {
 			if(rs.next()){
 			
 				elscore.setScore(rs.getInt("score"));
+				elscore.setPayed(rs.getBoolean("isPayed"));
 				
 				
 				
@@ -296,6 +298,7 @@ public class QueryDAOImpl implements QueryDAO {
 				astscore.setPhysics(rs.getInt("Physics"));
 				astscore.setChemistry(rs.getInt("Chemistry"));
 				astscore.setBiology(rs.getInt("Biology"));
+				astscore.setPayed(rs.getBoolean("isPayed"));
 				
 				
 				

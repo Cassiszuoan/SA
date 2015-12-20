@@ -317,6 +317,9 @@
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a data-toggle="modal" data-target="#myModal3"><img src="pic/search4.png" class="img-responsive"></a>
 			</div>
+			
+			
+      
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a data-toggle="modal" data-target="#myModal"><img src="pic/search5.png" class="img-responsive"></a>
 			</div>
@@ -378,11 +381,59 @@
               </form>
             </div>
           </div>
+          
+          
+          
         </div> 
+        
+        
+        
+        
+        
+        
       </div>
       <!--modal end -->
       
       
+      
+			
+			
+			
+		</div><!-- --/row ---->
+		
+		
+		
+		
+	</div><!-- --/container ---->
+	
+	
+	
+	
+	
+	
+	<!-- --/social ---->
+      <div id="footerwrap">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-4">
+					<p><b>版權所有 大學入學考試中心</b></p>
+				</div>
+			
+				<div class="col-lg-4">
+					<p>http://www.ceec.edu.tw/</p>
+				</div>
+				<div class="col-lg-4">
+          <p>總機：(02)2366-1416</p>
+          <p>語音查詢：(02)2364-3677</p>
+          <p>傳真：(02)2362-0755</p>
+          <p>地址：10673 台北市舟山路237號</p>
+				</div>
+			</div>
+		</div>
+	</div><!-- --/footerwrap ----><!-- Bootstrap core JavaScript
+    ================================================== --><!-- Placed at the end of the document so the pages load faster --><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="js/bootstrap.min.js"></script>
+      
+      <!-- Modal -->
       <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -409,29 +460,10 @@
           </div>
         </div> 
       </div>
-			
-		</div><!-- --/row ---->
-	</div><!-- --/container ----><!-- --/social ---->
-      <div id="footerwrap">
-		<div class="container">
-			<div class="row centered">
-				<div class="col-lg-4">
-					<p><b>版權所有 大學入學考試中心</b></p>
-				</div>
-			
-				<div class="col-lg-4">
-					<p>http://www.ceec.edu.tw/</p>
-				</div>
-				<div class="col-lg-4">
-          <p>總機：(02)2366-1416</p>
-          <p>語音查詢：(02)2364-3677</p>
-          <p>傳真：(02)2362-0755</p>
-          <p>地址：10673 台北市舟山路237號</p>
-				</div>
-			</div>
-		</div>
-	</div><!-- --/footerwrap ----><!-- Bootstrap core JavaScript
-    ================================================== --><!-- Placed at the end of the document so the pages load faster --><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="js/bootstrap.min.js"></script>
+      <!--modal end -->
       
   </body>
+  
+  
+  
   </html>

@@ -36,14 +36,11 @@ http://www.templatemo.com/tm-467-easy-profile
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Home</a></li>
-            <li class="active"><a href="">報名進度查詢</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">某某，你好</a>
-              <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">修改個人資料</a></li>
-                  <li><a data-toggle="modal" data-target="#myModal2">成績查詢</a></li>
-                  <li><a href="#">登出</a></li>
+            <li><a href="center">Home</a></li>
+            <li><a href="modify">修改個人資料</a></li>
+                  
+                
+                  <li><a href="logout">登出</a></li>
               </ul>
             </li>
           </ul>
@@ -84,17 +81,19 @@ http://www.templatemo.com/tm-467-easy-profile
 		</div>
 		<div class="col-md-8 col-sm-12">
 			<div class="test-data">
-				<h4 class="test-data-title">報名單號：</h4>
+				<h4 class="test-data-title">報名單號：${GSATid}</h4>
 				<hr>
 				<table class="table table-bordered table-border" rules="none">
 					<tr class="bold">
 						<td>報名填單與否</td>
+						<td>准考證是否分配</td>
 						<td>繳款與否</td>
 						<td>繳費明細</td>
 					</tr>
 					<tr>
-						<td>已報名</td>
-						<td>未銷帳</td>
+						<td>${GSATwarning}</td>
+						<td>${GSATtestnumber}</td>
+						<td>${GSATpayed}</td>
 						<td>
 							<a role="button" class="btn btn-default" href="#">查看</a>
 							<a role="button" class="btn btn-default" href="#">列印</a>
@@ -119,17 +118,21 @@ http://www.templatemo.com/tm-467-easy-profile
 		</div>
 		<div class="col-md-8 col-sm-12">
 			<div class="test-data">
-				<h4 class="test-data-title">報名單號：</h4>
+				<h4 class="test-data-title">報名單號：${ASTid}</h4>
 				<hr>
 				<table class="table table-bordered table-border" rules="none">
 					<tr class="bold">
 						<td>報名填單與否</td>
+						<td>准考證是否分配</td>
+						<td>已報考科目</td>
 						<td>繳款與否</td>
 						<td>繳費明細</td>
 					</tr>
 					<tr>
-						<td>已報名</td>
-						<td>未銷帳</td>
+						<td>${ASTwarning}</td>
+						<td>${ASTtestnumber}</td>
+						<td>${subject}</td>
+						<td>${ASTpayed}</td>
 						<td>
 							<a role="button" class="btn btn-default" href="#">查看</a>
 							<a role="button" class="btn btn-default" href="#">列印</a>
@@ -154,17 +157,19 @@ http://www.templatemo.com/tm-467-easy-profile
 		</div>
 		<div class="col-md-8 col-sm-12">
 			<div class="test-data">
-				<h4 class="test-data-title">報名單號：</h4>
+				<h4 class="test-data-title">報名單號：${ELid}</h4>
 				<hr>
 				<table class="table table-bordered table-border" rules="none">
 					<tr class="bold">
 						<td>報名填單與否</td>
+						<td>准考證是否分配</td>
 						<td>繳款與否</td>
 						<td>繳費明細</td>
 					</tr>
 					<tr>
-						<td>已報名</td>
-						<td>未銷帳</td>
+						<td>${ELwarning}</td>
+						<td>${ELtestnumber}</td>
+						<td>${ELpayed}</td>
 						<td>
 							<a role="button" class="btn btn-default" href="#">查看</a>
 							<a role="button" class="btn btn-default" href="#">列印</a>

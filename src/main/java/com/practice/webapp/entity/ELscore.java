@@ -6,7 +6,7 @@ public class ELscore {
  private int testnumber;
  private TestRoom testroom;
  private String ExamineeID;
- private boolean isPayed;
+ private int isPayed;
 public int getId() {
 	return id;
 }
@@ -37,12 +37,13 @@ public String getExamineeID() {
 public void setExamineeID(String examineeID) {
 	ExamineeID = examineeID;
 }
-public boolean isPayed() {
+public int getIsPayed() {
 	return isPayed;
 }
-public void setPayed(boolean isPayed) {
+public void setIsPayed(int isPayed) {
 	this.isPayed = isPayed;
 }
+
  
 
 }

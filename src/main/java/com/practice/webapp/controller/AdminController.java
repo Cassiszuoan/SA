@@ -149,6 +149,7 @@ public class AdminController {
 		ModelAndView model = new ModelAndView("redirect:/GSATallocate");
 
 		AdminDAO AdminDAO = (AdminDAO)context.getBean("AdminDAO");
+		System.out.println(GSATscore.getIsPayed());
 		AdminDAO.GSATallocate(GSATscore);
 		
 		

@@ -105,6 +105,12 @@
         
         
         <p></p>
+        <label>繳費狀況:</label>
+        <select class="form-control" name="isPayed" >
+                  <option value="1">已銷帳</option>
+                  <option value="0">未銷帳</option>
+                  </select>
+                  <p></p>
 					<button type="submit" class="btn btn-primary">修改</button>
 				</form>
 			</div>

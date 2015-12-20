@@ -183,7 +183,15 @@
 							  </c:otherwise>
 							</c:choose>
 							
-							<td>${AST.isPayed()}</td>
+							<c:set var="val" value= "${AST.getIsPayed()}" />
+							<c:choose> 
+							  <c:when test="${val == '1'}">
+							    <td>已繳費</td>	
+							  </c:when>
+							  <c:otherwise>
+							    <td>未繳費</td>	
+							  </c:otherwise>
+							</c:choose>
 					  		
 					  		<td>
 					  			<a class="btn btn-default" href="updateAST?ID=${AST.getID()}">修改</a>

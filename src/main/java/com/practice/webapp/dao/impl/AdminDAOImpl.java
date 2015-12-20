@@ -57,6 +57,7 @@ public class AdminDAOImpl implements AdminDAO{
 				testroom.setId(rs.getInt("testroomiD"));
 				GSATscore.setTestroom(testroom);
 				GSATscore.setTestnumber(rs.getInt("Test_Num"));
+				GSATscore.setIsPayed(rs.getInt("isPayed"));
 				GSATscorelist.add(GSATscore);
 			}
 			rs.close();
@@ -186,6 +187,7 @@ public GSATscore get(GSATscore GSATscore) {
 			testroom.setId(rs.getInt("testroomiD"));
 			GSATscore.setTestroom(testroom);
 			GSATscore.setTestnumber(rs.getInt("Test_Num"));
+			GSATscore.setIsPayed(rs.getInt("isPayed"));
 		}
 		rs.close();
 		smt.close();
@@ -205,7 +207,7 @@ public GSATscore get(GSATscore GSATscore) {
 @Override
 public void GSATallocate(GSATscore GSATscore) {
 	// TODO Auto-generated method stub
-	String sql = "UPDATE GSATscore SET Chinese=?, English=?, Math=?, Society=? , Science=?, testroomID=? ,Test_Num=? Where Score_ID = ?";
+	String sql = "UPDATE GSATscore SET Chinese=?, English=?, Math=?, Society=? , Science=?, testroomID=? ,Test_Num=?,isPayed=? Where Score_ID = ?";
 			
 	try {
 		conn = dataSource.getConnection();
@@ -218,7 +220,8 @@ public void GSATallocate(GSATscore GSATscore) {
 		smt.setInt(5, GSATscore.getScience());
 		smt.setInt(6, GSATscore.getTestroom().getId());
 		smt.setInt(7, GSATscore.getTestnumber());
-		smt.setInt(8, GSATscore.getId());
+		smt.setInt(8, GSATscore.getIsPayed());
+		smt.setInt(9, GSATscore.getId());
 		smt.executeUpdate();			
 		smt.close();
 
@@ -252,6 +255,7 @@ public List<ELscore> getELList() {
 			testroom.setId(rs.getInt("testroom_ID"));
 			ELscore.setTestroom(testroom);
 			ELscore.setExamineeID(rs.getString("examineeID"));
+			ELscore.setIsPayed(rs.getInt("isPayed"));
 			ELscorelist.add(ELscore);
 		}
 		rs.close();
@@ -284,6 +288,7 @@ public ELscore get(ELscore eLscore) {
 			testroom.setId(rs.getInt("testroom_ID"));
 			eLscore.setTestroom(testroom);
 			eLscore.setExamineeID(rs.getString("examineeID"));
+			eLscore.setIsPayed(rs.getInt("isPayed"));
 		}
 		rs.close();
 		smt.close();
@@ -303,7 +308,7 @@ public ELscore get(ELscore eLscore) {
 @Override
 public void ELallocate(ELscore eLscore) {
 	// TODO Auto-generated method stub
-	String sql = "UPDATE ELscore SET Score=?, testroom_ID=? ,Test_Num=? Where Score_ID = ?";
+	String sql = "UPDATE ELscore SET Score=?, testroom_ID=? ,Test_Num=? ,isPayed=? Where Score_ID = ?";
 	
 	try {
 		conn = dataSource.getConnection();
@@ -312,7 +317,8 @@ public void ELallocate(ELscore eLscore) {
 		smt.setInt(1,eLscore.getScore());
 		smt.setInt(2, eLscore.getTestroom().getId());
 		smt.setInt(3, eLscore.getTestnumber());
-		smt.setInt(4, eLscore.getId());
+		smt.setInt(4, eLscore.getIsPayed());
+		smt.setInt(5, eLscore.getId());
 		smt.executeUpdate();			
 		smt.close();
 
@@ -358,6 +364,7 @@ public List<ASTscore> getASTList() {
 			testroom.setId(rs.getInt("testroomiD"));
 			ASTscore.setTestroom(testroom);
 			ASTscore.setTestnumber(rs.getInt("Test_Num"));
+			ASTscore.setIsPayed(rs.getInt("isPayed"));
 			ASTscorelist.add(ASTscore);
 		}
 		rs.close();
@@ -402,6 +409,7 @@ public ASTscore get(ASTscore ASTscore) {
 			ASTscore.setTestroom(testroom);
 			ASTscore.setTestnumber(rs.getInt("Test_Num"));
 			ASTscore.setSubject(rs.getString("subject"));
+			ASTscore.setIsPayed(rs.getInt("isPayed"));
 		}
 		rs.close();
 		smt.close();
@@ -421,7 +429,7 @@ public ASTscore get(ASTscore ASTscore) {
 @Override
 public void ASTallocate(ASTscore ASTscore) {
 	// TODO Auto-generated method stub
-	String sql = "UPDATE ASTscore SET Chinese=?, English=?, MathA=?, MathB=? , History=?, Geography=?,Civics=?,Physics=?,Chemistry=?,Biology=?,testroomID=? ,Test_Num=? Where Score_ID = ?";
+	String sql = "UPDATE ASTscore SET Chinese=?, English=?, MathA=?, MathB=? , History=?, Geography=?,Civics=?,Physics=?,Chemistry=?,Biology=?,testroomID=? ,Test_Num=? ,isPayed= ? Where Score_ID = ?";
 	
 	try {
 		conn = dataSource.getConnection();
@@ -439,7 +447,8 @@ public void ASTallocate(ASTscore ASTscore) {
 		smt.setInt(10, ASTscore.getBiology());
 		smt.setInt(11, ASTscore.getTestroom().getId());
 		smt.setInt(12, ASTscore.getTestnumber());
-		smt.setInt(13, ASTscore.getID());
+		smt.setInt(13, ASTscore.getIsPayed());
+		smt.setInt(14, ASTscore.getID());
 		smt.executeUpdate();			
 		smt.close();
 
