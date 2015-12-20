@@ -46,9 +46,14 @@ public class QueryController {
 		view.addObject("emermobile",examinee.getEmergencyContactMobile());
 		ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
 		String subjectlist = "";
+		if(list.contains(null)){
+			
+		}
+		else{
 		for(String s: list)
 		{
 			subjectlist+=s + "\t";
+		}
 		}
 		
 		view.addObject("subject",subjectlist);
@@ -170,9 +175,14 @@ public class QueryController {
 		model.addObject("emermobile",examinee.getEmergencyContactMobile());
 		ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
 		String subjectlist = "";
+		if(list.contains(null)){
+			
+		}
+		else{
 		for(String s: list)
 		{
 			subjectlist+=s + "\t";
+		}
 		}
 		
 		model.addObject("subject",subjectlist);
@@ -322,13 +332,29 @@ public class QueryController {
 		view.addObject("name",examinee.getName());
 		view.addObject("id",examinee.getID());
 		view.addObject("emermobile",examinee.getEmergencyContactMobile());
-		ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
+		String[] parts = new String[20];
+		int count = 0;
+		int ASTpay = 0;
+			ArrayList<String> list = (ArrayList<String>) examinee.getSubject();
+			System.out.println(list);
+			if(list.contains(null)){
+				
+			}
+			else{
+			parts = list.get(0).split("\t");
+			System.out.println(parts);
+			count = parts.length;
+			ASTpay = count*250 + 200;
 		
-		String[] parts = list.get(0).split("\t");
-		System.out.println(parts);
-		// counting 
-		int count = parts.length;
-		int ASTpay = count*250 + 200; 
+			}
+		
+			
+		
+			
+		
+			// counting 
+		
+		
 		if(examinee_temp.getLowincome()==1){
 			view.addObject("income","身份： 低收入戶");
 			view.addObject("GSATshouldpay",0+"元");

@@ -143,8 +143,8 @@ http://www.templatemo.com/tm-467-easy-profile
                 <label class="col-sm-4 control-label">是否為低收入戶</label>
                 <div class="col-sm-8">
                   <select class="form-control" name="lowincome" >
-                  <option value="0">是</option>
-                  <option value="1">否</option>
+                  <option value="1">是</option>
+                  <option value="0">否</option>
                   </select>
                   
                 </div>

@@ -61,10 +61,10 @@ public class RegisterController {
             examinee_temp.setEmergencyContactRelationship(examinee.getEmergencyContactRelationship());
            
             if(examinee_temp.getLowincome()==0){
-          	  view.addObject("lowincome", "是");
+          	  view.addObject("lowincome", "否");
           	  }
           	  else{
-                view.addObject("lowincome", "否");  
+                view.addObject("lowincome", "是");  
           	  }
 			return view;
 		}
@@ -131,10 +131,10 @@ public class RegisterController {
 	  model.addObject("emerrela",examinee_temp.getEmergencyContactRelationship());
 	  model.addObject("emermobile",examinee_temp.getEmergencyContactMobile());
 	  if(examinee_temp.getLowincome()==0){
-	  model.addObject("lowincome", "是");
+	  model.addObject("lowincome", "否");
 	  }
 	  else{
-      model.addObject("lowincome", "否");  
+      model.addObject("lowincome", "是");  
 	  }
 	  
 	  return model;
@@ -156,8 +156,10 @@ public class RegisterController {
 	public ModelAndView Center(){
 		ModelAndView view = new ModelAndView("center");
 		ModelAndView signin = new ModelAndView("signin");
+		
 		RegisterDAO RegisterDAO = (RegisterDAO)context.getBean("RegisterDAO");
 		Examinee examinee_session = (Examinee)context.getBean("examinee");
+		
 		if(examinee_session.getEmail().equals("")){
 		   return signin;
 		}
